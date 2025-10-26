@@ -213,14 +213,14 @@ export const translations = {
     skills: {
       title: 'Power-Ups & Compétences',
       items: [
-        { name: 'HTML5', type: 'Fleur de Feu' },
-        { name: 'CSS3', type: 'Pouvoir Feuille' },
-        { name: 'JavaScript', type: 'Pouvoir Étoile' },
-        { name: 'React', type: 'Super Champignon' },
-        { name: 'Node.js', type: 'Champignon 1-UP' },
-        { name: 'Three.js', type: 'Bloc POW' },
-        { name: 'Tailwind CSS', type: 'Plume Cape' },
-        { name: 'MongoDB', type: 'Œuf de Yoshi' }
+        { name: 'Java', type: 'Fleur de Feu' },
+        { name: 'Python', type: 'Pouvoir Étoile' },
+        { name: 'C', type: 'Pouvoir Feuille' },
+        { name: 'SQL', type: 'Œuf de Yoshi' },
+        { name: 'PHP', type: 'Champignon 1-UP' },
+        { name: 'HTML/CSS', type: 'Super Champignon' },
+        { name: 'Git', type: 'Bloc POW' },
+        { name: 'Linux', type: 'Plume Cape' }
       ]
     },
     
