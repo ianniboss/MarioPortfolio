@@ -29,13 +29,15 @@ export const translations = {
     // About Section
     about: {
       title: 'About Me',
-      description: "Hey there! I'm a passionate web designer and developer who loves creating immersive digital experiences. Like exploring a Nintendo world, I believe websites should be fun, engaging, and memorable. With a blend of creativity and technical expertise, I transform ideas into interactive realities.",
+      description: "Hey there! I'm a passionate IT student and developer from Malaysia, currently studying in Toulouse, France. I love creating innovative applications and exploring new technologies. With a blend of creativity and technical expertise, I transform ideas into functional and engaging digital experiences. Currently seeking a 10-12 week internship for April-June 2026!",
       flipHint: 'Click to flip!',
       flipBackHint: 'Click to flip back!',
       contactTitle: 'Contact Info',
-      email: 'ian.hafiz@example.com',
-      phone: '+1 (555) 123-4567',
-      location: 'San Francisco, CA'
+      email: 'ianhafiz9999@gmail.com',
+      phoneFrance: '+33 7 44 43 99 59',
+      phoneMalaysia: '+016 304 6426',
+      location: 'Toulouse, France',
+      nationality: 'Malaysian'
     },
     
     // Education Section
