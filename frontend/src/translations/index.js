@@ -73,14 +73,14 @@ export const translations = {
     skills: {
       title: 'Power-Ups & Skills',
       items: [
-        { name: 'HTML5', type: 'Fire Flower' },
-        { name: 'CSS3', type: 'Leaf Power' },
-        { name: 'JavaScript', type: 'Star Power' },
-        { name: 'React', type: 'Super Mushroom' },
-        { name: 'Node.js', type: '1-UP Mushroom' },
-        { name: 'Three.js', type: 'POW Block' },
-        { name: 'Tailwind CSS', type: 'Cape Feather' },
-        { name: 'MongoDB', type: 'Yoshi Egg' }
+        { name: 'Java', type: 'Fire Flower' },
+        { name: 'Python', type: 'Star Power' },
+        { name: 'C', type: 'Leaf Power' },
+        { name: 'SQL', type: 'Yoshi Egg' },
+        { name: 'PHP', type: '1-UP Mushroom' },
+        { name: 'HTML/CSS', type: 'Super Mushroom' },
+        { name: 'Git', type: 'POW Block' },
+        { name: 'Linux', type: 'Cape Feather' }
       ]
     },
     
