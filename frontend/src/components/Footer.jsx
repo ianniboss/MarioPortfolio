@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="portfolio-footer">
       <div className="footer-content">
         <div className="footer-text">
-          <p>Crafted with <Heart size={16} className="heart-icon" fill="currentColor" /> by Alex Turner</p>
+          <p>Crafted with <Heart size={16} className="heart-icon" fill="currentColor" /> by Ian Hafiz Syahrul Azlan</p>
           <p className="copyright">© 2025 All Rights Reserved</p>
         </div>
         <div className="pixel-border"></div>
