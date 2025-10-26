@@ -1,34 +1,1151 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --mario-red: #E52521;
+  --mario-blue: #049CD8;
+  --mario-yellow: #FBD000;
+  --smash-green: #7AC943;
+  --smash-purple: #B537F2;
+  --smash-orange: #FF6B00;
+  --pixel-black: #0f0f10;
+  --pixel-white: #FFFFFF;
+  --pixel-gray: #404040;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #1a1a2e;
+  color: var(--pixel-white);
+  overflow-x: hidden;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+/* Start Screen */
+.start-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, var(--mario-blue) 0%, var(--smash-purple) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.start-content {
+  text-align: center;
+}
+
+.game-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3rem;
+  color: var(--mario-yellow);
+  text-shadow: 4px 4px 0 var(--pixel-black),
+               -2px -2px 0 var(--pixel-black);
+  margin-bottom: 3rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.start-button {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.2rem;
+  padding: 1.5rem 3rem;
+  background: var(--mario-red);
+  color: var(--pixel-white);
+  border: 4px solid var(--pixel-black);
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 0 var(--pixel-black);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.start-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 0 var(--pixel-black);
+}
+
+.start-button:active {
+  transform: translateY(4px);
+  box-shadow: 0 4px 0 var(--pixel-black);
+}
+
+.start-hint {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 0.8; }
+  25%, 75% { opacity: 0.3; }
+}
+
+/* Header */
+.portfolio-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(15, 15, 16, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 3px solid var(--mario-yellow);
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.portfolio-header.scrolled {
+  background: rgba(15, 15, 16, 0.95);
+  border-bottom: 3px solid var(--mario-red);
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+}
+
+.logo-text {
+  color: var(--mario-yellow);
+  text-shadow: 2px 2px 0 var(--mario-red);
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--pixel-white);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+  position: relative;
+}
+
+.nav-link:hover {
+  background: var(--mario-red);
+  transform: translateY(-2px);
+}
+
+.mobile-menu-button {
+  display: none;
+  color: var(--pixel-white);
+}
+
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  padding: 1rem;
+  background: rgba(15, 15, 16, 0.95);
+  border-top: 2px solid var(--mario-yellow);
+}
+
+.mobile-nav-link {
+  color: var(--pixel-white);
+  text-decoration: none;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s;
+}
+
+.mobile-nav-link:hover {
+  background: var(--mario-red);
+}
+
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  
+  .mobile-menu-button {
     display: flex;
+  }
+  
+  .mobile-nav {
+    display: flex;
+  }
+}
+
+/* Hero Section */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  background: linear-gradient(to bottom, var(--mario-blue) 0%, var(--smash-purple) 100%);
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.pixel-cloud {
+  position: absolute;
+  width: 150px;
+  height: 80px;
+  background: var(--pixel-white);
+  border-radius: 50px;
+  opacity: 0.3;
+  animation: float 6s ease-in-out infinite;
+}
+
+.cloud-1 {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.cloud-2 {
+  top: 20%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.cloud-3 {
+  bottom: 30%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 900px;
+}
+
+.hero-text-box {
+  background: rgba(15, 15, 16, 0.9);
+  border: 4px solid var(--mario-yellow);
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: slideUp 1s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-name {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2.5rem;
+  color: var(--mario-yellow);
+  text-shadow: 3px 3px 0 var(--mario-red);
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: 1.5rem;
+  color: var(--pixel-white);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.hero-tagline {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-button.primary {
+  background: var(--mario-red);
+  color: var(--pixel-white);
+  border: 3px solid var(--pixel-black);
+  font-weight: 600;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 0 var(--pixel-black);
+}
+
+.hero-button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--pixel-black);
+  background: var(--smash-orange);
+}
+
+.hero-button.secondary {
+  background: transparent;
+  color: var(--pixel-white);
+  border: 3px solid var(--mario-yellow);
+  font-weight: 600;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.hero-button.secondary:hover {
+  background: var(--mario-yellow);
+  color: var(--pixel-black);
+  transform: translateY(-2px);
+}
+
+.scroll-indicator {
+  margin-top: 3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
+
+.scroll-arrow {
+  color: var(--mario-yellow);
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-20px); }
+  60% { transform: translateY(-10px); }
+}
+
+/* Section Styles */
+section {
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2rem;
+  color: var(--mario-yellow);
+  text-shadow: 2px 2px 0 var(--mario-red);
+  margin-bottom: 1rem;
+}
+
+.title-underline {
+  width: 100px;
+  height: 4px;
+  background: var(--mario-red);
+  margin: 1rem auto;
+  position: relative;
+}
+
+.title-underline::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--mario-yellow);
+  right: -6px;
+  top: -4px;
+  border-radius: 50%;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 1rem;
+}
+
+/* About Section */
+.about-section {
+  background: linear-gradient(to bottom, #1a1a2e 0%, #16213e 100%);
+}
+
+.about-content {
+  display: flex;
+  justify-content: center;
+}
+
+.about-card-3d {
+  perspective: 1000px;
+  width: 100%;
+  max-width: 700px;
+  height: 500px;
+  cursor: pointer;
+  position: relative;
+}
+
+.about-card-3d.flipped .about-card-front {
+  transform: rotateY(180deg);
+}
+
+.about-card-3d.flipped .about-card-back {
+  transform: rotateY(0deg);
+}
+
+.about-card-front,
+.about-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+  border: 4px solid var(--mario-yellow);
+  background: rgba(15, 15, 16, 0.9);
+  padding: 2rem;
+}
+
+.about-card-back {
+  transform: rotateY(180deg);
+}
+
+.card-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.avatar-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--mario-red);
+}
+
+.avatar-border {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 3px solid var(--mario-yellow);
+  border-radius: 50%;
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.dialogue-box {
+  background: var(--pixel-white);
+  color: var(--pixel-black);
+  padding: 1.5rem;
+  border: 3px solid var(--pixel-black);
+  border-radius: 12px;
+  position: relative;
+  max-width: 500px;
+}
+
+.dialogue-arrow {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid var(--pixel-black);
+}
+
+.dialogue-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.flip-hint {
+  font-size: 0.85rem;
+  color: var(--mario-yellow);
+  font-style: italic;
+}
+
+.contact-title {
+  font-size: 1.5rem;
+  color: var(--mario-yellow);
+  margin-bottom: 1.5rem;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.contact-item:hover {
+  background: rgba(229, 37, 33, 0.2);
+}
+
+.contact-icon {
+  color: var(--mario-red);
+  width: 24px;
+  height: 24px;
+}
+
+/* Education Section */
+.education-section {
+  background: linear-gradient(to bottom, #16213e 0%, #0f3460 100%);
+}
+
+.education-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.education-level {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  animation: slideInLeft 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.level-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 120px;
+  padding: 1rem;
+  background: var(--mario-red);
+  border: 3px solid var(--mario-yellow);
+  border-radius: 8px;
+  box-shadow: 0 4px 0 var(--pixel-black);
+}
+
+.trophy-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--mario-yellow);
+}
+
+.level-text {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+  color: var(--pixel-white);
+}
+
+.education-card {
+  flex: 1;
+  background: rgba(15, 15, 16, 0.9);
+  border: 3px solid var(--smash-green);
+  padding: 2rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.education-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(122, 201, 67, 0.3);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.stars {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.star-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--mario-yellow);
+}
+
+.edu-degree {
+  font-size: 1.3rem;
+  color: var(--smash-green);
+  margin-bottom: 0.5rem;
+}
+
+.edu-institution {
+  font-size: 1rem;
+  color: var(--pixel-white);
+  margin-bottom: 0.3rem;
+}
+
+.edu-year {
+  font-size: 0.9rem;
+  color: var(--mario-yellow);
+  margin-bottom: 1rem;
+}
+
+.edu-description {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--smash-green) 0%, var(--mario-yellow) 100%);
+  animation: fillProgress 1s ease-out;
+}
+
+@keyframes fillProgress {
+  from { width: 0; }
+}
+
+/* Skills Section */
+.skills-section {
+  background: linear-gradient(to bottom, #0f3460 0%, #1a1a2e 100%);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.skill-card {
+  background: rgba(15, 15, 16, 0.9);
+  border: 3px solid var(--mario-blue);
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  border-color: var(--mario-yellow);
+  box-shadow: 0 12px 30px rgba(251, 208, 0, 0.3);
+}
+
+.skill-icon-container {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.skill-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.skill-name {
+  font-size: 1.2rem;
+  color: var(--pixel-white);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.skill-type {
+  font-size: 0.85rem;
+  color: var(--mario-yellow);
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.skill-progress {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.skill-progress-bar {
+  height: 100%;
+  transition: width 1s ease-out;
+  border-radius: 5px;
+}
+
+.skill-level {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--pixel-white);
+}
+
+/* Projects Section */
+.projects-section {
+  background: linear-gradient(to bottom, #1a1a2e 0%, #16213e 100%);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: rgba(15, 15, 16, 0.9);
+  border: 3px solid var(--smash-orange);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(255, 107, 0, 0.3);
+}
+
+.project-image-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.1);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(229, 37, 33, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.view-project-btn {
+  background: var(--mario-yellow);
+  color: var(--pixel-black);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-content {
+  padding: 1.5rem;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.project-title {
+  font-size: 1.3rem;
+  color: var(--pixel-white);
+  font-weight: 600;
+}
+
+.project-category {
+  background: var(--smash-purple);
+  color: var(--pixel-white);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.project-description {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tech-badge {
+  background: rgba(4, 156, 216, 0.2);
+  color: var(--mario-blue);
+  border: 1px solid var(--mario-blue);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.project-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.project-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.project-btn:hover {
+  background: var(--mario-red);
+  color: var(--pixel-white);
+  border-color: var(--mario-red);
+}
+
+/* Contact Section */
+.contact-section {
+  background: linear-gradient(to bottom, #16213e 0%, #0f3460 100%);
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.contact-card {
+  background: rgba(15, 15, 16, 0.9);
+  border: 3px solid var(--mario-yellow);
+  padding: 2rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  color: var(--mario-yellow);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.game-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: var(--pixel-white);
+  padding: 0.8rem;
+  border-radius: 6px;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.game-input:focus {
+  border-color: var(--mario-yellow);
+  background: rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+
+.submit-button {
+  background: var(--mario-red);
+  color: var(--pixel-white);
+  border: 3px solid var(--pixel-black);
+  font-weight: 600;
+  padding: 1rem;
+  font-size: 1rem;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 0 var(--pixel-black);
+}
+
+.submit-button:hover {
+  background: var(--smash-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--pixel-black);
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.social-title {
+  font-size: 1.5rem;
+  color: var(--mario-yellow);
+  text-align: center;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.social-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: rgba(15, 15, 16, 0.9);
+  border: 2px solid var(--mario-blue);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--pixel-white);
+  transition: transform 0.3s, border-color 0.3s, background 0.3s;
+}
+
+.social-link:hover {
+  transform: translateY(-5px);
+  border-color: var(--mario-yellow);
+  background: rgba(229, 37, 33, 0.2);
+}
+
+/* Footer */
+.portfolio-footer {
+  background: var(--pixel-black);
+  padding: 2rem;
+  border-top: 3px solid var(--mario-red);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.footer-text p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.heart-icon {
+  color: var(--mario-red);
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.pixel-border {
+  width: 100%;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--mario-yellow) 0px,
+    var(--mario-yellow) 10px,
+    var(--mario-red) 10px,
+    var(--mario-red) 20px,
+    var(--mario-blue) 20px,
+    var(--mario-blue) 30px
+  );
+  margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .game-title {
+    font-size: 2rem;
+  }
+  
+  .hero-name {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .game-title {
+    font-size: 1.5rem;
+  }
+  
+  .start-button {
+    font-size: 1rem;
+    padding: 1rem 2rem;
+  }
+  
+  .hero-text-box {
+    padding: 2rem;
+  }
+  
+  .hero-name {
+    font-size: 1.5rem;
+  }
+  
+  .hero-title {
+    font-size: 1.2rem;
+  }
+  
+  .section-title {
+    font-size: 1.3rem;
+  }
+  
+  .education-level {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .social-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-card-3d {
+    height: auto;
+    min-height: 500px;
+  }
 }
 
-.App-link {
-    color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+@media (max-width: 480px) {
+  .game-title {
+    font-size: 1.2rem;
+  }
+  
+  .hero-name {
+    font-size: 1.2rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+  }
+  
+  section {
+    padding: 4rem 1rem;
+  }
 }
