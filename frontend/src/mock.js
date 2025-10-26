@@ -1,12 +1,12 @@
 // Mock data for Nintendo-inspired portfolio
 
 export const profileData = {
-  name: "Alex Turner",
+  name: "Ian Hafiz Syahrul Azlan",
   title: "Web Designer & Developer",
   tagline: "Crafting Digital Adventures",
   avatar: "https://images.unsplash.com/photo-1633466876697-1eb9c820028d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxuaW50ZW5kbyUyMGF2YXRhcnxlbnwwfHx8fDE3NjE0NjM1NzB8MA&ixlib=rb-4.1.0&q=85",
   about: "Hey there! I'm a passionate web designer and developer who loves creating immersive digital experiences. Like exploring a Nintendo world, I believe websites should be fun, engaging, and memorable. With a blend of creativity and technical expertise, I transform ideas into interactive realities.",
-  email: "alex.turner@example.com",
+  email: "ian.hafiz@example.com",
   phone: "+1 (555) 123-4567",
   location: "San Francisco, CA"
 };
