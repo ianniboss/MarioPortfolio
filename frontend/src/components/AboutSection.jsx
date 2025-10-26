@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card } from './ui/card';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Flag } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const AboutSection = () => {
@@ -49,11 +49,18 @@ const AboutSection = () => {
                   </div>
                   <div className="contact-item">
                     <Phone className="contact-icon" />
-                    <span>{t.about.phone}</span>
+                    <div className="phone-numbers">
+                      <div>🇫🇷 {t.about.phoneFrance}</div>
+                      <div>🇲🇾 {t.about.phoneMalaysia}</div>
+                    </div>
                   </div>
                   <div className="contact-item">
                     <MapPin className="contact-icon" />
                     <span>{t.about.location}</span>
+                  </div>
+                  <div className="contact-item">
+                    <Flag className="contact-icon" />
+                    <span>{t.about.nationality}</span>
                   </div>
                 </div>
                 <p className="flip-hint">{t.about.flipBackHint}</p>
