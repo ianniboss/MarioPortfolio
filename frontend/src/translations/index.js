@@ -187,24 +187,24 @@ export const translations = {
       items: [
         {
           level: 'Niveau 1',
-          degree: 'Licence en Informatique',
-          institution: 'Université de Technologie',
-          year: '2018 - 2022',
-          description: 'Spécialisé en développement logiciel, technologies web et conception d\'expérience utilisateur.'
+          degree: 'Licence en Informatique (BUT Informatique)',
+          institution: 'IUT Paul Sabatier, Université Toulouse III',
+          year: '2024 - Présent',
+          description: '2ème année, spécialisation en Développement d\'Applications. Domaines d\'étude: Développement Logiciel, Bases de Données, Réseaux, Gestion de Projet.'
         },
         {
           level: 'Niveau 2',
-          degree: 'IUT Informatique',
-          institution: 'Institut Universitaire de Technologie',
-          year: '2016 - 2018',
-          description: 'Spécialisé en développement web, gestion de bases de données et fondamentaux des réseaux.'
+          degree: 'Programme Pré-Universitaire (Coopération Malaisie-France)',
+          institution: 'Université de Tours (IUT de Tours)',
+          year: '2022 - 2023',
+          description: 'Matières: Langue Française, Mathématiques, Physique-Chimie, Algorithmique et Logique. Accomplissement: Niveau de Langue Française B2.'
         },
         {
           level: 'Niveau 3',
-          degree: 'Baccalauréat',
-          institution: 'Lycée Technique',
-          year: '2012 - 2016',
-          description: 'Filière Mathématiques et Informatique avec mention.'
+          degree: 'Sijil Pelajaran Malaysia (SPM)',
+          institution: 'Tuanku Munawir Science School, Malaisie',
+          year: '2017 - 2022',
+          description: 'Résultat: 9A+ en Sciences Pures et matières linguistiques.'
         }
       ]
     },
