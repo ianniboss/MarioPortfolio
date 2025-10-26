@@ -140,6 +140,36 @@ body {
   text-shadow: 2px 2px 0 var(--mario-red);
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.language-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--pixel-white);
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--mario-yellow);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background 0.3s, transform 0.2s;
+  font-weight: 600;
+}
+
+.language-toggle:hover {
+  background: var(--mario-yellow);
+  color: var(--pixel-black);
+  transform: translateY(-2px);
+}
+
+.lang-text {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
 .desktop-nav {
   display: flex;
   gap: 2rem;
