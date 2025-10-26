@@ -595,6 +595,14 @@ section {
   color: var(--mario-red);
   width: 24px;
   height: 24px;
+  flex-shrink: 0;
+}
+
+.phone-numbers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.9rem;
 }
 
 /* Education Section */
