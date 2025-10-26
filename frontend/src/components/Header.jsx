@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Languages } from 'lucide-react';
 import { Button } from './ui/button';
+import { useLanguage } from '../context/LanguageContext';
 
 const Header = () => {
+  const { language, toggleLanguage, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -15,12 +17,12 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
-    { label: 'Education', href: '#education' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Contact', href: '#contact' }
+    { label: t.nav.home, href: '#home' },
+    { label: t.nav.about, href: '#about' },
+    { label: t.nav.education, href: '#education' },
+    { label: t.nav.skills, href: '#skills' },
+    { label: t.nav.projects, href: '#projects' },
+    { label: t.nav.contact, href: '#contact' }
   ];
 
   const scrollToSection = (e, href) => {
@@ -52,14 +54,26 @@ const Header = () => {
           ))}
         </nav>
 
-        <Button
-          variant="ghost"
-          size="icon"
-          className="mobile-menu-button"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </Button>
+        <div className="header-actions">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="language-toggle"
+            onClick={toggleLanguage}
+          >
+            <Languages size={20} />
+            <span className="lang-text">{language === 'en' ? 'FR' : 'EN'}</span>
+          </Button>
+
+          <Button
+            variant="ghost"
+            size="icon"
+            className="mobile-menu-button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </Button>
+        </div>
       </div>
 
       {mobileMenuOpen && (
