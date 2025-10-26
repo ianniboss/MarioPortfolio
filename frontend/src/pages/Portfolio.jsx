@@ -7,8 +7,10 @@ import ProjectsSection from '../components/ProjectsSection';
 import ContactSection from '../components/ContactSection';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { useLanguage } from '../context/LanguageContext';
 
 const Portfolio = () => {
+  const { t } = useLanguage();
   const [gameStarted, setGameStarted] = useState(false);
 
   return (
@@ -16,14 +18,14 @@ const Portfolio = () => {
       {!gameStarted ? (
         <div className="start-screen">
           <div className="start-content">
-            <h1 className="game-title">PORTFOLIO QUEST</h1>
+            <h1 className="game-title">{t.startScreen.title}</h1>
             <button 
               className="start-button"
               onClick={() => setGameStarted(true)}
             >
-              PRESS START
+              {t.startScreen.button}
             </button>
-            <p className="start-hint">Click to begin your adventure</p>
+            <p className="start-hint">{t.startScreen.hint}</p>
           </div>
         </div>
       ) : (

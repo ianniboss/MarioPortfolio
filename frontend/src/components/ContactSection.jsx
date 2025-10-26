@@ -7,8 +7,10 @@ import { Textarea } from './ui/textarea';
 import * as Icons from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
 import { Toaster } from './ui/toaster';
+import { useLanguage } from '../context/LanguageContext';
 
 const ContactSection = () => {
+  const { t } = useLanguage();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
@@ -19,8 +21,8 @@ const ContactSection = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     toast({
-      title: "Message Sent!",
-      description: "Your message has been received. I'll get back to you soon!",
+      title: t.contact.toastTitle,
+      description: t.contact.toastDescription,
     });
     setFormData({ name: '', email: '', message: '' });
   };
@@ -33,46 +35,46 @@ const ContactSection = () => {
     <section id="contact" className="contact-section">
       <div className="section-container">
         <div className="section-header">
-          <h2 className="section-title">Pause Menu</h2>
+          <h2 className="section-title">{t.contact.title}</h2>
           <div className="title-underline"></div>
-          <p className="section-subtitle">Ready to start a new quest together?</p>
+          <p className="section-subtitle">{t.contact.subtitle}</p>
         </div>
 
         <div className="contact-content">
           <Card className="contact-card">
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-group">
-                <label className="form-label">Player Name</label>
+                <label className="form-label">{t.contact.playerName}</label>
                 <Input
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Enter your name"
+                  placeholder={t.contact.namePlaceholder}
                   required
                   className="game-input"
                 />
               </div>
 
               <div className="form-group">
-                <label className="form-label">Email Address</label>
+                <label className="form-label">{t.contact.emailAddress}</label>
                 <Input
                   name="email"
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="your@email.com"
+                  placeholder={t.contact.emailPlaceholder}
                   required
                   className="game-input"
                 />
               </div>
 
               <div className="form-group">
-                <label className="form-label">Message</label>
+                <label className="form-label">{t.contact.message}</label>
                 <Textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Tell me about your project..."
+                  placeholder={t.contact.messagePlaceholder}
                   rows={5}
                   required
                   className="game-input"
@@ -80,13 +82,13 @@ const ContactSection = () => {
               </div>
 
               <Button type="submit" className="submit-button">
-                Send Message
+                {t.contact.sendBtn}
               </Button>
             </form>
           </Card>
 
           <div className="social-links">
-            <h3 className="social-title">Join My World</h3>
+            <h3 className="social-title">{t.contact.socialTitle}</h3>
             <div className="social-grid">
               {socialLinks.map((social) => {
                 const IconComponent = Icons[social.icon.charAt(0).toUpperCase() + social.icon.slice(1)] || Icons.Globe;

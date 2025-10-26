@@ -1,13 +1,16 @@
 import React from 'react';
 import { Heart } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   return (
     <footer className="portfolio-footer">
       <div className="footer-content">
         <div className="footer-text">
-          <p>Crafted with <Heart size={16} className="heart-icon" fill="currentColor" /> by Ian Hafiz Syahrul Azlan</p>
-          <p className="copyright">© 2025 All Rights Reserved</p>
+          <p>{t.footer.craftedBy} <Heart size={16} className="heart-icon" fill="currentColor" /> {t.footer.by}</p>
+          <p className="copyright">{t.footer.copyright}</p>
         </div>
         <div className="pixel-border"></div>
       </div>

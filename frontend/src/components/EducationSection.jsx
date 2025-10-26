@@ -1,20 +1,22 @@
 import React from 'react';
-import { educationData } from '../mock';
 import { Card } from './ui/card';
 import { Trophy, Star } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const EducationSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="education" className="education-section">
       <div className="section-container">
         <div className="section-header">
-          <h2 className="section-title">Education Journey</h2>
+          <h2 className="section-title">{t.education.title}</h2>
           <div className="title-underline"></div>
         </div>
 
         <div className="education-timeline">
-          {educationData.map((edu, index) => (
-            <div key={edu.id} className="education-level">
+          {t.education.items.map((edu, index) => (
+            <div key={index} className="education-level">
               <div className="level-badge">
                 <Trophy className="trophy-icon" />
                 <span className="level-text">{edu.level}</span>

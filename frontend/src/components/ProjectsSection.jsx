@@ -3,66 +3,72 @@ import { projectsData } from '../mock';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { ExternalLink, Code } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const ProjectsSection = () => {
+  const { t } = useLanguage();
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
     <section id="projects" className="projects-section">
       <div className="section-container">
         <div className="section-header">
-          <h2 className="section-title">Mystery Blocks</h2>
+          <h2 className="section-title">{t.projects.title}</h2>
           <div className="title-underline"></div>
-          <p className="section-subtitle">Hit the blocks to reveal projects!</p>
+          <p className="section-subtitle">{t.projects.subtitle}</p>
         </div>
 
         <div className="projects-grid">
-          {projectsData.map((project) => (
-            <Card 
-              key={project.id} 
-              className="project-card"
-              onClick={() => setSelectedProject(project.id)}
-            >
-              <div className="project-image-container">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="project-image"
-                />
-                <div className="project-overlay">
-                  <Button className="view-project-btn">
-                    <ExternalLink size={20} />
-                    View Details
-                  </Button>
-                </div>
-              </div>
-
-              <div className="project-content">
-                <div className="project-header">
-                  <h3 className="project-title">{project.title}</h3>
-                  <span className="project-category">{project.category}</span>
-                </div>
-                <p className="project-description">{project.description}</p>
-                
-                <div className="project-tech">
-                  {project.technologies.map((tech, index) => (
-                    <span key={index} className="tech-badge">{tech}</span>
-                  ))}
+          {projectsData.map((project, index) => {
+            const translatedProject = t.projects.items[index];
+            
+            return (
+              <Card 
+                key={project.id} 
+                className="project-card"
+                onClick={() => setSelectedProject(project.id)}
+              >
+                <div className="project-image-container">
+                  <img 
+                    src={project.image} 
+                    alt={translatedProject.title}
+                    className="project-image"
+                  />
+                  <div className="project-overlay">
+                    <Button className="view-project-btn">
+                      <ExternalLink size={20} />
+                      {t.projects.viewDetails}
+                    </Button>
+                  </div>
                 </div>
 
-                <div className="project-actions">
-                  <Button variant="outline" size="sm" className="project-btn">
-                    <ExternalLink size={16} />
-                    Live Demo
-                  </Button>
-                  <Button variant="outline" size="sm" className="project-btn">
-                    <Code size={16} />
-                    Source
-                  </Button>
+                <div className="project-content">
+                  <div className="project-header">
+                    <h3 className="project-title">{translatedProject.title}</h3>
+                    <span className="project-category">{translatedProject.category}</span>
+                  </div>
+                  <p className="project-description">{translatedProject.description}</p>
+                  
+                  <div className="project-tech">
+                    {project.technologies.map((tech, techIndex) => (
+                      <span key={techIndex} className="tech-badge">{tech}</span>
+                    ))}
+                  </div>
+
+                  <div className="project-actions">
+                    <Button variant="outline" size="sm" className="project-btn">
+                      <ExternalLink size={16} />
+                      {t.projects.liveDemo}
+                    </Button>
+                    <Button variant="outline" size="sm" className="project-btn">
+                      <Code size={16} />
+                      {t.projects.source}
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </Card>
-          ))}
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>
