@@ -6,11 +6,12 @@ import { useLanguage } from '../context/LanguageContext';
 const AboutSection = () => {
   const { t } = useLanguage();
   const [isFlipped, setIsFlipped] = useState(false);
-  const avatarUrl = "https://images.unsplash.com/photo-1633466876697-1eb9c820028d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxuaW50ZW5kbyUyMGF2YXRhcnxlbnwwfHx8fDE3NjE0NjM1NzB8MA&ixlib=rb-4.1.0&q=85";
+  const initialAvatar = `/img/profile.jpg`;
+  const [avatarUrl, setAvatarUrl] = useState(initialAvatar);
 
   return (
     <section id="about" className="about-section">
-      <div className="section-container">
+      <div className="section-container" data-float-children>
         <div className="section-header">
           <h2 className="section-title">{t.about.title}</h2>
           <div className="title-underline"></div>
@@ -20,6 +21,8 @@ const AboutSection = () => {
           <div 
             className={`about-card-3d ${isFlipped ? 'flipped' : ''}`}
             onClick={() => setIsFlipped(!isFlipped)}
+            data-float
+            data-float-speed="1.4"
           >
             <Card className="about-card-front">
               <div className="card-inner">
@@ -28,6 +31,7 @@ const AboutSection = () => {
                     src={avatarUrl} 
                     alt={t.hero.name}
                     className="avatar-image"
+                    onError={() => setAvatarUrl('https://images.unsplash.com/photo-1633466876697-1eb9c820028d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxuaW50ZW5kbyUyMGF2YXRhcnxlbnwwfHx8fDE3NjE0NjM1NzB8MA&ixlib=rb-4.1.0&q=85')}
                   />
                   <div className="avatar-border"></div>
                 </div>

@@ -17,14 +17,35 @@ const ContactSection = () => {
     email: '',
     message: ''
   });
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    toast({
-      title: t.contact.toastTitle,
-      description: t.contact.toastDescription,
-    });
-    setFormData({ name: '', email: '', message: '' });
+    if (sending) return;
+    setSending(true);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      toast({
+        title: t.contact.toastTitle,
+        description: t.contact.toastDescription,
+      });
+      setFormData({ name: '', email: '', message: '' });
+    } catch (err) {
+      toast({
+        title: 'Failed to send',
+        description: 'Please try again later or email me directly.',
+        variant: 'destructive'
+      });
+    } finally {
+      setSending(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -33,7 +54,7 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="contact-section">
-      <div className="section-container">
+      <div className="section-container" data-float-children>
         <div className="section-header">
           <h2 className="section-title">{t.contact.title}</h2>
           <div className="title-underline"></div>
@@ -41,7 +62,7 @@ const ContactSection = () => {
         </div>
 
         <div className="contact-content">
-          <Card className="contact-card">
+          <Card className="contact-card" data-float data-float-speed="1.3">
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-group">
                 <label className="form-label">{t.contact.playerName}</label>
@@ -81,13 +102,13 @@ const ContactSection = () => {
                 />
               </div>
 
-              <Button type="submit" className="submit-button">
-                {t.contact.sendBtn}
+              <Button type="submit" className="submit-button" disabled={sending}>
+                {sending ? 'Sending…' : t.contact.sendBtn}
               </Button>
             </form>
           </Card>
 
-          <div className="social-links">
+          <div className="social-links" data-float data-float-speed="1.2">
             <h3 className="social-title">{t.contact.socialTitle}</h3>
             <div className="social-grid">
               {socialLinks.map((social) => {

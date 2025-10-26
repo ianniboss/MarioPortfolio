@@ -93,24 +93,34 @@ export const translations = {
       source: 'Source',
       items: [
         {
-          title: 'E-Commerce Platform',
-          description: 'A full-stack e-commerce solution with payment integration, inventory management, and real-time updates.',
+          title: 'Parking Management Application',
+          description: 'Designed and created PL/SQL database with Java GUI; managed using SCRUM (Trello).',
+          category: 'Database Application'
+        },
+        {
+          title: 'Apache2/SSL Server Administration',
+          description: 'Configured and managed Apache2 and SSL servers in Linux.',
+          category: 'System Administration'
+        },
+        {
+          title: 'Web Documentary Creation',
+          description: 'Designed and developed an interactive web documentary with multimedia content.',
+          category: 'Web Development'
+        },
+        {
+          title: 'Tomato Sales Application',
+          description: 'Built Java HMI; managed database and modeled UML using Modelio.',
+          category: 'Desktop Application'
+        },
+        {
+          title: 'League of Legends Statistics Application',
+          description: 'Managed database using Oracle APEX; built interactive statistics dashboard.',
           category: 'Web Application'
         },
         {
-          title: 'Interactive Game Portfolio',
-          description: 'A gamified portfolio website featuring 3D elements, animations, and interactive storytelling.',
-          category: 'Creative'
-        },
-        {
-          title: 'Task Management App',
-          description: 'A collaborative task management tool with drag-and-drop interface, team collaboration, and analytics.',
-          category: 'Web Application'
-        },
-        {
-          title: 'Retro Gaming Blog',
-          description: 'A blog platform dedicated to retro gaming, featuring custom CMS, comment system, and user profiles.',
-          category: 'Blog'
+          title: 'Algorithmic Exploration and Graph Theory',
+          description: 'Designed and implemented algorithms in Python; explored graph theory concepts.',
+          category: 'Research & Development'
         }
       ]
     },
@@ -233,24 +243,34 @@ export const translations = {
       source: 'Source',
       items: [
         {
-          title: 'Plateforme E-Commerce',
-          description: 'Une solution e-commerce complète avec intégration de paiement, gestion des stocks et mises à jour en temps réel.',
+          title: 'Application de Gestion de Parking',
+          description: 'Conception base PL/SQL avec interface Java; gestion SCRUM (Trello).',
+          category: 'Application Base de Données'
+        },
+        {
+          title: 'Administration Serveur Apache2/SSL',
+          description: 'Configuration et gestion des serveurs Apache2 et SSL sous Linux.',
+          category: 'Administration Système'
+        },
+        {
+          title: 'Création de Documentaire Web',
+          description: 'Conçu et développé un documentaire web interactif multimédia.',
+          category: 'Développement Web'
+        },
+        {
+          title: 'Application de Vente de Tomates',
+          description: 'Interface HMI en Java; gestion BD et UML avec Modelio.',
+          category: 'Application Desktop'
+        },
+        {
+          title: 'Application Statistiques League of Legends',
+          description: 'Base de données avec Oracle APEX; tableau de bord interactif.',
           category: 'Application Web'
         },
         {
-          title: 'Portfolio de Jeu Interactif',
-          description: 'Un site portfolio gamifié avec des éléments 3D, des animations et une narration interactive.',
-          category: 'Créatif'
-        },
-        {
-          title: 'Application de Gestion des Tâches',
-          description: 'Un outil collaboratif de gestion des tâches avec interface glisser-déposer, collaboration d\'équipe et analyses.',
-          category: 'Application Web'
-        },
-        {
-          title: 'Blog de Jeux Rétro',
-          description: 'Une plateforme de blog dédiée aux jeux rétro, avec CMS personnalisé, système de commentaires et profils utilisateurs.',
-          category: 'Blog'
+          title: 'Exploration Algorithmique et Théorie des Graphes',
+          description: 'Algorithmes en Python; concepts de graphes et optimisation.',
+          category: 'Recherche & Développement'
         }
       ]
     },

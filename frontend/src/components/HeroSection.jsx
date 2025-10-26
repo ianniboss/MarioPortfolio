@@ -10,16 +10,26 @@ const HeroSection = () => {
     document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const bgUrl = `${process.env.PUBLIC_URL}/img/mario-bg.webp`;
+  const heroStyle = {
+    backgroundImage: `url('${bgUrl}')`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center bottom',
+    backgroundSize: 'cover',
+    imageRendering: 'pixelated',
+  };
+
   return (
-    <section id="home" className="hero-section">
+    <section id="home" className="hero-section" style={heroStyle}>
       <div className="hero-background">
         <div className="pixel-cloud cloud-1"></div>
         <div className="pixel-cloud cloud-2"></div>
         <div className="pixel-cloud cloud-3"></div>
+        <div className="mario-ground"></div>
       </div>
 
-      <div className="hero-content">
-        <div className="hero-text-box">
+      <div className="hero-content" data-float-children>
+        <div className="hero-text-box" data-float data-float-speed="1.6">
           <h1 className="hero-name">{t.hero.name}</h1>
           <p className="hero-title">{t.hero.title}</p>
           <p className="hero-tagline">{t.hero.tagline}</p>
@@ -41,7 +51,7 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <button className="scroll-indicator" onClick={scrollToAbout}>
+        <button className="scroll-indicator" data-float data-float-speed="1.2" onClick={scrollToAbout}>
           <ArrowDown className="scroll-arrow" />
         </button>
       </div>

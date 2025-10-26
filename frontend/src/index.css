@@ -113,3 +113,5 @@ code {
         border-bottom-color: inherit;
     }
 }
+
+/* Site-wide Mario background applied via JS to avoid css-loader resolving issues with public assets */

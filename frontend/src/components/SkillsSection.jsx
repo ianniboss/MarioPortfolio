@@ -9,7 +9,7 @@ const SkillsSection = () => {
 
   return (
     <section id="skills" className="skills-section">
-      <div className="section-container">
+      <div className="section-container" data-float-children>
         <div className="section-header">
           <h2 className="section-title">{t.skills.title}</h2>
           <div className="title-underline"></div>
@@ -21,7 +21,7 @@ const SkillsSection = () => {
             const translatedSkill = t.skills.items[index];
             
             return (
-              <Card key={skill.id} className="skill-card">
+              <Card key={skill.id} className="skill-card" data-float data-float-speed="1.4">
                 <div className="skill-icon-container" style={{ backgroundColor: `${skill.color}20` }}>
                   <IconComponent className="skill-icon" style={{ color: skill.color }} />
                 </div>

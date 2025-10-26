@@ -114,7 +114,7 @@ export const projectsData = [
     id: 1,
     title: "Parking Management Application",
     description: "Designed and created PL/SQL database using SQL Developer. GUI developed in Java with WindowBuilder (Eclipse). Managed project using SCRUM methodology with Trello.",
-    image: "https://images.unsplash.com/photo-1611087889903-b4837b46857c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxyZXRybyUyMGdhbWluZyUyMHRlY2h8ZW58MHx8fHwxNzYxNDYzNTc0fDA&ixlib=rb-4.1.0&q=85",
+    image: "/img/parking.png",
     technologies: ["Java", "PL/SQL", "SQL Developer", "Eclipse", "SCRUM"],
     link: "https://github.com/ianniboss",
     category: "Database Application",
@@ -124,7 +124,7 @@ export const projectsData = [
     id: 2,
     title: "Apache2/SSL Server Administration",
     description: "Configured and managed Apache2 and SSL servers in a Linux environment. Handled server security, deployment, and maintenance.",
-    image: "https://images.unsplash.com/photo-1531390770335-d94a0dacd992?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwzfHxyZXRybyUyMGdhbWluZyUyMHRlY2h8ZW58MHx8fHwxNzYxNDYzNTc0fDA&ixlib=rb-4.1.0&q=85",
+    image: "/img/apache.png",
     technologies: ["Linux", "Apache2", "SSL", "Server Admin"],
     link: "https://github.com/ianniboss",
     category: "System Administration",
@@ -134,17 +134,18 @@ export const projectsData = [
     id: 3,
     title: "Web Documentary Creation",
     description: "Designed and developed an interactive web documentary with multimedia content and engaging user interface.",
-    image: "https://images.unsplash.com/photo-1696621629216-dfed30d4427d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHw0fHxyZXRybyUyMGdhbWluZyUyMHRlY2h8ZW58MHx8fHwxNzYxNDYzNTc0fDA&ixlib=rb-4.1.0&q=85",
+    image: "/img/webdoc.jpg",
     technologies: ["HTML", "CSS", "JavaScript", "Web Design"],
+    demo: "https://viewer.pandasuite.com/2kTY2xBI",
     link: "https://github.com/ianniboss",
     category: "Web Development",
     year: "2025"
   },
   {
     id: 4,
-    title: "Sales Application",
-    description: "Developed Human-Machine Interface (HMI) in Java. Managed database and designed UML models using Modelio.",
-    image: "https://images.unsplash.com/photo-1585079542156-2755d9c8a094?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwxfHxnYW1pbmclMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3NjE0NjM1Nzl8MA&ixlib=rb-4.1.0&q=85",
+    title: "Tomato Sales Application",
+    description: "Developed Human–Machine Interface (HMI) in Java. Managed database and designed UML models using Modelio.",
+    image: "/img/tomato.webp",
     technologies: ["Java", "Modelio", "UML", "Database"],
     link: "https://github.com/ianniboss",
     category: "Desktop Application",
@@ -152,9 +153,9 @@ export const projectsData = [
   },
   {
     id: 5,
-    title: "League of Legends Statistics App",
+    title: "League of Legends Statistics Application",
     description: "Managed and utilized database using Oracle APEX. Created interactive statistics dashboard for game data analysis.",
-    image: "https://images.unsplash.com/photo-1611087889903-b4837b46857c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxyZXRybyUyMGdhbWluZyUyMHRlY2h8ZW58MHx8fHwxNzYxNDYzNTc0fDA&ixlib=rb-4.1.0&q=85",
+    image: "/img/lol.webp",
     technologies: ["Oracle APEX", "SQL", "Database"],
     link: "https://github.com/ianniboss",
     category: "Web Application",
@@ -162,9 +163,9 @@ export const projectsData = [
   },
   {
     id: 6,
-    title: "Algorithmic Exploration & Graph Theory",
-    description: "Designed and implemented various algorithms in Python. Explored graph theory concepts and optimization techniques.",
-    image: "https://images.unsplash.com/photo-1531390770335-d94a0dacd992?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwzfHxyZXRybyUyMGdhbWluZyUyMHRlY2h8ZW58MHx8fHwxNzYxNDYzNTc0fDA&ixlib=rb-4.1.0&q=85",
+    title: "Algorithmic Exploration and Graph Theory",
+    description: "Designed and implemented algorithms in Python. Explored graph theory concepts and optimization techniques.",
+    image: "/img/python.png",
     technologies: ["Python", "Algorithms", "Graph Theory"],
     link: "https://github.com/ianniboss",
     category: "Research & Development",
@@ -204,142 +205,4 @@ export const experience = [
   }
 ];
 
-export const educationData = [
-  {
-    id: 1,
-    level: "Level 1",
-    degree: "Bachelor's in Computer Science",
-    institution: "University of Technology",
-    year: "2018 - 2022",
-    description: "Focused on software development, web technologies, and user experience design."
-  },
-  {
-    id: 2,
-    level: "Level 2",
-    degree: "IUT Informatique",
-    institution: "Institut Universitaire de Technologie",
-    year: "2016 - 2018",
-    description: "Specialized in web development, database management, and network fundamentals."
-  },
-  {
-    id: 3,
-    level: "Level 3",
-    degree: "High School Diploma",
-    institution: "Tech High School",
-    year: "2012 - 2016",
-    description: "Mathematics and Computer Science track with honors."
-  }
-];
-
-export const skillsData = [
-  {
-    id: 1,
-    name: "HTML5",
-    level: 95,
-    icon: "flame",
-    color: "#E44D26",
-    type: "Fire Flower"
-  },
-  {
-    id: 2,
-    name: "CSS3",
-    level: 90,
-    icon: "leaf",
-    color: "#1572B6",
-    type: "Leaf Power"
-  },
-  {
-    id: 3,
-    name: "JavaScript",
-    level: 92,
-    icon: "star",
-    color: "#F7DF1E",
-    type: "Star Power"
-  },
-  {
-    id: 4,
-    name: "React",
-    level: 88,
-    icon: "zap",
-    color: "#61DAFB",
-    type: "Super Mushroom"
-  },
-  {
-    id: 5,
-    name: "Node.js",
-    level: 85,
-    icon: "layers",
-    color: "#339933",
-    type: "1-UP Mushroom"
-  },
-  {
-    id: 6,
-    name: "Three.js",
-    level: 80,
-    icon: "box",
-    color: "#000000",
-    type: "POW Block"
-  },
-  {
-    id: 7,
-    name: "Tailwind CSS",
-    level: 90,
-    icon: "wind",
-    color: "#06B6D4",
-    type: "Cape Feather"
-  },
-  {
-    id: 8,
-    name: "MongoDB",
-    level: 82,
-    icon: "database",
-    color: "#47A248",
-    type: "Yoshi Egg"
-  }
-];
-
-export const projectsData = [
-  {
-    id: 1,
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce solution with payment integration, inventory management, and real-time updates.",
-    image: "https://images.unsplash.com/photo-1611087889903-b4837b46857c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxyZXRybyUyMGdhbWluZyUyMHRlY2h8ZW58MHx8fHwxNzYxNDYzNTc0fDA&ixlib=rb-4.1.0&q=85",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    link: "https://example.com",
-    category: "Web Application"
-  },
-  {
-    id: 2,
-    title: "Interactive Game Portfolio",
-    description: "A gamified portfolio website featuring 3D elements, animations, and interactive storytelling.",
-    image: "https://images.unsplash.com/photo-1531390770335-d94a0dacd992?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwzfHxyZXRybyUyMGdhbWluZyUyMHRlY2h8ZW58MHx8fHwxNzYxNDYzNTc0fDA&ixlib=rb-4.1.0&q=85",
-    technologies: ["React", "Three.js", "CSS3", "GSAP"],
-    link: "https://example.com",
-    category: "Creative"
-  },
-  {
-    id: 3,
-    title: "Task Management App",
-    description: "A collaborative task management tool with drag-and-drop interface, team collaboration, and analytics.",
-    image: "https://images.unsplash.com/photo-1696621629216-dfed30d4427d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHw0fHxyZXRybyUyMGdhbWluZyUyMHRlY2h8ZW58MHx8fHwxNzYxNDYzNTc0fDA&ixlib=rb-4.1.0&q=85",
-    technologies: ["React", "Firebase", "Tailwind", "DnD Kit"],
-    link: "https://example.com",
-    category: "Web Application"
-  },
-  {
-    id: 4,
-    title: "Retro Gaming Blog",
-    description: "A blog platform dedicated to retro gaming, featuring custom CMS, comment system, and user profiles.",
-    image: "https://images.unsplash.com/photo-1585079542156-2755d9c8a094?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwxfHxnYW1pbmclMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE3NjE0NjM1Nzl8MA&ixlib=rb-4.1.0&q=85",
-    technologies: ["Next.js", "PostgreSQL", "Prisma", "NextAuth"],
-    link: "https://example.com",
-    category: "Blog"
-  }
-];
-
-export const socialLinks = [
-  { name: "GitHub", icon: "github", url: "https://github.com" },
-  { name: "LinkedIn", icon: "linkedin", url: "https://linkedin.com" },
-  { name: "Twitter", icon: "twitter", url: "https://twitter.com" },
-  { name: "Dribbble", icon: "dribbble", url: "https://dribbble.com" }
-];
+// Removed duplicate placeholder data blocks to avoid redeclaration

@@ -8,10 +8,17 @@ import ContactSection from '../components/ContactSection';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useLanguage } from '../context/LanguageContext';
+import { initScrollFloat } from '@/hooks/useScrollFloat';
 
 const Portfolio = () => {
   const { t } = useLanguage();
   const [gameStarted, setGameStarted] = useState(false);
+
+  useEffect(() => {
+    if (!gameStarted) return;
+    const cleanup = initScrollFloat();
+    return cleanup;
+  }, [gameStarted]);
 
   return (
     <div className="portfolio-container">

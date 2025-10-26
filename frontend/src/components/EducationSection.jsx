@@ -8,7 +8,7 @@ const EducationSection = () => {
 
   return (
     <section id="education" className="education-section">
-      <div className="section-container">
+      <div className="section-container" data-float-children>
         <div className="section-header">
           <h2 className="section-title">{t.education.title}</h2>
           <div className="title-underline"></div>
@@ -16,7 +16,7 @@ const EducationSection = () => {
 
         <div className="education-timeline">
           {t.education.items.map((edu, index) => (
-            <div key={index} className="education-level">
+            <div key={index} className="education-level" data-float data-float-speed="1.3">
               <div className="level-badge">
                 <Trophy className="trophy-icon" />
                 <span className="level-text">{edu.level}</span>

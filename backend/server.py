@@ -1,14 +1,17 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
 from pathlib import Path
-from pydantic import BaseModel, Field, ConfigDict
+from pydantic import BaseModel, Field, ConfigDict, EmailStr
 from typing import List
 import uuid
 from datetime import datetime, timezone
+import smtplib
+import ssl
+from email.message import EmailMessage
 
 
 ROOT_DIR = Path(__file__).parent
@@ -36,6 +39,11 @@ class StatusCheck(BaseModel):
 
 class StatusCheckCreate(BaseModel):
     client_name: str
+
+class ContactMessage(BaseModel):
+    name: str
+    email: EmailStr
+    message: str
 
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
@@ -65,6 +73,51 @@ async def get_status_checks():
             check['timestamp'] = datetime.fromisoformat(check['timestamp'])
     
     return status_checks
+
+@api_router.post("/contact")
+async def send_contact_message(payload: ContactMessage):
+    """Accepts contact form submission and sends an email via SMTP."""
+    smtp_host = os.environ.get('SMTP_HOST')
+    smtp_port = int(os.environ.get('SMTP_PORT', '587'))
+    smtp_user = os.environ.get('SMTP_USER')
+    smtp_pass = os.environ.get('SMTP_PASS')
+    to_email = os.environ.get('TO_EMAIL')
+
+    if not (smtp_host and smtp_user and smtp_pass and to_email):
+        raise HTTPException(status_code=500, detail="Email service not configured")
+
+    # Build email
+    msg = EmailMessage()
+    msg['Subject'] = f"Portfolio Contact: {payload.name}"
+    msg['From'] = smtp_user
+    msg['To'] = to_email
+    msg.set_content(
+        f"Name: {payload.name}\nEmail: {payload.email}\n\nMessage:\n{payload.message}"
+    )
+
+    # Persist a copy to Mongo (optional)
+    try:
+        await db.contact_messages.insert_one({
+            "name": payload.name,
+            "email": str(payload.email),
+            "message": payload.message,
+            "created_at": datetime.now(timezone.utc).isoformat()
+        })
+    except Exception:
+        # Ignore DB errors for email delivery
+        pass
+
+    # Send email via TLS
+    context = ssl.create_default_context()
+    try:
+        with smtplib.SMTP(smtp_host, smtp_port) as server:
+            server.starttls(context=context)
+            server.login(smtp_user, smtp_pass)
+            server.send_message(msg)
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=f"Failed to send email: {e}")
+
+    return {"ok": True}
 
 # Include the router in the main app
 app.include_router(api_router)
