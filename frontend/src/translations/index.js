@@ -47,24 +47,24 @@ export const translations = {
       items: [
         {
           level: 'Level 1',
-          degree: "Bachelor's in Computer Science",
-          institution: 'University of Technology',
-          year: '2018 - 2022',
-          description: 'Focused on software development, web technologies, and user experience design.'
+          degree: "Bachelor's Degree in IT (BUT Informatique)",
+          institution: 'IUT Paul Sabatier, Université Toulouse III',
+          year: '2024 - Present',
+          description: '2nd Year, specializing in Application Development. Focus areas: Software Development, Databases, Networking, Project Management.'
         },
         {
           level: 'Level 2',
-          degree: 'IUT Informatique',
-          institution: 'Institut Universitaire de Technologie',
-          year: '2016 - 2018',
-          description: 'Specialized in web development, database management, and network fundamentals.'
+          degree: 'Pre-University Programme (Malaysia–France Cooperation)',
+          institution: 'University of Tours (IUT de Tours)',
+          year: '2022 - 2023',
+          description: 'Coursework: French Language, Mathematics, Physics-Chemistry, Algorithmics, and Logic. Achievement: French Language Level B2.'
         },
         {
           level: 'Level 3',
-          degree: 'High School Diploma',
-          institution: 'Tech High School',
-          year: '2012 - 2016',
-          description: 'Mathematics and Computer Science track with honors.'
+          degree: 'Sijil Pelajaran Malaysia (SPM)',
+          institution: 'Tuanku Munawir Science School, Malaysia',
+          year: '2017 - 2022',
+          description: 'Result: 9A+ in Pure Science and Language subjects.'
         }
       ]
     },
