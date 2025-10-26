@@ -227,6 +227,15 @@ body {
   .mobile-nav {
     display: flex;
   }
+  
+  .language-toggle {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .lang-text {
+    font-size: 0.8rem;
+  }
 }
 
 /* Hero Section */
