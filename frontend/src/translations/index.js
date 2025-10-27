@@ -20,7 +20,7 @@ export const translations = {
     // Hero Section
     hero: {
       name: 'Ian Hafiz Syahrul Azlan',
-      title: 'Web Designer & Developer',
+      title: 'Computer Science Student',
       tagline: 'Crafting Digital Adventures',
       startBtn: 'Start Adventure',
       projectsBtn: 'View Projects'
@@ -50,21 +50,26 @@ export const translations = {
           degree: "Bachelor's Degree in IT (BUT Informatique)",
           institution: 'IUT Paul Sabatier, Université Toulouse III',
           year: '2024 - Present',
-          description: '2nd Year, specializing in Application Development. Focus areas: Software Development, Databases, Networking, Project Management.'
+          description: '2nd Year, specializing in Application Development. Focus areas: Software Development, Databases, Networking, Project Management.',
+          image: 'Photo_campus_IUT_Toulouse.jpg',
+          logo: 'logo_iut_tls.png'
         },
         {
           level: 'Level 2',
           degree: 'Pre-University Programme (Malaysia–France Cooperation)',
           institution: 'University of Tours (IUT de Tours)',
           year: '2022 - 2023',
-          description: 'Coursework: French Language, Mathematics, Physics-Chemistry, Algorithmics, and Logic. Achievement: French Language Level B2.'
+          description: 'Coursework: French Language, Mathematics, Physics-Chemistry, Algorithmics, and Logic. Achievement: French Language Level B2.',
+          logo: 'tourslogo.svg'
         },
         {
           level: 'Level 3',
           degree: 'Sijil Pelajaran Malaysia (SPM)',
           institution: 'Tuanku Munawir Science School, Malaysia',
           year: '2017 - 2022',
-          description: 'Result: 9A+ in Pure Science and Language subjects.'
+          description: 'Result: 9A+ in Pure Science and Language subjects.',
+          image: 'profile.jpg',
+          logo: 'saser.jpg'
         }
       ]
     },
@@ -170,7 +175,7 @@ export const translations = {
     // Hero Section
     hero: {
       name: 'Ian Hafiz Syahrul Azlan',
-      title: 'Designer & Développeur Web',
+      title: 'Étudiant en informatique',
       tagline: 'Créer des Aventures Numériques',
       startBtn: 'Commencer l\'Aventure',
       projectsBtn: 'Voir les Projets'
@@ -200,21 +205,26 @@ export const translations = {
           degree: 'Licence en Informatique (BUT Informatique)',
           institution: 'IUT Paul Sabatier, Université Toulouse III',
           year: '2024 - Présent',
-          description: '2ème année, spécialisation en Développement d\'Applications. Domaines d\'étude: Développement Logiciel, Bases de Données, Réseaux, Gestion de Projet.'
+          description: '2ème année, spécialisation en Développement d\'Applications. Domaines d\'étude: Développement Logiciel, Bases de Données, Réseaux, Gestion de Projet.',
+          image: 'Photo_campus_IUT_Toulouse.jpg',
+          logo: 'logo_iut_tls.png'
         },
         {
           level: 'Niveau 2',
           degree: 'Programme Pré-Universitaire (Coopération Malaisie-France)',
           institution: 'Université de Tours (IUT de Tours)',
           year: '2022 - 2023',
-          description: 'Matières: Langue Française, Mathématiques, Physique-Chimie, Algorithmique et Logique. Accomplissement: Niveau de Langue Française B2.'
+          description: 'Matières: Langue Française, Mathématiques, Physique-Chimie, Algorithmique et Logique. Accomplissement: Niveau de Langue Française B2.',
+          logo: 'tourslogo.svg'
         },
         {
           level: 'Niveau 3',
           degree: 'Sijil Pelajaran Malaysia (SPM)',
           institution: 'Tuanku Munawir Science School, Malaisie',
           year: '2017 - 2022',
-          description: 'Résultat: 9A+ en Sciences Pures et matières linguistiques.'
+          description: 'Résultat: 9A+ en Sciences Pures et matières linguistiques.',
+          image: 'profile.jpg',
+          logo: 'saser.jpg'
         }
       ]
     },

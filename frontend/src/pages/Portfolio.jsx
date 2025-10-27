@@ -14,6 +14,15 @@ const Portfolio = () => {
   const { t } = useLanguage();
   const [gameStarted, setGameStarted] = useState(false);
 
+  // Use public asset for the start screen background
+  const startBgUrl = `${process.env.PUBLIC_URL}/img/mariowallpaper.avif`;
+  const startStyle = {
+    backgroundImage: `url('${startBgUrl}')`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+  };
+
   useEffect(() => {
     if (!gameStarted) return;
     const cleanup = initScrollFloat();
@@ -23,7 +32,7 @@ const Portfolio = () => {
   return (
     <div className="portfolio-container">
       {!gameStarted ? (
-        <div className="start-screen">
+        <div className="start-screen" style={startStyle}>
           <div className="start-content">
             <h1 className="game-title">{t.startScreen.title}</h1>
             <button 

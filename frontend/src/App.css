@@ -702,6 +702,8 @@ section {
   border: 3px solid var(--smash-green);
   padding: 2rem;
   transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
 }
 
 .education-card:hover {
@@ -715,6 +717,23 @@ section {
   align-items: center;
   margin-bottom: 1rem;
 }
+
+.degree-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.edu-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  border: 2px solid var(--mario-yellow);
+  box-shadow: 0 3px 0 var(--pixel-black);
+  background: #ffffff;
+}
+
+
 
 .stars {
   display: flex;

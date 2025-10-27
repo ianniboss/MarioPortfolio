@@ -6,6 +6,13 @@ import { useLanguage } from '../context/LanguageContext';
 const EducationSection = () => {
   const { t } = useLanguage();
 
+  const getAssetSrc = (path) => {
+    if (!path) return null;
+    if (/^https?:\/\//.test(path)) return path;
+    return `${process.env.PUBLIC_URL}/img/${path}`;
+  };
+
+
   return (
     <section id="education" className="education-section">
       <div className="section-container" data-float-children>
@@ -21,7 +28,6 @@ const EducationSection = () => {
                 <Trophy className="trophy-icon" />
                 <span className="level-text">{edu.level}</span>
               </div>
-
               <Card className="education-card">
                 <div className="card-header">
                   <div className="stars">
@@ -29,7 +35,22 @@ const EducationSection = () => {
                       <Star key={i} className="star-icon" fill="currentColor" />
                     ))}
                   </div>
-                  <h3 className="edu-degree">{edu.degree}</h3>
+                  <div className="degree-group">
+                    <h3 className="edu-degree">{edu.degree}</h3>
+                    {(() => {
+                      const logoSrc = getAssetSrc(edu.logo);
+                      return logoSrc ? (
+                        <img
+                          src={logoSrc}
+                          alt={`${edu.institution} emblem`}
+                          className="edu-logo"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                          }}
+                        />
+                      ) : null;
+                    })()}
+                  </div>
                 </div>
                 <p className="edu-institution">{edu.institution}</p>
                 <p className="edu-year">{edu.year}</p>
