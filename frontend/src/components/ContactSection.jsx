@@ -15,7 +15,8 @@ const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    website: '' // honeypot
   });
   const [sending, setSending] = useState(false);
 
@@ -36,7 +37,7 @@ const ContactSection = () => {
         title: t.contact.toastTitle,
         description: t.contact.toastDescription,
       });
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', message: '', website: '' });
     } catch (err) {
       toast({
         title: 'Failed to send',
@@ -64,6 +65,17 @@ const ContactSection = () => {
         <div className="contact-content">
           <Card className="contact-card" data-float data-float-speed="1.3">
             <form onSubmit={handleSubmit} className="contact-form">
+              {/** Honeypot field: hidden from humans, visible to simple bots */}
+              <Input
+                name="website"
+                value={formData.website}
+                onChange={handleChange}
+                autoComplete="off"
+                aria-hidden="true"
+                tabIndex={-1}
+                style={{ position: 'absolute', left: '-9999px' }}
+                className="game-input"
+              />
               <div className="form-group">
                 <label className="form-label">{t.contact.playerName}</label>
                 <Input

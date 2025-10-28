@@ -488,7 +488,7 @@ section {
   perspective: 1000px;
   width: 100%;
   max-width: 700px;
-  min-height: 500px;
+  min-height: 560px;
   height: auto;
   cursor: pointer;
   position: relative;
@@ -525,7 +525,7 @@ section {
   align-items: center;
   justify-content: flex-start;
   gap: 1.2rem;
-  padding: 1.5rem 1rem 1rem;
+  padding: 1.5rem 1rem 1.25rem;
 }
 
 .avatar-container {
@@ -563,11 +563,12 @@ section {
   background: rgba(255, 255, 255, 0.95);
   border: 3px solid var(--pixel-black);
   border-radius: 12px;
-  padding: 1.2rem;
+  padding: 0.8rem 1rem;
   position: relative;
   max-width: 560px;
   width: 100%;
-  height: 420px;
+  min-height: 200px;
+  height: auto;
   box-shadow: 0 4px 0 var(--pixel-black);
   color: var(--pixel-black);
 }
@@ -585,18 +586,44 @@ section {
 }
 
 .dialogue-text {
-  font-size: 0.95rem;
+  font-size: 0.94rem;
   color: rgba(0, 0, 0, 0.85);
-  line-height: 1.5;
+  line-height: 1.4;
   text-align: center;
   max-width: 100%;
   overflow-wrap: break-word;
+}
+
+/* Actions row below dialogue box */
+.about-actions {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Nintendo-style Mushroom icon hover flair */
+.mushroom-icon {
+  transition: transform 220ms ease;
+  transform-origin: 50% 80%; /* pivot near the stem for a natural tilt */
+}
+
+.retro-btn:hover .mushroom-icon,
+.retro-btn:focus-visible .mushroom-icon {
+  transform: translateY(-2px) rotate(-8deg);
+}
+
+.retro-btn:active .mushroom-icon {
+  transform: translateY(-1px) rotate(-4deg);
 }
 
 .flip-hint {
   font-size: 0.85rem;
   color: var(--mario-yellow);
   font-style: italic;
+  margin-top: 0.5rem;
+  text-align: center;
 }
 
 .contact-title {

@@ -29,6 +29,12 @@ function setupDevServer(config) {
     if (!devServer) throw new Error("webpack-dev-server not defined");
     devServer.app.use(express.json());
 
+    // Lightweight dev stub for backend root endpoint to avoid proxy errors
+    // This ensures the frontend status check at '/api/' succeeds in development
+    devServer.app.get('/api/', (req, res) => {
+      res.json({ message: 'Hello World (dev)' });
+    });
+
     // CORS origin validation
     const isAllowedOrigin = (origin) => {
       if (!origin) return false;

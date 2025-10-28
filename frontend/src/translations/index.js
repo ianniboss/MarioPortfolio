@@ -32,6 +32,7 @@ export const translations = {
       description: "Hey there! I'm a passionate IT student and developer from Malaysia, currently studying in Toulouse, France. I love creating innovative applications and exploring new technologies. With a blend of creativity and technical expertise, I transform ideas into functional and engaging digital experiences. Currently seeking a 10-12 week internship for April-June 2026!",
       flipHint: 'Click to flip!',
       flipBackHint: 'Click to flip back!',
+      resumeBtn: 'Download My Resume',
       contactTitle: 'Contact Info',
       email: 'ianhafiz9999@gmail.com',
       phoneFrance: '+33 7 44 43 99 59',
@@ -184,9 +185,10 @@ export const translations = {
     // About Section
     about: {
       title: 'À Propos de Moi',
-      description: "Salut! Je suis un étudiant passionné en informatique et développeur originaire de Malaisie, actuellement en études à Toulouse, France. J'adore créer des applications innovantes et explorer de nouvelles technologies. Avec un mélange de créativité et d'expertise technique, je transforme les idées en expériences numériques fonctionnelles et engageantes. Actuellement à la recherche d'un stage de 10-12 semaines pour avril-juin 2026!",
+      description: "Bonjour! Je suis un étudiant passionné en informatique et développeur originaire de Malaisie, actuellement en études à Toulouse, France. J'adore créer des applications innovantes et explorer de nouvelles technologies. Avec un mélange de créativité et d'expertise technique, je transforme les idées en expériences numériques fonctionnelles et engageantes. Actuellement à la recherche d'un stage de 10-12 semaines pour avril-juin 2026!",
       flipHint: 'Cliquez pour retourner!',
       flipBackHint: 'Cliquez pour revenir!',
+      resumeBtn: 'Télécharger mon CV',
       contactTitle: 'Coordonnées',
       email: 'ianhafiz9999@gmail.com',
       phoneFrance: '+33 7 44 43 99 59',

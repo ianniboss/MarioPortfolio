@@ -87,3 +87,6 @@ frontend/node_modules/.cache/default-development/6.pack
 *.env
 *.env.*
 frontend/node_modules/.cache/default-development/7.pack
+
+# Local MongoDB binaries and data (do not commit runtime artifacts)
+mongodb/

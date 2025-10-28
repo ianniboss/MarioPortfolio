@@ -11,10 +11,14 @@ function App() {
   useEffect(() => {
     const fetchStatus = async () => {
       try {
-        const res = await fetch('/api/');
+        // Use backend health endpoint (proxied in development)
+        const base = process.env.REACT_APP_BACKEND_URL || '';
+        const url = base ? `${base}/api/health` : '/api/health';
+        const res = await fetch(url);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
-        setApiMessage(data?.message ?? 'OK');
+        const msg = data?.status || data?.message || 'OK';
+        setApiMessage(msg);
         setApiError('');
       } catch (err) {
         setApiError('API unavailable');

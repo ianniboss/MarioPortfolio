@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import { Card } from './ui/card';
+import { Button } from './ui/button';
 import { Mail, Phone, MapPin, Flag } from 'lucide-react';
+import MushroomIcon from './icons/MushroomIcon';
 import { useLanguage } from '../context/LanguageContext';
 
 const AboutSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [isFlipped, setIsFlipped] = useState(false);
   const initialAvatar = `/img/profile.jpg`;
   const [avatarUrl, setAvatarUrl] = useState(initialAvatar);
+  // PDFs are now served from public to keep bundles small
+  const resumeHref = '/cv-resume/Resume_IanHafizBinSyahrulAzlan.pdf';
+  const cvHref = '/cv-resume/CVIanHafizBinSyahrulAzlan.pdf';
 
   return (
     <section id="about" className="about-section">
@@ -38,6 +43,30 @@ const AboutSection = () => {
                 <div className="dialogue-box">
                   <div className="dialogue-arrow"></div>
                   <p className="dialogue-text">{t.about.description}</p>
+                </div>
+                <div className="about-actions">
+                  <Button className="retro-btn" variant="outline" asChild>
+                    <a
+                      href={resumeHref}
+                      download
+                      onClick={(e) => e.stopPropagation()}
+                      style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+                    >
+                      <MushroomIcon size={18} variant="red" className="mushroom-icon" />
+                      <span>Resume (EN)</span>
+                    </a>
+                  </Button>
+                  <Button className="retro-btn" variant="outline" asChild>
+                    <a
+                      href={cvHref}
+                      download
+                      onClick={(e) => e.stopPropagation()}
+                      style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+                    >
+                      <MushroomIcon size={18} variant="green" className="mushroom-icon" />
+                      <span>CV (FR)</span>
+                    </a>
+                  </Button>
                 </div>
                 <p className="flip-hint">{t.about.flipHint}</p>
               </div>
