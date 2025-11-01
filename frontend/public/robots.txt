@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Disallow common non-content paths (none in SPA, kept for future)
+# Disallow: /admin/
+
+Sitemap: https://your-domain.example/sitemap.xml

@@ -115,6 +115,9 @@ export const projectsData = [
     title: "Parking Management Application",
     description: "Designed and created PL/SQL database using SQL Developer. GUI developed in Java with WindowBuilder (Eclipse). Managed project using SCRUM methodology with Trello.",
     image: "/img/parking.png",
+    screenshots: [
+      "/img/parking.png"
+    ],
     technologies: ["Java", "PL/SQL", "SQL Developer", "Eclipse", "SCRUM"],
     link: "https://github.com/ianniboss",
     category: "Database Application",
@@ -125,6 +128,9 @@ export const projectsData = [
     title: "Apache2/SSL Server Administration",
     description: "Configured and managed Apache2 and SSL servers in a Linux environment. Handled server security, deployment, and maintenance.",
     image: "/img/apache.png",
+    screenshots: [
+      "/img/apache.png"
+    ],
     technologies: ["Linux", "Apache2", "SSL", "Server Admin"],
     link: "https://github.com/ianniboss",
     category: "System Administration",
@@ -135,6 +141,9 @@ export const projectsData = [
     title: "Web Documentary Creation",
     description: "Designed and developed an interactive web documentary with multimedia content and engaging user interface.",
     image: "/img/webdoc.jpg",
+    screenshots: [
+      "/img/webdoc.jpg"
+    ],
     technologies: ["HTML", "CSS", "JavaScript", "Web Design"],
     demo: "https://viewer.pandasuite.com/2kTY2xBI",
     link: "https://github.com/ianniboss",
@@ -146,36 +155,72 @@ export const projectsData = [
     title: "Tomato Sales Application",
     description: "Developed Human–Machine Interface (HMI) in Java. Managed database and designed UML models using Modelio.",
     image: "/img/tomato.webp",
+    screenshots: [
+      "/img/tomato.webp",
+      "/img/tomato-1.png",
+      "/img/tomato-2.png",
+      "/img/tomato-3.png",
+      "/img/tomato-4.png",
+      "/img/tomato-5.png",
+      "/img/tomato-6.png",
+      "/img/tomato-7.png",
+      "/img/tomato-8.png"
+    ],
     technologies: ["Java", "Modelio", "UML", "Database"],
     link: "https://github.com/ianniboss",
+    source: "https://github.com/ianniboss/S201_TOMATES",
     category: "Desktop Application",
-    year: "2024"
+    year: "2025",
+    goals: "Create a comprehensive tomato sales management system with inventory tracking, customer management, and sales reporting capabilities using Java HMI and database integration.",
+    duration: "1.5 months"
   },
   {
     id: 5,
     title: "League of Legends Statistics Application",
     description: "Managed and utilized database using Oracle APEX. Created interactive statistics dashboard for game data analysis.",
     image: "/img/lol.webp",
+    screenshots: [
+      "/img/lol.webp",
+      "/img/lol-1.png",
+      "/img/lol-2.png",
+      "/img/lol-3.png"
+    ],
     technologies: ["Oracle APEX", "SQL", "Database"],
     link: "https://github.com/ianniboss",
     category: "Web Application",
-    year: "2024"
+    year: "2024",
+    goals: "Analyze LoL matches (Jan 16–18, 2025) via Riot API with an Oracle APEX app; highlight trends and win factors (performance, roles, champion stats); add two pages with correlation-based insights.",
+    duration: "1 month"
   },
   {
     id: 6,
     title: "Algorithmic Exploration and Graph Theory",
     description: "Designed and implemented algorithms in Python. Explored graph theory concepts and optimization techniques.",
     image: "/img/python.png",
+    screenshots: [
+      "/img/python.png",
+      "/img/python-1.png",
+      "/img/python-2.png",
+      "/img/python-3.png",
+      "/img/python-4.png",
+      "/img/python-5.png",
+      "/img/python-6.png",
+      "/img/python-7.png"
+    ],
     technologies: ["Python", "Algorithms", "Graph Theory"],
     link: "https://github.com/ianniboss",
     category: "Research & Development",
-    year: "2024"
+    year: "2024",
+    goals: "Implement and compare shortest-path algorithms (Dijkstra and Bellman–Ford) to compute routes on weighted graphs; visualize paths, distances, and predecessor trees; evaluate performance and edge-case behavior (negative weights) to recommend optimal routing strategies.",
+    duration: "9 weeks"
   }
 ];
 
 export const socialLinks = [
   { name: "GitHub", icon: "github", url: "https://github.com/ianniboss" },
   { name: "LinkedIn", icon: "linkedin", url: "https://linkedin.com/in/ian-hafiz-syahrul-azlan" },
+  { name: "Instagram", icon: "instagram", url: "https://www.instagram.com/iandelreyyy/" },
+  { name: "Discord", icon: "discord", url: "https://discord.gg/fcTVw6pg" },
   { name: "Email", icon: "mail", url: "mailto:ianhafiz9999@gmail.com" }
 ];
 

@@ -36,6 +36,10 @@ const AboutSection = () => {
                     src={avatarUrl} 
                     alt={t.hero.name}
                     className="avatar-image"
+                    loading="lazy"
+                    decoding="async"
+                    width="130"
+                    height="130"
                     onError={() => setAvatarUrl('https://images.unsplash.com/photo-1633466876697-1eb9c820028d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxuaW50ZW5kbyUyMGF2YXRhcnxlbnwwfHx8fDE3NjE0NjM1NzB8MA&ixlib=rb-4.1.0&q=85')}
                   />
                   <div className="avatar-border"></div>

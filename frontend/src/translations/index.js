@@ -272,17 +272,20 @@ export const translations = {
         {
           title: 'Application de Vente de Tomates',
           description: 'Interface HMI en Java; gestion BD et UML avec Modelio.',
-          category: 'Application Desktop'
+          category: 'Application Desktop',
+          goals: 'Créer un système complet de gestion des ventes de tomates avec suivi des stocks, gestion des clients et capacités de reporting des ventes en utilisant l\'interface HMI Java et l\'intégration de base de données.'
         },
         {
           title: 'Application Statistiques League of Legends',
           description: 'Base de données avec Oracle APEX; tableau de bord interactif.',
-          category: 'Application Web'
+          category: 'Application Web',
+          goals: "Analyser les parties LoL (16–18 janv. 2025) via l'API Riot et une app APEX; mettre en évidence tendances et facteurs de victoire (performances, rôles, statistiques des champions); ajouter deux pages d'analyses basées sur des corrélations."
         },
         {
           title: 'Exploration Algorithmique et Théorie des Graphes',
           description: 'Algorithmes en Python; concepts de graphes et optimisation.',
-          category: 'Recherche & Développement'
+          category: 'Recherche & Développement',
+          goals: "Mettre en œuvre et comparer les algorithmes de plus court chemin (Dijkstra et Bellman‑Ford) sur des graphes pondérés; visualiser trajets, distances et prédécesseurs; évaluer les performances et les cas particuliers (poids négatifs)."
         }
       ]
     },

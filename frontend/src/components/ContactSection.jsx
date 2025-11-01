@@ -8,6 +8,7 @@ import * as Icons from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
 import { Toaster } from './ui/toaster';
 import { useLanguage } from '../context/LanguageContext';
+import BrandDiscordIcon from './icons/BrandDiscordIcon';
 
 const ContactSection = () => {
   const { t } = useLanguage();
@@ -124,7 +125,12 @@ const ContactSection = () => {
             <h3 className="social-title">{t.contact.socialTitle}</h3>
             <div className="social-grid">
               {socialLinks.map((social) => {
-                const IconComponent = Icons[social.icon.charAt(0).toUpperCase() + social.icon.slice(1)] || Icons.Globe;
+                const brandIcons = {
+                  discord: BrandDiscordIcon,
+                };
+                const IconComponent = brandIcons[social.icon]
+                  || Icons[social.icon.charAt(0).toUpperCase() + social.icon.slice(1)]
+                  || Icons.Globe;
                 return (
                   <a
                     key={social.name}

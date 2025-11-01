@@ -5,6 +5,7 @@ import { Button } from './ui/button';
 import { ExternalLink, Code } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from './ui/dialog';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 
 const ProjectsSection = () => {
   const { t } = useLanguage();
@@ -57,6 +58,8 @@ const ProjectsSection = () => {
                     src={project.image} 
                     alt={translatedProject.title}
                     className="project-image"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="project-overlay">
                     <Button className="view-project-btn" onClick={(e) => { e.stopPropagation(); setSelectedIndex(index); }}>
@@ -84,16 +87,6 @@ const ProjectsSection = () => {
                       variant="outline" 
                       size="sm" 
                       className="project-btn retro-btn"
-                      onClick={(e) => openDemo(e, demoUrl)}
-                      disabled={!demoUrl}
-                    >
-                      <ExternalLink size={16} />
-                      {t.projects.liveDemo}
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      className="project-btn retro-btn"
                       onClick={(e) => openSource(e, sourceUrl)}
                       disabled={!sourceUrl}
                     >
@@ -109,7 +102,7 @@ const ProjectsSection = () => {
       </div>
 
       <Dialog open={selectedIndex !== null} onOpenChange={(open) => !open && closeDialog()}>
-        <DialogContent className="retro-dialog">
+        <DialogContent className="retro-dialog max-w-4xl w-[90vw] max-h-[85vh] overflow-y-auto">
           {selectedProject && selectedTranslated && (
             <div className="project-dialog">
               <DialogHeader>
@@ -117,27 +110,39 @@ const ProjectsSection = () => {
                 <DialogDescription>{selectedTranslated.category}</DialogDescription>
               </DialogHeader>
               <div className="dialog-body flex flex-col md:flex-row gap-4 md:gap-6">
-                <div className="dialog-left md:w-1/2 w-full">
-                  <img
-                    src={selectedProject.image}
-                    alt={selectedTranslated.title}
-                    className="w-full h-auto rounded-md object-cover"
-                  />
+                <div className="dialog-left md:w-1/2 w-full relative">
+                  <Carousel className="w-full" opts={{ loop: false }}>
+                    <CarouselContent>
+                      {(selectedProject.screenshots || [selectedProject.image]).map((src, idx) => (
+                        <CarouselItem key={idx}>
+                          <img
+                            src={src}
+                            alt={`${selectedTranslated.title} screenshot ${idx + 1}`}
+                            className="w-full h-auto min-h-[300px] max-h-[500px] rounded-md object-contain bg-gray-50"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious className="-left-6" />
+                    <CarouselNext className="-right-6" />
+                  </Carousel>
                 </div>
                 <div className="dialog-right md:w-1/2 w-full space-y-3">
                   <p className="text-sm text-muted-foreground">{selectedTranslated.description}</p>
                   <div className="detail-grid grid grid-cols-1 gap-2">
-                    <div className="detail-row flex items-center justify-between">
-                      <span className="detail-label font-medium">Category</span>
+                    <div className="detail-row">
+                      <span className="detail-label font-medium">Category: </span>
                       <span className="detail-value">{selectedTranslated.category}</span>
                     </div>
-                    <div className="detail-row flex items-center justify-between">
-                      <span className="detail-label font-medium">Year</span>
+                    <div className="detail-row">
+                      <span className="detail-label font-medium">Year: </span>
                       <span className="detail-value">{selectedProject.year || 'TBD'}</span>
                     </div>
                     <div className="detail-row">
                       <span className="detail-label font-medium block">Goals</span>
-                      <span className="detail-value block">{selectedProject.goals ? selectedProject.goals : 'TBD'}</span>
+                      <span className="detail-value block">{selectedTranslated.goals || selectedProject.goals || 'TBD'}</span>
                     </div>
                     <div className="detail-row">
                       <span className="detail-label font-medium block">Duration</span>
@@ -152,13 +157,6 @@ const ProjectsSection = () => {
                 </div>
               </div>
               <DialogFooter className="dialog-footer flex justify-end gap-2">
-                <Button 
-                  variant="outline"
-                  className="retro-btn"
-                  onClick={(e) => openDemo(e, selectedProject.demo || selectedProject.link)}
-                >
-                  <ExternalLink size={16} /> {t.projects.liveDemo}
-                </Button>
                 <Button 
                   variant="outline"
                   className="retro-btn"
