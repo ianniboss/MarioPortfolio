@@ -120,6 +120,7 @@ export const projectsData = [
     ],
     technologies: ["Java", "PL/SQL", "SQL Developer", "Eclipse", "SCRUM"],
     link: "https://github.com/ianniboss",
+    source: "https://gitlab.info.iut-tlse3.fr/b15_22/sae3a01",
     category: "Database Application",
     year: "2025"
   },
