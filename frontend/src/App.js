@@ -7,6 +7,7 @@ import { LanguageProvider } from './context/LanguageContext';
 function App() {
   const [apiMessage, setApiMessage] = useState('');
   const [apiError, setApiError] = useState('');
+  const showApiStatus = process.env.REACT_APP_SHOW_API_STATUS === 'true';
 
   useEffect(() => {
     const fetchStatus = async () => {
@@ -24,7 +25,10 @@ function App() {
         setApiError('API unavailable');
       }
     };
-    fetchStatus();
+    // Only check backend if status badge explicitly enabled
+    if (showApiStatus) {
+      fetchStatus();
+    }
   }, []);
 
   return (
@@ -35,21 +39,23 @@ function App() {
             <Route path="/" element={<Portfolio />} />
           </Routes>
         </BrowserRouter>
-        <div style={{
-          position: 'fixed',
-          bottom: 12,
-          right: 12,
-          background: '#111',
-          color: '#fff',
-          border: '1px solid #333',
-          borderRadius: 8,
-          padding: '8px 12px',
-          fontSize: 12,
-          opacity: 0.9,
-          zIndex: 9999,
-        }}>
-          {apiError ? `API: ${apiError}` : `API: ${apiMessage}`}
-        </div>
+        {showApiStatus && (
+          <div style={{
+            position: 'fixed',
+            bottom: 12,
+            right: 12,
+            background: '#111',
+            color: '#fff',
+            border: '1px solid #333',
+            borderRadius: 8,
+            padding: '8px 12px',
+            fontSize: 12,
+            opacity: 0.9,
+            zIndex: 9999,
+          }}>
+            {apiError ? `API: ${apiError}` : `API: ${apiMessage}`}
+          </div>
+        )}
       </div>
     </LanguageProvider>
   );
