@@ -14,7 +14,6 @@ const Portfolio = () => {
   const { t } = useLanguage();
   const [gameStarted, setGameStarted] = useState(false);
 
-  // Use public asset for the start screen background
   const startBgUrl = `${process.env.PUBLIC_URL}/img/mariowallpaper.avif`;
   const startStyle = {
     backgroundImage: `url('${startBgUrl}')`,

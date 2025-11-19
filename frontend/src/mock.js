@@ -1,13 +1,10 @@
-// Mock data for Nintendo-inspired portfolio
-
-// Mock data for Nintendo-inspired portfolio
 
 export const profileData = {
   name: "Ian Hafiz Syahrul Azlan",
   title: "Computer Science Student",
   tagline: "Crafting Digital Adventures",
   avatar: "https://images.unsplash.com/photo-1633466876697-1eb9c820028d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxuaW50ZW5kbyUyMGF2YXRhcnxlbnwwfHx8fDE3NjE0NjM1NzB8MA&ixlib=rb-4.1.0&q=85",
-  about: "Hey there! I'm a passionate IT student and developer from Malaysia, currently studying in Toulouse, France. I love creating innovative applications and exploring new technologies. With a blend of creativity and technical expertise, I transform ideas into functional and engaging digital experiences. Currently seeking a 10-12 week internship for April-June 2026!",
+  about: "Hello! I'm a passionate IT student and developer from Malaysia, currently studying in Toulouse, France. I love creating innovative applications and exploring new technologies. With a blend of creativity and technical expertise, I transform ideas into functional and engaging digital experiences. Currently seeking a 10-12 week internship for April-June 2026!",
   email: "ianhafiz9999@gmail.com",
   phoneFrance: "+33 7 44 43 99 59",
   phoneMalaysia: "+016 304 6426",
@@ -251,4 +248,3 @@ export const experience = [
   }
 ];
 
-// Removed duplicate placeholder data blocks to avoid redeclaration
