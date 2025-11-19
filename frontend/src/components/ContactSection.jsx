@@ -27,12 +27,21 @@ const ContactSection = () => {
     setSending(true);
 
     try {
-      const res = await fetch('/api/contact', {
+      const base = process.env.REACT_APP_BACKEND_URL || '';
+      const url = base ? `${base}/api/contact` : '/api/contact';
+      const res = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok) {
+        let errMsg = `HTTP ${res.status}`;
+        try {
+          const body = await res.json();
+          errMsg = body?.detail || errMsg;
+        } catch {}
+        throw new Error(errMsg);
+      }
 
       toast({
         title: t.contact.toastTitle,
