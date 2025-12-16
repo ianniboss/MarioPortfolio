@@ -204,7 +204,7 @@ export const translations = {
       items: [
         {
           level: 'Niveau 1',
-          degree: 'Licence en Informatique (BUT Informatique)',
+          degree: 'BUT Informatique',
           institution: 'IUT Paul Sabatier, Université Toulouse III',
           year: '2024 - Présent',
           description: '2ème année, spécialisation en Développement d\'Applications. Domaines d\'étude: Développement Logiciel, Bases de Données, Réseaux, Gestion de Projet.',
