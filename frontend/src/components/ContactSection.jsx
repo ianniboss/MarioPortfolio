@@ -9,6 +9,7 @@ import { useToast } from '../hooks/use-toast';
 import { Toaster } from './ui/toaster';
 import { useLanguage } from '../context/LanguageContext';
 import BrandDiscordIcon from './icons/BrandDiscordIcon';
+import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
   const { t } = useLanguage();
@@ -24,24 +25,37 @@ const ContactSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (sending) return;
+
+    // Honeypot: if hidden field is filled, treat as bot
+    if (formData.website && formData.website.trim()) {
+      toast({
+        title: 'Invalid submission',
+        description: 'Please try again.',
+        variant: 'destructive'
+      });
+      return;
+    }
+
     setSending(true);
 
     try {
-      const base = process.env.REACT_APP_BACKEND_URL || '';
-      const url = base ? `${base}/api/contact` : '/api/contact';
-      const res = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-      if (!res.ok) {
-        let errMsg = `HTTP ${res.status}`;
-        try {
-          const body = await res.json();
-          errMsg = body?.detail || errMsg;
-        } catch {}
-        throw new Error(errMsg);
-      }
+      // EmailJS configuration - set these in your Vercel environment variables
+      const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
+      const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
+      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+
+      // Send email via EmailJS
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: 'Ian Hafiz', // Your name
+        },
+        publicKey
+      );
 
       toast({
         title: t.contact.toastTitle,
@@ -49,6 +63,7 @@ const ContactSection = () => {
       });
       setFormData({ name: '', email: '', message: '', website: '' });
     } catch (err) {
+      console.error('EmailJS error:', err);
       toast({
         title: 'Failed to send',
         description: 'Please try again later or email me directly.',

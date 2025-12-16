@@ -2,6 +2,7 @@
 // - Entrance: elements tilt (X) and slide vertically when entering viewport
 // - Scroll: vertical drift + subtle scale only while scrolling; stop when idle
 // - No rotateY or Z-rotation to avoid side-to-side motion
+// - Once entered, elements stay visible (no re-animation on scroll back)
 
 export function initScrollFloat() {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -10,7 +11,10 @@ export function initScrollFloat() {
   const parentContainers = Array.from(document.querySelectorAll('[data-float-children]'));
   const elements = Array.from(new Set([...direct, ...parentContainers.flatMap((p) => Array.from(p.querySelectorAll(':scope > *')))]));
 
-  if (elements.length === 0) return () => {};
+  if (elements.length === 0) return () => { };
+
+  // Track which elements have been entered (permanent)
+  const enteredSet = new Set();
 
   // Add perspective to parent containers and assign stagger orders to their children
   parentContainers.forEach((p) => {
@@ -37,14 +41,18 @@ export function initScrollFloat() {
         const el = entry.target;
         if (entry.isIntersecting) {
           el.classList.add('in-view');
-          el.classList.add('entered');
+          // Once entered, always stay entered (no re-animation)
+          if (!enteredSet.has(el)) {
+            enteredSet.add(el);
+            el.classList.add('entered');
+          }
         } else {
           el.classList.remove('in-view');
-          el.classList.remove('entered');
+          // Do NOT remove 'entered' class - keep elements visible once they've animated in
         }
       });
     },
-    { threshold: 0.2 }
+    { threshold: 0.15 }
   );
   elements.forEach((el) => io.observe(el));
 
@@ -54,7 +62,15 @@ export function initScrollFloat() {
     const vh = window.innerHeight || 800;
 
     elements.forEach((el) => {
-      if (!el.classList.contains('in-view')) return;
+      // Only apply scroll effects to elements currently in view
+      if (!el.classList.contains('in-view')) {
+        // Reset scroll transforms when out of view to prevent jumping
+        el.style.setProperty('--scroll-tx', '0px');
+        el.style.setProperty('--scroll-scale', '1');
+        el.style.willChange = 'auto';
+        return;
+      }
+
       const rect = el.getBoundingClientRect();
       const center = rect.top + rect.height / 2;
       const diff = center - vh / 2;
@@ -67,9 +83,9 @@ export function initScrollFloat() {
         return;
       }
 
-      // Vertical drift only (no lateral or Z-rotation)
-      const translateY = progress * (26 * speed);
-      const scale = 1 + Math.abs(progress) * 0.012;
+      // Vertical drift only (no lateral or Z-rotation) - reduced intensity
+      const translateY = progress * (15 * speed);
+      const scale = 1 + Math.abs(progress) * 0.008;
 
       el.style.setProperty('--scroll-tx', `${translateY}px`);
       el.style.setProperty('--scroll-scale', `${scale}`);
@@ -94,6 +110,7 @@ export function initScrollFloat() {
     window.removeEventListener('resize', onScroll);
     if (rafId) cancelAnimationFrame(rafId);
     io.disconnect();
+    enteredSet.clear();
     elements.forEach((el) => {
       el.classList.remove('float-item', 'in-view', 'entered');
       el.style.removeProperty('--scroll-tx');
