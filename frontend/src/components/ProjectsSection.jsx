@@ -44,18 +44,18 @@ const ProjectsSection = () => {
             const translatedProject = t.projects.items[index];
             const demoUrl = project.demo || project.link;
             const sourceUrl = project.source || project.link;
-            
+
             return (
-              <Card 
-                key={project.id} 
+              <Card
+                key={project.id}
                 className="project-card"
                 onClick={() => setSelectedIndex(index)}
                 data-float
                 data-float-speed="1.4"
               >
                 <div className="project-image-container">
-                  <img 
-                    src={project.image} 
+                  <img
+                    src={project.image}
                     alt={translatedProject.title}
                     className="project-image"
                     loading="lazy"
@@ -75,7 +75,7 @@ const ProjectsSection = () => {
                     <span className="project-category">{translatedProject.category}</span>
                   </div>
                   <p className="project-description">{translatedProject.description}</p>
-                  
+
                   <div className="project-tech">
                     {project.technologies.map((tech, techIndex) => (
                       <span key={techIndex} className="tech-badge">{tech}</span>
@@ -83,9 +83,9 @@ const ProjectsSection = () => {
                   </div>
 
                   <div className="project-actions">
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
+                    <Button
+                      variant="outline"
+                      size="sm"
                       className="project-btn retro-btn"
                       onClick={(e) => openSource(e, sourceUrl)}
                       disabled={!sourceUrl}
@@ -145,9 +145,14 @@ const ProjectsSection = () => {
                       <span className="detail-value block">{selectedTranslated.goals || selectedProject.goals || 'TBD'}</span>
                     </div>
                     <div className="detail-row">
+                      <span className="detail-label font-medium block">Technical Challenges</span>
+                      <span className="detail-value block">{selectedTranslated.challenges || selectedProject.challenges || 'TBD'}</span>
+                    </div>
+                    <div className="detail-row">
                       <span className="detail-label font-medium block">Duration</span>
                       <span className="detail-value block">{selectedProject.duration ? selectedProject.duration : 'TBD'}</span>
                     </div>
+
                   </div>
                   <div className="dialog-tech flex flex-wrap gap-2 pt-2">
                     {selectedProject.technologies.map((tech, i) => (
@@ -157,7 +162,7 @@ const ProjectsSection = () => {
                 </div>
               </div>
               <DialogFooter className="dialog-footer flex justify-end gap-2">
-                <Button 
+                <Button
                   variant="outline"
                   className="retro-btn"
                   onClick={(e) => openSource(e, selectedProject.source || selectedProject.link)}

@@ -7,7 +7,8 @@ import { LanguageProvider } from './context/LanguageContext';
 function App() {
   const [apiMessage, setApiMessage] = useState('');
   const [apiError, setApiError] = useState('');
-  const showApiStatus = process.env.REACT_APP_SHOW_API_STATUS === 'true';
+  const showApiStatus = process.env.REACT_APP_DEBUG_MODE === 'true';
+
 
   useEffect(() => {
     const fetchStatus = async () => {

@@ -6,7 +6,7 @@ export const translations = {
       button: 'PRESS START',
       hint: 'Click to begin your adventure'
     },
-    
+
     // Header/Navigation
     nav: {
       home: 'Home',
@@ -16,7 +16,7 @@ export const translations = {
       projects: 'Projects',
       contact: 'Contact'
     },
-    
+
     // Hero Section
     hero: {
       name: 'Ian Hafiz Syahrul Azlan',
@@ -25,7 +25,7 @@ export const translations = {
       startBtn: 'Start Adventure',
       projectsBtn: 'View Projects'
     },
-    
+
     // About Section
     about: {
       title: 'About Me',
@@ -40,7 +40,7 @@ export const translations = {
       location: 'Toulouse, France',
       nationality: 'Malaysian'
     },
-    
+
     // Education Section
     education: {
       title: 'Education Journey',
@@ -74,7 +74,7 @@ export const translations = {
         }
       ]
     },
-    
+
     // Skills Section
     skills: {
       title: 'Power-Ups & Skills',
@@ -89,7 +89,7 @@ export const translations = {
         { name: 'Linux', type: 'Cape Feather' }
       ]
     },
-    
+
     // Projects Section
     projects: {
       title: 'Mystery Blocks',
@@ -101,36 +101,49 @@ export const translations = {
         {
           title: 'Parking Management Application',
           description: 'Designed and created PL/SQL database with Java GUI; managed using SCRUM (Trello).',
-          category: 'Database Application'
+          category: 'Database Application',
+          goals: 'Create an automated parking management system with real-time slot tracking and multi-user access.',
+          challenges: 'Implementing ACID-compliant transactions for booking slots and managing complex PL/SQL triggers for automated fee calculation.'
         },
         {
           title: 'Apache2/SSL Server Administration',
           description: 'Configured and managed Apache2 and SSL servers in Linux.',
-          category: 'System Administration'
+          category: 'System Administration',
+          goals: 'Deploy a secure, high-availability web server infrastructure using Apache2 with SSL/TLS encryption.',
+          challenges: 'Configuring robust cipher suites, managing certificate lifecycles, and hardening the OS against common network attacks.'
         },
         {
           title: 'Web Documentary Creation',
           description: 'Designed and developed an interactive web documentary with multimedia content.',
-          category: 'Web Development'
+          category: 'Web Development',
+          goals: 'Develop an immersive storytelling platform that combines video, audio, and interactive elements.',
+          challenges: 'Optimizing asset loading for smooth performance across different network speeds and ensuring responsive design for mobile users.'
         },
         {
           title: 'Tomato Sales Application',
           description: 'Built Java HMI; managed database and modeled UML using Modelio.',
-          category: 'Desktop Application'
+          category: 'Desktop Application',
+          goals: 'Create a sales and inventory management tool for agricultural products with clear data visualization.',
+          challenges: 'Designing an intuitive HMI that stays responsive during heavy database operations and mapping complex UML relationships.'
         },
         {
           title: 'League of Legends Statistics Application',
           description: 'Managed database using Oracle APEX; built interactive statistics dashboard.',
-          category: 'Web Application'
+          category: 'Web Application',
+          goals: 'Provide deep insights into game meta and player performance using Riot API and Oracle APEX.',
+          challenges: 'Handling API rate limits, processing massive amounts of JSON match data, and designing efficient SQL queries for complex correlations.'
         },
         {
           title: 'Algorithmic Exploration and Graph Theory',
           description: 'Designed and implemented algorithms in Python; explored graph theory concepts.',
-          category: 'Research & Development'
+          category: 'Research & Development',
+          goals: 'Evaluate and visualize pathfinding algorithms on massive graph datasets.',
+          challenges: 'Optimizing memory usage for large adjacency lists and handling edge cases like negative cycle detection in Bellman-Ford.'
         }
       ]
+
     },
-    
+
     // Contact Section
     contact: {
       title: 'Pause Menu',
@@ -146,7 +159,7 @@ export const translations = {
       toastTitle: 'Message Sent!',
       toastDescription: "Your message has been received. I'll get back to you soon!"
     },
-    
+
     // Footer
     footer: {
       craftedBy: 'Crafted with',
@@ -154,7 +167,7 @@ export const translations = {
       copyright: '© 2025 All Rights Reserved'
     }
   },
-  
+
   fr: {
     // Start Screen
     startScreen: {
@@ -162,7 +175,7 @@ export const translations = {
       button: 'APPUYER START',
       hint: 'Cliquez pour commencer votre aventure'
     },
-    
+
     // Header/Navigation
     nav: {
       home: 'Accueil',
@@ -172,7 +185,7 @@ export const translations = {
       projects: 'Projets',
       contact: 'Contact'
     },
-    
+
     // Hero Section
     hero: {
       name: 'Ian Hafiz Syahrul Azlan',
@@ -181,7 +194,7 @@ export const translations = {
       startBtn: 'Commencer l\'Aventure',
       projectsBtn: 'Voir les Projets'
     },
-    
+
     // About Section
     about: {
       title: 'À Propos de Moi',
@@ -196,7 +209,7 @@ export const translations = {
       location: 'Toulouse, France',
       nationality: 'Malaisien'
     },
-    
+
     // Education Section
     education: {
       title: 'Parcours Éducatif',
@@ -230,7 +243,7 @@ export const translations = {
         }
       ]
     },
-    
+
     // Skills Section
     skills: {
       title: 'Power-Ups & Compétences',
@@ -245,7 +258,7 @@ export const translations = {
         { name: 'Linux', type: 'Plume Cape' }
       ]
     },
-    
+
     // Projects Section
     projects: {
       title: 'Blocs Mystères',
@@ -257,39 +270,49 @@ export const translations = {
         {
           title: 'Application de Gestion de Parking',
           description: 'Conception base PL/SQL avec interface Java; gestion SCRUM (Trello).',
-          category: 'Application Base de Données'
+          category: 'Application Base de Données',
+          goals: 'Créer un système de gestion de parking automatisé avec suivi des places en temps réel et accès multi-utilisateurs.',
+          challenges: 'Mise en œuvre de transactions conformes ACID pour la réservation des places et gestion de déclencheurs PL/SQL complexes pour le calcul automatique des frais.'
         },
         {
           title: 'Administration Serveur Apache2/SSL',
           description: 'Configuration et gestion des serveurs Apache2 et SSL sous Linux.',
-          category: 'Administration Système'
+          category: 'Administration Système',
+          goals: 'Déployer une infrastructure de serveur web sécurisée et à haute disponibilité utilisant Apache2 avec cryptage SSL/TLS.',
+          challenges: 'Configuration de suites de chiffrement robustes, gestion des cycles de vie des certificats et renforcement de l\'OS contre les attaques réseau courantes.'
         },
         {
           title: 'Création de Documentaire Web',
           description: 'Conçu et développé un documentaire web interactif multimédia.',
-          category: 'Développement Web'
+          category: 'Développement Web',
+          goals: 'Développer une plateforme narrative immersive combinant vidéo, audio et éléments interactifs.',
+          challenges: 'Optimisation du chargement des ressources pour des performances fluides sur différentes vitesses de réseau et garantie d\'un design réactif pour les utilisateurs mobiles.'
         },
         {
           title: 'Application de Vente de Tomates',
           description: 'Interface HMI en Java; gestion BD et UML avec Modelio.',
           category: 'Application Desktop',
-          goals: 'Créer un système complet de gestion des ventes de tomates avec suivi des stocks, gestion des clients et capacités de reporting des ventes en utilisant l\'interface HMI Java et l\'intégration de base de données.'
+          goals: 'Créer un outil de gestion des ventes et des stocks pour les produits agricoles avec une visualisation claire des données.',
+          challenges: 'Conception d\'une interface HMI intuitive qui reste réactive lors d\'opérations de base de données lourdes et cartographie des relations UML complexes.'
         },
         {
           title: 'Application Statistiques League of Legends',
           description: 'Base de données avec Oracle APEX; tableau de bord interactif.',
           category: 'Application Web',
-          goals: "Analyser les parties LoL (16–18 janv. 2025) via l'API Riot et une app APEX; mettre en évidence tendances et facteurs de victoire (performances, rôles, statistiques des champions); ajouter deux pages d'analyses basées sur des corrélations."
+          goals: 'Fournir des informations approfondies sur la méta du jeu et les performances des joueurs en utilisant l\'API Riot et Oracle APEX.',
+          challenges: 'Gestion des limites de taux de l\'API, traitement de volumes massifs de données de match JSON et conception de requêtes SQL efficaces pour des corrélations complexes.'
         },
         {
           title: 'Exploration Algorithmique et Théorie des Graphes',
           description: 'Algorithmes en Python; concepts de graphes et optimisation.',
           category: 'Recherche & Développement',
-          goals: "Mettre en œuvre et comparer les algorithmes de plus court chemin (Dijkstra et Bellman‑Ford) sur des graphes pondérés; visualiser trajets, distances et prédécesseurs; évaluer les performances et les cas particuliers (poids négatifs)."
+          goals: 'Évaluer et visualiser des algorithmes de recherche de chemin sur des jeux de données de graphes massifs.',
+          challenges: 'Optimisation de l\'utilisation de la mémoire pour les grandes listes d\'adjacence et gestion des cas particuliers comme la détection de cycles négatifs dans Bellman-Ford.'
         }
       ]
+
     },
-    
+
     // Contact Section
     contact: {
       title: 'Menu Pause',
@@ -305,7 +328,7 @@ export const translations = {
       toastTitle: 'Message Envoyé!',
       toastDescription: 'Votre message a été reçu. Je reviendrai vers vous bientôt!'
     },
-    
+
     // Footer
     footer: {
       craftedBy: 'Créé avec',
