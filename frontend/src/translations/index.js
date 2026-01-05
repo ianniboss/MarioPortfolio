@@ -139,6 +139,34 @@ export const translations = {
           category: 'Research & Development',
           goals: 'Evaluate and visualize pathfinding algorithms on massive graph datasets.',
           challenges: 'Optimizing memory usage for large adjacency lists and handling edge cases like negative cycle detection in Bellman-Ford.'
+        },
+        {
+          title: 'Malaysian Student Resource Hub',
+          description: 'Full-stack web application connecting 500+ Malaysian students across France.',
+          category: 'Full-stack Web Application',
+          goals: 'Create a centralized platform for community events and administrative guides for students.',
+          challenges: 'Managing real-time synchronization with Firebase and integrating multiple administrative resource categories.'
+        },
+        {
+          title: 'Trilingual Translator',
+          description: 'AI-powered translation tool for Malay, English, and French with simultaneous output.',
+          category: 'AI Application',
+          goals: 'Bridge language gaps for students using AI-driven real-time translation across three languages.',
+          challenges: 'Implementing efficient debouncing and handling simultaneous API calls for multiple target languages.'
+        },
+        {
+          title: 'Multi-language Caption Generator',
+          description: 'AI-powered social media caption generator for Malay, English, and French.',
+          category: 'AI Application',
+          goals: 'Automate content creation for social media with context-aware trilingual generation.',
+          challenges: 'Fine-tuning AI prompts for cultural nuances and maintaining consistent tone across languages.'
+        },
+        {
+          title: 'Weather Application',
+          description: 'Clean weather app with modern UI and 5-day forecast functionality.',
+          category: 'Web Application',
+          goals: 'Provide an intuitive interface for global weather tracking with precise search capability.',
+          challenges: 'Mapping dynamic weather icons and optimizing OpenWeatherMap API responses for mobile performance.'
         }
       ]
 
@@ -308,6 +336,34 @@ export const translations = {
           category: 'Recherche & Développement',
           goals: 'Évaluer et visualiser des algorithmes de recherche de chemin sur des jeux de données de graphes massifs.',
           challenges: 'Optimisation de l\'utilisation de la mémoire pour les grandes listes d\'adjacence et gestion des cas particuliers comme la détection de cycles négatifs dans Bellman-Ford.'
+        },
+        {
+          title: 'Hub de Ressources pour Étudiants Malaisiens',
+          description: 'Application web full-stack connectant plus de 500 étudiants malaisiens en France.',
+          category: 'Application Web Full-stack',
+          goals: 'Créer une plateforme centralisée pour les événements communautaires et les guides administratifs.',
+          challenges: 'Gestion de la synchronisation en temps réel avec Firebase et intégration de diverses catégories de ressources.'
+        },
+        {
+          title: 'Traducteur Trilingue',
+          description: 'Outil de traduction IA pour le malais, l\'anglais et le français avec sortie simultanée.',
+          category: 'Application IA',
+          goals: 'Combler les lacunes linguistiques via une traduction IA en temps réel sur trois langues.',
+          challenges: 'Mise en œuvre d\'un debouncing efficace et gestion des appels API simultanés.'
+        },
+        {
+          title: 'Générateur de Légendes Multi-langues',
+          description: 'Générateur de légendes pour réseaux sociaux via IA en malais, anglais et français.',
+          category: 'Application IA',
+          goals: 'Automatiser la création de contenu pour les réseaux sociaux avec une génération trilingue.',
+          challenges: 'Peaufinage des prompts IA pour les nuances culturelles et maintien d\'un ton cohérent.'
+        },
+        {
+          title: 'Application Météo',
+          description: 'App météo épurée avec interface moderne et prévisions à 5 jours.',
+          category: 'Application Web',
+          goals: 'Fournir une interface intuitive pour le suivi météo mondial avec recherche précise.',
+          challenges: 'Cartographie des icônes météo dynamiques et optimisation des réponses de l\'API OpenWeatherMap.'
         }
       ]
 

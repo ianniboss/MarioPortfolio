@@ -209,8 +209,60 @@ export const projectsData = [
     link: "https://github.com/ianniboss",
     category: "Research & Development",
     year: "2024",
-    goals: "Implement and compare shortest-path algorithms (Dijkstra and Bellman–Ford) to compute routes on weighted graphs; visualize paths, distances, and predecessor trees; evaluate performance and edge-case behavior (negative weights) to recommend optimal routing strategies.",
+    goals: "Evaluate and visualize pathfinding algorithms on massive graph datasets.",
     duration: "9 weeks"
+  },
+  {
+    id: 7,
+    title: "Malaysian Student Resource Hub",
+    description: "Full-stack web application connecting 500+ Malaysian students across France with event management and administrative resources.",
+    image: "/img/malaysian-hub.png",
+    screenshots: ["/img/malaysian-hub.png"],
+    technologies: ["React", "Firebase", "Google Maps API", "Full-stack"],
+    link: "https://github.com/ianniboss",
+    category: "Full-stack Web Application",
+    year: "2025",
+    goals: "Connect the Malaysian student community in France through a centralized platform for events and essential admin guides.",
+    duration: "Ongoing"
+  },
+  {
+    id: 8,
+    title: "Trilingual Translator",
+    description: "AI-powered translation tool for Malay, English, and French featuring simultaneous target output and real-time debouncing.",
+    image: "/img/translator.png",
+    screenshots: ["/img/translator.png"],
+    technologies: ["React", "Gemini API", "AI", "TailwindCSS"],
+    link: "https://github.com/ianniboss",
+    category: "AI Application",
+    year: "2025",
+    goals: "Provide instant, multi-language translation specifically optimized for students navigating between Malay, English, and French.",
+    duration: "2 weeks"
+  },
+  {
+    id: 9,
+    title: "Multi-language Caption Generator",
+    description: "Social media caption generator utilizing AI to create engaging content in Malay, English, and French.",
+    image: "/img/caption-gen.png",
+    screenshots: ["/img/caption-gen.png"],
+    technologies: ["React", "Gemini API", "AI", "Content Gen"],
+    link: "https://github.com/ianniboss",
+    category: "AI Application",
+    year: "2025",
+    goals: "Streamline content creation for trilingual users by generating context-aware social media captions automatically.",
+    duration: "1 week"
+  },
+  {
+    id: 10,
+    title: "Weather Application",
+    description: "Modern weather forecasting app featuring real-time data and a clean, responsive user interface.",
+    image: "/img/weather.png",
+    screenshots: ["/img/weather.png"],
+    technologies: ["React", "OpenWeatherMap API", "Web Design"],
+    link: "https://github.com/ianniboss",
+    category: "Web Application",
+    year: "2025",
+    goals: "Build a sleek, reliable weather tool providing current conditions and a 5-day forecast for any city worldwide.",
+    duration: "1 week"
   }
 ];
 
