@@ -563,7 +563,7 @@ section {
   perspective: 1000px;
   width: 100%;
   max-width: 700px;
-  min-height: 560px;
+  min-height: 620px;
   height: auto;
   cursor: pointer;
   position: relative;
@@ -647,7 +647,7 @@ section {
   position: relative;
   max-width: 560px;
   width: 100%;
-  min-height: 200px;
+  min-height: 250px;
   height: auto;
   box-shadow: 0 4px 0 var(--pixel-black);
   color: var(--pixel-black);
@@ -1383,7 +1383,7 @@ section {
 
   .about-card-3d {
     height: auto;
-    min-height: 450px;
+    min-height: 650px;
   }
 
   .avatar-container {
@@ -1398,7 +1398,8 @@ section {
   }
 
   .dialogue-box {
-    height: 360px;
+    min-height: 360px;
+    height: auto;
     max-width: 92vw;
   }
 }
