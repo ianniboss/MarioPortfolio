@@ -956,25 +956,42 @@ section {
   font-style: italic;
 }
 
-.skill-progress {
-  width: 100%;
-  height: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
-  overflow: hidden;
-  margin-bottom: 0.5rem;
+.skill-stars {
+  display: flex;
+  justify-content: center;
+  gap: 0.3rem;
+  margin-bottom: 0.75rem;
 }
 
-.skill-progress-bar {
-  height: 100%;
-  transition: width 1s ease-out;
-  border-radius: 5px;
+.star-filled {
+  filter: drop-shadow(0 0 5px currentColor);
+  animation: starPulse 2s infinite ease-in-out;
 }
 
-.skill-level {
+@keyframes starPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.star-empty {
+  opacity: 0.3;
+}
+
+.skill-rank {
   font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--pixel-white);
+  font-weight: 700;
+  color: var(--mario-yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Projects Section */

@@ -44,6 +44,8 @@ const EducationSection = () => {
                           src={logoSrc}
                           alt={`${edu.institution} emblem`}
                           className="edu-logo"
+                          loading="lazy"
+                          decoding="async"
                           onError={(e) => {
                             e.currentTarget.style.display = 'none';
                           }}
