@@ -261,7 +261,7 @@ export const projectsData = [
     image: "/img/weather.png",
     screenshots: ["/img/weather.png"],
     technologies: ["React", "OpenWeatherMap API", "Web Design"],
-    link: "https://weather-app-lemon-eta-l240jusrz6.vercel.app/",
+    link: "https://weather-app-ian.vercel.app/",
     source: "https://github.com/ianniboss/weather-app",
     category: "Web Application",
     year: "2025",
