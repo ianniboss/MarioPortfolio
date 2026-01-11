@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Languages } from 'lucide-react';
 import { Button } from './ui/button';
 import { useLanguage } from '../context/LanguageContext';
+import MushroomIcon from './icons/MushroomIcon';
 
 const Header = () => {
   const { language, toggleLanguage, t } = useLanguage();
@@ -37,7 +38,8 @@ const Header = () => {
   return (
     <header className={`portfolio-header ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
-        <div className="header-logo">
+        <div className="header-logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <MushroomIcon size={28} variant="red" className="mushroom-icon" />
           <span className="logo-text">PORTFOLIO</span>
         </div>
 
