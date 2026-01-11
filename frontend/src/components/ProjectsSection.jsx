@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { projectsData } from '../mock';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
-import { ExternalLink, Code } from 'lucide-react';
+import { ExternalLink, Code, Play } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from './ui/dialog';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
@@ -87,6 +87,16 @@ const ProjectsSection = () => {
                       variant="outline"
                       size="sm"
                       className="project-btn retro-btn"
+                      onClick={(e) => openDemo(e, demoUrl)}
+                      disabled={!demoUrl}
+                    >
+                      <Play size={16} />
+                      {t.projects.liveDemo}
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="project-btn retro-btn"
                       onClick={(e) => openSource(e, sourceUrl)}
                       disabled={!sourceUrl}
                     >
@@ -162,6 +172,13 @@ const ProjectsSection = () => {
                 </div>
               </div>
               <DialogFooter className="dialog-footer flex justify-end gap-2">
+                <Button
+                  variant="outline"
+                  className="retro-btn"
+                  onClick={(e) => openDemo(e, selectedProject.demo || selectedProject.link)}
+                >
+                  <Play size={16} /> {t.projects.liveDemo}
+                </Button>
                 <Button
                   variant="outline"
                   className="retro-btn"

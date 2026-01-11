@@ -162,6 +162,7 @@ const ContactSection = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="social-link"
+                    data-social={social.icon}
                   >
                     <IconComponent size={24} />
                     <span>{social.name}</span>
