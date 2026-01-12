@@ -72,40 +72,70 @@ const HeroScrollEngine = () => {
             new THREE.TetrahedronGeometry(0.5),    // Crystal
         ];
 
-        // Create 25 floating shapes at various depths
+        // Helper: Check if position is in the center "dead zone" (hero card area)
+        const isInDeadZone = (x, y) => {
+            // Dead zone: roughly center of screen where hero card sits
+            return Math.abs(x) < 12 && Math.abs(y) < 8;
+        };
+
+        // Helper: Generate position avoiding dead zone
+        const getEdgePosition = () => {
+            let x, y;
+            do {
+                // Spread shapes to edges
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 15 + Math.random() * 15; // 15-30 units from center
+                x = Math.cos(angle) * distance;
+                y = Math.sin(angle) * (distance * 0.6); // Squish Y for widescreen
+            } while (isInDeadZone(x, y));
+            return { x, y };
+        };
+
+        // Create 25 floating shapes - 70% in background, avoid center
         for (let i = 0; i < 25; i++) {
             const geometry = geometries[Math.floor(Math.random() * geometries.length)];
             const color = marioColors[Math.floor(Math.random() * marioColors.length)];
 
+            // 70% chance to be in background (far), 30% in foreground
+            const isBackground = Math.random() < 0.7;
+
             const material = new THREE.MeshBasicMaterial({
                 color: color,
                 transparent: true,
-                opacity: 0.4 + Math.random() * 0.3, // 0.4 - 0.7 opacity
-                wireframe: Math.random() > 0.5, // Some wireframe, some solid
+                opacity: isBackground ? (0.3 + Math.random() * 0.2) : (0.5 + Math.random() * 0.3),
+                wireframe: Math.random() > 0.5,
             });
 
             const mesh = new THREE.Mesh(geometry, material);
 
-            // Random position spread across the view
-            mesh.position.x = (Math.random() - 0.5) * 50;
-            mesh.position.y = (Math.random() - 0.5) * 30;
-            mesh.position.z = (Math.random() - 0.5) * 40 - 10;
+            // Position: avoid center, push to edges
+            const pos = getEdgePosition();
+            mesh.position.x = pos.x;
+            mesh.position.y = pos.y;
+            // Z position: 70% in background (-30 to -15), 30% in foreground (-10 to 5)
+            mesh.position.z = isBackground
+                ? -30 + Math.random() * 15  // Far back: -30 to -15
+                : -10 + Math.random() * 15; // Closer: -10 to 5
 
             // Random rotation
             mesh.rotation.x = Math.random() * Math.PI;
             mesh.rotation.y = Math.random() * Math.PI;
 
-            // Random scale
-            const scale = 0.5 + Math.random() * 1.5;
+            // Scale: background shapes slightly smaller
+            const scale = isBackground
+                ? (0.4 + Math.random() * 0.8)  // 0.4-1.2
+                : (0.6 + Math.random() * 1.2); // 0.6-1.8
             mesh.scale.set(scale, scale, scale);
 
             // Store original position for parallax
             mesh.userData = {
                 originalZ: mesh.position.z,
-                rotationSpeedX: (Math.random() - 0.5) * 0.02,
-                rotationSpeedY: (Math.random() - 0.5) * 0.02,
-                floatSpeed: 0.5 + Math.random() * 1,
+                originalY: mesh.position.y,
+                rotationSpeedX: (Math.random() - 0.5) * 0.015,
+                rotationSpeedY: (Math.random() - 0.5) * 0.015,
+                floatSpeed: 0.3 + Math.random() * 0.5,
                 floatOffset: Math.random() * Math.PI * 2,
+                isBackground: isBackground,
             };
 
             scene.add(mesh);
@@ -113,16 +143,20 @@ const HeroScrollEngine = () => {
         }
         shapesRef.current = shapes;
 
-        // === AMBIENT PARTICLES (stars/dust) ===
-        const particleCount = 100;
+        // === AMBIENT PARTICLES (stars/dust) - mostly in background ===
+        const particleCount = 80;
         const particlesGeometry = new THREE.BufferGeometry();
         const positions = new Float32Array(particleCount * 3);
         const colors = new Float32Array(particleCount * 3);
 
         for (let i = 0; i < particleCount * 3; i += 3) {
-            positions[i] = (Math.random() - 0.5) * 60;
-            positions[i + 1] = (Math.random() - 0.5) * 40;
-            positions[i + 2] = (Math.random() - 0.5) * 50 - 20;
+            // Spread particles to outer edges, avoid center
+            const angle = Math.random() * Math.PI * 2;
+            const distance = 20 + Math.random() * 20; // 20-40 units from center
+
+            positions[i] = Math.cos(angle) * distance;     // X - edge
+            positions[i + 1] = Math.sin(angle) * (distance * 0.5); // Y - squished
+            positions[i + 2] = -30 + Math.random() * 20;   // Z - mostly background (-30 to -10)
 
             // Random warm colors
             colors[i] = 0.8 + Math.random() * 0.2;     // R
@@ -134,9 +168,9 @@ const HeroScrollEngine = () => {
         particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
         const particlesMaterial = new THREE.PointsMaterial({
-            size: 0.15,
+            size: 0.12,
             transparent: true,
-            opacity: 0.6,
+            opacity: 0.5,
             vertexColors: true,
             sizeAttenuation: true
         });
