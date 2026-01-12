@@ -2894,8 +2894,20 @@ section {
 
 /* Tab Content Sections */
 .dialog-tab-content {
-  animation: fadeIn 0.3s ease;
+  animation: tabSlideIn 0.2s ease-out;
   min-height: 200px;
+}
+
+@keyframes tabSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .dialog-section {
