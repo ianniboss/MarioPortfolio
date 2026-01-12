@@ -267,6 +267,48 @@ export const projectsData = [
     year: "2025",
     goals: "Build a sleek, reliable weather tool providing current conditions and a 5-day forecast for any city worldwide.",
     duration: "1 week"
+  },
+  {
+    id: 11,
+    title: "Football Team Manager",
+    description: "A comprehensive football team management system for tracking players, matches, and statistics.",
+    image: "/img/football-manager.png",
+    screenshots: ["/img/football-manager.png"],
+    technologies: ["PHP", "MySQL", "CSS", "Web Application"],
+    link: "https://ftm.wuaze.com/",
+    source: "https://github.com/ianniboss/football-team-manager",
+    category: "Management System",
+    year: "2025",
+    goals: "Build a robust platform for coaches to manage team rosters, schedule matches, and analyze player performance.",
+    duration: "Ongoing"
+  },
+  {
+    id: 12,
+    title: "Sonic MP3 Converter",
+    description: "Fast and efficient YouTube to MP3 converter with a sleek, themed interface.",
+    image: "/img/sonic-converter.png",
+    screenshots: ["/img/sonic-converter.png"],
+    technologies: ["React", "YouTube API", "Vercel", "Web Application"],
+    link: "https://sonic-mp3-converter.vercel.app/",
+    source: "https://github.com/ianniboss/sonic-mp3-converter",
+    category: "Media Utility",
+    year: "2025",
+    goals: "Provide a simple, high-speed tool for converting media formats with a focus on user experience.",
+    duration: "1 week"
+  },
+  {
+    id: 13,
+    title: "Mario Notion Dashboard",
+    description: "A Mario-themed productivity dashboard integrated with Notion for task management and organization.",
+    image: "/img/mario-notion.png",
+    screenshots: ["/img/mario-notion.png"],
+    technologies: ["React", "Notion API", "TailwindCSS", "Web Application"],
+    link: "https://mario-notion.vercel.app/",
+    source: "https://github.com/ianniboss/mario-notion",
+    category: "Productivity",
+    year: "2025",
+    goals: "Combine productivity tools with a nostalgic gaming aesthetic to make task management fun.",
+    duration: "2 weeks"
   }
 ];
 

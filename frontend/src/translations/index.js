@@ -167,6 +167,27 @@ export const translations = {
           category: 'Web Application',
           goals: 'Provide an intuitive interface for global weather tracking with precise search capability.',
           challenges: 'Mapping dynamic weather icons and optimizing OpenWeatherMap API responses for mobile performance.'
+        },
+        {
+          title: 'Football Team Manager',
+          description: 'A comprehensive football team management system for tracking players, matches, and statistics.',
+          category: 'Management System',
+          goals: 'Build a robust platform for coaches to manage team rosters, schedule matches, and analyze player performance.',
+          challenges: 'Managing complex database relationships and providing a clean UI for real-time statistical analysis.'
+        },
+        {
+          title: 'Sonic MP3 Converter',
+          description: 'Fast and efficient YouTube to MP3 converter with a sleek, themed interface.',
+          category: 'Media Utility',
+          goals: 'Provide a simple, high-speed tool for converting media formats with a focus on user experience.',
+          challenges: 'Integrating with YouTube APIs and handling high-speed media conversion efficiently.'
+        },
+        {
+          title: 'Mario Notion Dashboard',
+          description: 'A Mario-themed productivity dashboard integrated with Notion for task management and organization.',
+          category: 'Productivity',
+          goals: 'Combine productivity tools with a nostalgic gaming aesthetic to make task management fun.',
+          challenges: 'Integrating with Notion API and creating a cohesive Mario-themed UI with TailwindCSS.'
         }
       ]
 
@@ -364,6 +385,27 @@ export const translations = {
           category: 'Application Web',
           goals: 'Fournir une interface intuitive pour le suivi météo mondial avec recherche précise.',
           challenges: 'Cartographie des icônes météo dynamiques et optimisation des réponses de l\'API OpenWeatherMap.'
+        },
+        {
+          title: 'Football Team Manager',
+          description: 'Un système complet de gestion d\'équipe de football pour le suivi des joueurs, des matchs et des statistiques.',
+          category: 'Système de Gestion',
+          goals: 'Construire une plateforme robuste pour les entraîneurs afin de gérer les effectifs, planifier les matchs et analyser les performances.',
+          challenges: 'Gestion de relations de base de données complexes et fourniture d\'une interface claire pour l\'analyse statistique en temps réel.'
+        },
+        {
+          title: 'Sonic MP3 Converter',
+          description: 'Convertisseur YouTube en MP3 rapide et efficace avec une interface thématique élégante.',
+          category: 'Utilitaire Média',
+          goals: 'Fournir un outil simple et rapide pour convertir des formats multimédias en mettant l\'accent sur l\'expérience utilisateur.',
+          challenges: 'Intégration avec les API YouTube et gestion efficace de la conversion multimédia à haute vitesse.'
+        },
+        {
+          title: 'Tableau de Bord Mario Notion',
+          description: 'Un tableau de bord de productivité sur le thème de Mario intégré à Notion pour la gestion des tâches et l\'organisation.',
+          category: 'Productivité',
+          goals: 'Combiner des outils de productivité avec une esthétique de jeu nostalgique pour rendre la gestion des tâches amusante.',
+          challenges: 'Intégration avec l\'API Notion et création d\'une interface cohérente sur le thème de Mario avec TailwindCSS.'
         }
       ]
 
