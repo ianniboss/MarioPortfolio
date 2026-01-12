@@ -2865,8 +2865,8 @@ section {
 
 /* Tabs in Dialog Right Panel */
 .dialog-tabs-list {
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--mario-yellow);
   border-radius: 8px;
   padding: 4px;
 }
@@ -2877,11 +2877,12 @@ section {
   padding: 0.5rem 0.75rem;
   border-radius: 6px;
   transition: all 0.3s ease;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--mario-yellow);
+  background: transparent;
 }
 
 .dialog-tab:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   color: white;
 }
 
