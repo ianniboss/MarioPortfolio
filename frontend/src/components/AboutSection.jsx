@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
-import { Mail, Phone, MapPin, Flag } from 'lucide-react';
+import { Mail, MapPin, Flag } from 'lucide-react';
 import MushroomIcon from './icons/MushroomIcon';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -23,7 +23,7 @@ const AboutSection = () => {
         </div>
 
         <div className="about-content">
-          <div 
+          <div
             className={`about-card-3d ${isFlipped ? 'flipped' : ''}`}
             onClick={() => setIsFlipped(!isFlipped)}
             data-float
@@ -32,8 +32,8 @@ const AboutSection = () => {
             <Card className="about-card-front">
               <div className="card-inner">
                 <div className="avatar-container">
-                  <img 
-                    src={avatarUrl} 
+                  <img
+                    src={avatarUrl}
                     alt={t.hero.name}
                     className="avatar-image"
                     loading="lazy"
@@ -83,13 +83,6 @@ const AboutSection = () => {
                   <div className="contact-item">
                     <Mail className="contact-icon" />
                     <span>{t.about.email}</span>
-                  </div>
-                  <div className="contact-item">
-                    <Phone className="contact-icon" />
-                    <div className="phone-numbers">
-                      <div>🇫🇷 {t.about.phoneFrance}</div>
-                      <div>🇲🇾 {t.about.phoneMalaysia}</div>
-                    </div>
                   </div>
                   <div className="contact-item">
                     <MapPin className="contact-icon" />

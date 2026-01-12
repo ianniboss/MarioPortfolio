@@ -35,8 +35,6 @@ export const translations = {
       resumeBtn: 'Download My Resume',
       contactTitle: 'Contact Info',
       email: 'ianhafiz9999@gmail.com',
-      phoneFrance: '+33 7 44 43 99 59',
-      phoneMalaysia: '+016 304 6426',
       location: 'Toulouse, France',
       nationality: 'Malaysian'
     },
@@ -253,8 +251,6 @@ export const translations = {
       resumeBtn: 'Télécharger mon CV',
       contactTitle: 'Coordonnées',
       email: 'ianhafiz9999@gmail.com',
-      phoneFrance: '+33 7 44 43 99 59',
-      phoneMalaysia: '+016 304 6426',
       location: 'Toulouse, France',
       nationality: 'Malaisien'
     },
