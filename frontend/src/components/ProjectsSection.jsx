@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import { projectsData } from '../mock';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
-import { ExternalLink, Code, Play } from 'lucide-react';
+import { ExternalLink, Code, Play, Target, Wrench, Lightbulb, Clock, Calendar } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from './ui/dialog';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 
 const ProjectsSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [activeTab, setActiveTab] = useState('overview');
 
   const openDemo = (e, url) => {
     e.stopPropagation();
@@ -23,12 +25,22 @@ const ProjectsSection = () => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
-  const closeDialog = () => setSelectedIndex(null);
+  const closeDialog = () => {
+    setSelectedIndex(null);
+    setActiveTab('overview');
+  };
 
   const selectedProject =
     selectedIndex !== null ? projectsData[selectedIndex] : null;
   const selectedTranslated =
     selectedIndex !== null ? t.projects.items[selectedIndex] : null;
+
+  // Tab labels based on language
+  const tabLabels = {
+    overview: language === 'fr' ? 'Aperçu' : 'Overview',
+    tech: language === 'fr' ? 'Technique' : 'Tech',
+    impact: language === 'fr' ? 'Impact' : 'Impact'
+  };
 
   return (
     <section id="projects" className="projects-section">
@@ -111,96 +123,169 @@ const ProjectsSection = () => {
         </div>
       </div>
 
+      {/* Case Study Panel Dialog */}
       <Dialog open={selectedIndex !== null} onOpenChange={(open) => !open && closeDialog()}>
-        <DialogContent className="retro-dialog max-w-4xl w-[90vw] max-h-[85vh] overflow-y-auto">
+        <DialogContent className="retro-dialog case-study-panel max-w-3xl w-[95vw] max-h-[90vh] overflow-hidden p-0">
           {selectedProject && selectedTranslated && (
-            <div className="project-dialog">
-              <DialogHeader>
-                <DialogTitle>{selectedTranslated.title}</DialogTitle>
-                <DialogDescription>{selectedTranslated.category}</DialogDescription>
+            <div className="case-study-wrapper">
+              {/* Header with Title & Tags */}
+              <DialogHeader className="case-study-header px-6 pt-6 pb-4">
+                <div className="flex flex-wrap items-center gap-3 mb-2">
+                  <span className="case-study-category">{selectedTranslated.category}</span>
+                  <span className="case-study-year flex items-center gap-1">
+                    <Calendar size={14} />
+                    {selectedProject.year || 'TBD'}
+                  </span>
+                  {selectedProject.duration && (
+                    <span className="case-study-duration flex items-center gap-1">
+                      <Clock size={14} />
+                      {selectedProject.duration}
+                    </span>
+                  )}
+                </div>
+                <DialogTitle className="case-study-title">{selectedTranslated.title}</DialogTitle>
+                <DialogDescription className="case-study-desc">
+                  {selectedTranslated.description}
+                </DialogDescription>
               </DialogHeader>
-              <div className="dialog-body flex flex-col md:flex-row gap-4 md:gap-6">
-                <div className="dialog-left md:w-1/2 w-full relative">
-                  <Carousel className="w-full" opts={{ loop: false }}>
-                    <CarouselContent>
-                      {(selectedProject.screenshots || [selectedProject.image]).map((src, idx) => (
-                        <CarouselItem key={idx}>
-                          <img
-                            src={src}
-                            alt={`${selectedTranslated.title} screenshot ${idx + 1}`}
-                            className="w-full h-auto min-h-[300px] max-h-[500px] rounded-md object-contain bg-gray-50"
-                            loading="lazy"
-                            decoding="async"
-                          />
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                    <CarouselPrevious className="-left-6" />
-                    <CarouselNext className="-right-6" />
-                  </Carousel>
-                </div>
-                <div className="dialog-right md:w-1/2 w-full space-y-3">
-                  <p className="text-sm text-muted-foreground">{selectedTranslated.description}</p>
-                  <div className="detail-grid grid grid-cols-1 gap-2">
-                    <div className="detail-row">
-                      <span className="detail-label font-medium">Category: </span>
-                      <span className="detail-value">{selectedTranslated.category}</span>
-                    </div>
-                    <div className="detail-row">
-                      <span className="detail-label font-medium">Year: </span>
-                      <span className="detail-value">{selectedProject.year || 'TBD'}</span>
-                    </div>
-                    {(selectedTranslated.problemSolved || selectedProject.problemSolved) && (
-                      <div className="detail-row">
-                        <span className="detail-label font-medium block">🎯 Problem Solved</span>
-                        <span className="detail-value block">{selectedTranslated.problemSolved || selectedProject.problemSolved}</span>
-                      </div>
-                    )}
-                    <div className="detail-row">
-                      <span className="detail-label font-medium block">🏆 Goals</span>
-                      <span className="detail-value block">{selectedTranslated.goals || selectedProject.goals || 'TBD'}</span>
-                    </div>
-                    {(selectedTranslated.role || selectedProject.role) && (
-                      <div className="detail-row">
-                        <span className="detail-label font-medium block">👤 My Role</span>
-                        <span className="detail-value block">{selectedTranslated.role || selectedProject.role}</span>
-                      </div>
-                    )}
-                    <div className="detail-row">
-                      <span className="detail-label font-medium block">⚡ Technical Challenges</span>
-                      <span className="detail-value block">{selectedTranslated.challenges || selectedProject.challenges || 'TBD'}</span>
-                    </div>
-                    {(selectedTranslated.learnings || selectedProject.learnings) && (
-                      <div className="detail-row">
-                        <span className="detail-label font-medium block">📚 Key Learnings</span>
-                        <span className="detail-value block">{selectedTranslated.learnings || selectedProject.learnings}</span>
-                      </div>
-                    )}
-                    <div className="detail-row">
-                      <span className="detail-label font-medium block">⏱️ Duration</span>
-                      <span className="detail-value block">{selectedProject.duration ? selectedProject.duration : 'TBD'}</span>
-                    </div>
 
-                  </div>
-                  <div className="dialog-tech flex flex-wrap gap-2 pt-2">
-                    {selectedProject.technologies.map((tech, i) => (
-                      <span key={i} className="tech-badge">{tech}</span>
+              {/* Hero Image Carousel - Full Width */}
+              <div className="case-study-hero px-6">
+                <Carousel className="w-full" opts={{ loop: false }}>
+                  <CarouselContent>
+                    {(selectedProject.screenshots || [selectedProject.image]).map((src, idx) => (
+                      <CarouselItem key={idx}>
+                        <img
+                          src={src}
+                          alt={`${selectedTranslated.title} screenshot ${idx + 1}`}
+                          className="case-study-image"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </CarouselItem>
                     ))}
-                  </div>
-                </div>
+                  </CarouselContent>
+                  {(selectedProject.screenshots?.length > 1) && (
+                    <>
+                      <CarouselPrevious className="case-carousel-prev" />
+                      <CarouselNext className="case-carousel-next" />
+                    </>
+                  )}
+                </Carousel>
               </div>
-              <DialogFooter className="dialog-footer flex justify-end gap-2">
+
+              {/* Tabbed Content */}
+              <div className="case-study-tabs px-6 py-4">
+                <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+                  <TabsList className="case-tabs-list w-full grid grid-cols-3">
+                    <TabsTrigger value="overview" className="case-tab">
+                      <Target size={16} className="mr-2" />
+                      {tabLabels.overview}
+                    </TabsTrigger>
+                    <TabsTrigger value="tech" className="case-tab">
+                      <Wrench size={16} className="mr-2" />
+                      {tabLabels.tech}
+                    </TabsTrigger>
+                    <TabsTrigger value="impact" className="case-tab">
+                      <Lightbulb size={16} className="mr-2" />
+                      {tabLabels.impact}
+                    </TabsTrigger>
+                  </TabsList>
+
+                  {/* Overview Tab */}
+                  <TabsContent value="overview" className="case-tab-content">
+                    {(selectedTranslated.problemSolved || selectedProject.problemSolved) && (
+                      <div className="case-section">
+                        <h4 className="case-section-title">
+                          🎯 {language === 'fr' ? 'Problème Résolu' : 'Problem Solved'}
+                        </h4>
+                        <p className="case-section-text">
+                          {selectedTranslated.problemSolved || selectedProject.problemSolved}
+                        </p>
+                      </div>
+                    )}
+                    <div className="case-section">
+                      <h4 className="case-section-title">
+                        🏆 {language === 'fr' ? 'Objectifs' : 'Goals'}
+                      </h4>
+                      <p className="case-section-text">
+                        {selectedTranslated.goals || selectedProject.goals || 'TBD'}
+                      </p>
+                    </div>
+                  </TabsContent>
+
+                  {/* Tech Tab */}
+                  <TabsContent value="tech" className="case-tab-content">
+                    {(selectedTranslated.role || selectedProject.role) && (
+                      <div className="case-section">
+                        <h4 className="case-section-title">
+                          👤 {language === 'fr' ? 'Mon Rôle' : 'My Role'}
+                        </h4>
+                        <p className="case-section-text">
+                          {selectedTranslated.role || selectedProject.role}
+                        </p>
+                      </div>
+                    )}
+                    <div className="case-section">
+                      <h4 className="case-section-title">
+                        ⚡ {language === 'fr' ? 'Défis Techniques' : 'Technical Challenges'}
+                      </h4>
+                      <p className="case-section-text">
+                        {selectedTranslated.challenges || selectedProject.challenges || 'TBD'}
+                      </p>
+                    </div>
+                    <div className="case-section">
+                      <h4 className="case-section-title">
+                        🛠️ {language === 'fr' ? 'Technologies' : 'Tech Stack'}
+                      </h4>
+                      <div className="case-tech-badges">
+                        {selectedProject.technologies.map((tech, i) => (
+                          <span key={i} className="tech-badge">{tech}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </TabsContent>
+
+                  {/* Impact Tab */}
+                  <TabsContent value="impact" className="case-tab-content">
+                    {(selectedTranslated.learnings || selectedProject.learnings) && (
+                      <div className="case-section">
+                        <h4 className="case-section-title">
+                          📚 {language === 'fr' ? 'Apprentissages Clés' : 'Key Learnings'}
+                        </h4>
+                        <p className="case-section-text">
+                          {selectedTranslated.learnings || selectedProject.learnings}
+                        </p>
+                      </div>
+                    )}
+                    <div className="case-section">
+                      <h4 className="case-section-title">
+                        ✨ {language === 'fr' ? 'Valeur Livrée' : 'Value Delivered'}
+                      </h4>
+                      <p className="case-section-text">
+                        {selectedTranslated.problemSolved || selectedProject.problemSolved ||
+                          (language === 'fr' ? 'Ce projet démontre des compétences pratiques en développement et en résolution de problèmes.' : 'This project demonstrates practical skills in development and problem-solving.')}
+                      </p>
+                    </div>
+                  </TabsContent>
+                </Tabs>
+              </div>
+
+              {/* Action Buttons Footer */}
+              <DialogFooter className="case-study-footer px-6 py-4 border-t">
                 <Button
                   variant="outline"
-                  className="retro-btn"
+                  className="retro-btn case-action-btn"
                   onClick={(e) => openDemo(e, selectedProject.demo || selectedProject.link)}
+                  disabled={!(selectedProject.demo || selectedProject.link)}
                 >
                   <Play size={16} /> {t.projects.liveDemo}
                 </Button>
                 <Button
                   variant="outline"
-                  className="retro-btn"
+                  className="retro-btn case-action-btn"
                   onClick={(e) => openSource(e, selectedProject.source || selectedProject.link)}
+                  disabled={!(selectedProject.source || selectedProject.link)}
                 >
                   <Code size={16} /> {t.projects.source}
                 </Button>
