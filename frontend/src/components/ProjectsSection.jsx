@@ -150,16 +150,34 @@ const ProjectsSection = () => {
                       <span className="detail-label font-medium">Year: </span>
                       <span className="detail-value">{selectedProject.year || 'TBD'}</span>
                     </div>
+                    {(selectedTranslated.problemSolved || selectedProject.problemSolved) && (
+                      <div className="detail-row">
+                        <span className="detail-label font-medium block">🎯 Problem Solved</span>
+                        <span className="detail-value block">{selectedTranslated.problemSolved || selectedProject.problemSolved}</span>
+                      </div>
+                    )}
                     <div className="detail-row">
-                      <span className="detail-label font-medium block">Goals</span>
+                      <span className="detail-label font-medium block">🏆 Goals</span>
                       <span className="detail-value block">{selectedTranslated.goals || selectedProject.goals || 'TBD'}</span>
                     </div>
+                    {(selectedTranslated.role || selectedProject.role) && (
+                      <div className="detail-row">
+                        <span className="detail-label font-medium block">👤 My Role</span>
+                        <span className="detail-value block">{selectedTranslated.role || selectedProject.role}</span>
+                      </div>
+                    )}
                     <div className="detail-row">
-                      <span className="detail-label font-medium block">Technical Challenges</span>
+                      <span className="detail-label font-medium block">⚡ Technical Challenges</span>
                       <span className="detail-value block">{selectedTranslated.challenges || selectedProject.challenges || 'TBD'}</span>
                     </div>
+                    {(selectedTranslated.learnings || selectedProject.learnings) && (
+                      <div className="detail-row">
+                        <span className="detail-label font-medium block">📚 Key Learnings</span>
+                        <span className="detail-value block">{selectedTranslated.learnings || selectedProject.learnings}</span>
+                      </div>
+                    )}
                     <div className="detail-row">
-                      <span className="detail-label font-medium block">Duration</span>
+                      <span className="detail-label font-medium block">⏱️ Duration</span>
                       <span className="detail-value block">{selectedProject.duration ? selectedProject.duration : 'TBD'}</span>
                     </div>
 
