@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { projectsData } from '../mock';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
-import { ExternalLink, Code, Play, Target, Wrench, Lightbulb, Clock, Calendar } from 'lucide-react';
+import { ExternalLink, Code, Play } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from './ui/dialog';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
@@ -123,159 +123,127 @@ const ProjectsSection = () => {
         </div>
       </div>
 
-      {/* Case Study Panel Dialog */}
+      {/* Project Modal with Tabs */}
       <Dialog open={selectedIndex !== null} onOpenChange={(open) => !open && closeDialog()}>
-        <DialogContent className="retro-dialog case-study-panel max-w-3xl w-[95vw] max-h-[90vh] overflow-hidden p-0">
+        <DialogContent className="retro-dialog max-w-4xl w-[90vw] max-h-[85vh] overflow-y-auto">
           {selectedProject && selectedTranslated && (
-            <div className="case-study-wrapper">
-              {/* Header with Title & Tags */}
-              <DialogHeader className="case-study-header px-6 pt-6 pb-4">
-                <div className="flex flex-wrap items-center gap-3 mb-2">
-                  <span className="case-study-category">{selectedTranslated.category}</span>
-                  <span className="case-study-year flex items-center gap-1">
-                    <Calendar size={14} />
-                    {selectedProject.year || 'TBD'}
-                  </span>
-                  {selectedProject.duration && (
-                    <span className="case-study-duration flex items-center gap-1">
-                      <Clock size={14} />
-                      {selectedProject.duration}
-                    </span>
-                  )}
+            <div className="project-dialog">
+              {/* Header with Title + Tabs */}
+              <DialogHeader className="dialog-header-with-tabs">
+                <div className="dialog-title-row">
+                  <div>
+                    <DialogTitle>{selectedTranslated.title}</DialogTitle>
+                    <DialogDescription>{selectedTranslated.category} • {selectedProject.year || 'TBD'} {selectedProject.duration && `• ${selectedProject.duration}`}</DialogDescription>
+                  </div>
                 </div>
-                <DialogTitle className="case-study-title">{selectedTranslated.title}</DialogTitle>
-                <DialogDescription className="case-study-desc">
-                  {selectedTranslated.description}
-                </DialogDescription>
               </DialogHeader>
 
-              {/* Hero Image Carousel - Full Width */}
-              <div className="case-study-hero px-6">
-                <Carousel className="w-full" opts={{ loop: false }}>
-                  <CarouselContent>
-                    {(selectedProject.screenshots || [selectedProject.image]).map((src, idx) => (
-                      <CarouselItem key={idx}>
-                        <img
-                          src={src}
-                          alt={`${selectedTranslated.title} screenshot ${idx + 1}`}
-                          className="case-study-image"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  {(selectedProject.screenshots?.length > 1) && (
-                    <>
-                      <CarouselPrevious className="case-carousel-prev" />
-                      <CarouselNext className="case-carousel-next" />
-                    </>
-                  )}
-                </Carousel>
+              {/* Two Column Layout: Image Left, Tabbed Content Right */}
+              <div className="dialog-body flex flex-col md:flex-row gap-4 md:gap-6">
+                {/* Left: Image Carousel */}
+                <div className="dialog-left md:w-1/2 w-full relative">
+                  <Carousel className="w-full" opts={{ loop: false }}>
+                    <CarouselContent>
+                      {(selectedProject.screenshots || [selectedProject.image]).map((src, idx) => (
+                        <CarouselItem key={idx}>
+                          <img
+                            src={src}
+                            alt={`${selectedTranslated.title} screenshot ${idx + 1}`}
+                            className="w-full h-auto min-h-[250px] max-h-[400px] rounded-md object-contain bg-gray-900/50"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    {(selectedProject.screenshots?.length > 1) && (
+                      <>
+                        <CarouselPrevious className="-left-4" />
+                        <CarouselNext className="-right-4" />
+                      </>
+                    )}
+                  </Carousel>
+                </div>
+
+                {/* Right: Tabbed Content */}
+                <div className="dialog-right md:w-1/2 w-full">
+                  <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+                    <TabsList className="dialog-tabs-list w-full grid grid-cols-3 mb-4">
+                      <TabsTrigger value="overview" className="dialog-tab">
+                        {tabLabels.overview}
+                      </TabsTrigger>
+                      <TabsTrigger value="tech" className="dialog-tab">
+                        {tabLabels.tech}
+                      </TabsTrigger>
+                      <TabsTrigger value="impact" className="dialog-tab">
+                        {tabLabels.impact}
+                      </TabsTrigger>
+                    </TabsList>
+
+                    {/* Overview Tab */}
+                    <TabsContent value="overview" className="dialog-tab-content space-y-4">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {selectedTranslated.description}
+                      </p>
+                      {(selectedTranslated.problemSolved || selectedProject.problemSolved) && (
+                        <div className="dialog-section">
+                          <h4 className="dialog-section-title">🎯 {language === 'fr' ? 'Problème Résolu' : 'Problem Solved'}</h4>
+                          <p className="dialog-section-text">{selectedTranslated.problemSolved || selectedProject.problemSolved}</p>
+                        </div>
+                      )}
+                      <div className="dialog-section">
+                        <h4 className="dialog-section-title">🏆 {language === 'fr' ? 'Objectifs' : 'Goals'}</h4>
+                        <p className="dialog-section-text">{selectedTranslated.goals || selectedProject.goals || 'TBD'}</p>
+                      </div>
+                    </TabsContent>
+
+                    {/* Tech Tab */}
+                    <TabsContent value="tech" className="dialog-tab-content space-y-4">
+                      {(selectedTranslated.role || selectedProject.role) && (
+                        <div className="dialog-section">
+                          <h4 className="dialog-section-title">👤 {language === 'fr' ? 'Mon Rôle' : 'My Role'}</h4>
+                          <p className="dialog-section-text">{selectedTranslated.role || selectedProject.role}</p>
+                        </div>
+                      )}
+                      <div className="dialog-section">
+                        <h4 className="dialog-section-title">⚡ {language === 'fr' ? 'Défis Techniques' : 'Technical Challenges'}</h4>
+                        <p className="dialog-section-text">{selectedTranslated.challenges || selectedProject.challenges || 'TBD'}</p>
+                      </div>
+                      <div className="dialog-section">
+                        <h4 className="dialog-section-title">🛠️ {language === 'fr' ? 'Technologies' : 'Tech Stack'}</h4>
+                        <div className="flex flex-wrap gap-2 mt-2">
+                          {selectedProject.technologies.map((tech, i) => (
+                            <span key={i} className="tech-badge">{tech}</span>
+                          ))}
+                        </div>
+                      </div>
+                    </TabsContent>
+
+                    {/* Impact Tab */}
+                    <TabsContent value="impact" className="dialog-tab-content space-y-4">
+                      {(selectedTranslated.learnings || selectedProject.learnings) && (
+                        <div className="dialog-section">
+                          <h4 className="dialog-section-title">📚 {language === 'fr' ? 'Apprentissages Clés' : 'Key Learnings'}</h4>
+                          <p className="dialog-section-text">{selectedTranslated.learnings || selectedProject.learnings}</p>
+                        </div>
+                      )}
+                      <div className="dialog-section">
+                        <h4 className="dialog-section-title">✨ {language === 'fr' ? 'Valeur Livrée' : 'Value Delivered'}</h4>
+                        <p className="dialog-section-text">
+                          {selectedTranslated.problemSolved || selectedProject.problemSolved ||
+                            (language === 'fr' ? 'Ce projet démontre des compétences pratiques en développement et en résolution de problèmes.' : 'This project demonstrates practical skills in development and problem-solving.')}
+                        </p>
+                      </div>
+                    </TabsContent>
+                  </Tabs>
+                </div>
               </div>
 
-              {/* Tabbed Content */}
-              <div className="case-study-tabs px-6 py-4">
-                <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                  <TabsList className="case-tabs-list w-full grid grid-cols-3">
-                    <TabsTrigger value="overview" className="case-tab">
-                      <Target size={16} className="mr-2" />
-                      {tabLabels.overview}
-                    </TabsTrigger>
-                    <TabsTrigger value="tech" className="case-tab">
-                      <Wrench size={16} className="mr-2" />
-                      {tabLabels.tech}
-                    </TabsTrigger>
-                    <TabsTrigger value="impact" className="case-tab">
-                      <Lightbulb size={16} className="mr-2" />
-                      {tabLabels.impact}
-                    </TabsTrigger>
-                  </TabsList>
-
-                  {/* Overview Tab */}
-                  <TabsContent value="overview" className="case-tab-content">
-                    {(selectedTranslated.problemSolved || selectedProject.problemSolved) && (
-                      <div className="case-section">
-                        <h4 className="case-section-title">
-                          🎯 {language === 'fr' ? 'Problème Résolu' : 'Problem Solved'}
-                        </h4>
-                        <p className="case-section-text">
-                          {selectedTranslated.problemSolved || selectedProject.problemSolved}
-                        </p>
-                      </div>
-                    )}
-                    <div className="case-section">
-                      <h4 className="case-section-title">
-                        🏆 {language === 'fr' ? 'Objectifs' : 'Goals'}
-                      </h4>
-                      <p className="case-section-text">
-                        {selectedTranslated.goals || selectedProject.goals || 'TBD'}
-                      </p>
-                    </div>
-                  </TabsContent>
-
-                  {/* Tech Tab */}
-                  <TabsContent value="tech" className="case-tab-content">
-                    {(selectedTranslated.role || selectedProject.role) && (
-                      <div className="case-section">
-                        <h4 className="case-section-title">
-                          👤 {language === 'fr' ? 'Mon Rôle' : 'My Role'}
-                        </h4>
-                        <p className="case-section-text">
-                          {selectedTranslated.role || selectedProject.role}
-                        </p>
-                      </div>
-                    )}
-                    <div className="case-section">
-                      <h4 className="case-section-title">
-                        ⚡ {language === 'fr' ? 'Défis Techniques' : 'Technical Challenges'}
-                      </h4>
-                      <p className="case-section-text">
-                        {selectedTranslated.challenges || selectedProject.challenges || 'TBD'}
-                      </p>
-                    </div>
-                    <div className="case-section">
-                      <h4 className="case-section-title">
-                        🛠️ {language === 'fr' ? 'Technologies' : 'Tech Stack'}
-                      </h4>
-                      <div className="case-tech-badges">
-                        {selectedProject.technologies.map((tech, i) => (
-                          <span key={i} className="tech-badge">{tech}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </TabsContent>
-
-                  {/* Impact Tab */}
-                  <TabsContent value="impact" className="case-tab-content">
-                    {(selectedTranslated.learnings || selectedProject.learnings) && (
-                      <div className="case-section">
-                        <h4 className="case-section-title">
-                          📚 {language === 'fr' ? 'Apprentissages Clés' : 'Key Learnings'}
-                        </h4>
-                        <p className="case-section-text">
-                          {selectedTranslated.learnings || selectedProject.learnings}
-                        </p>
-                      </div>
-                    )}
-                    <div className="case-section">
-                      <h4 className="case-section-title">
-                        ✨ {language === 'fr' ? 'Valeur Livrée' : 'Value Delivered'}
-                      </h4>
-                      <p className="case-section-text">
-                        {selectedTranslated.problemSolved || selectedProject.problemSolved ||
-                          (language === 'fr' ? 'Ce projet démontre des compétences pratiques en développement et en résolution de problèmes.' : 'This project demonstrates practical skills in development and problem-solving.')}
-                      </p>
-                    </div>
-                  </TabsContent>
-                </Tabs>
-              </div>
-
-              {/* Action Buttons Footer */}
-              <DialogFooter className="case-study-footer px-6 py-4 border-t">
+              {/* Footer Actions */}
+              <DialogFooter className="dialog-footer flex justify-end gap-2 pt-4">
                 <Button
                   variant="outline"
-                  className="retro-btn case-action-btn"
+                  className="retro-btn"
                   onClick={(e) => openDemo(e, selectedProject.demo || selectedProject.link)}
                   disabled={!(selectedProject.demo || selectedProject.link)}
                 >
@@ -283,7 +251,7 @@ const ProjectsSection = () => {
                 </Button>
                 <Button
                   variant="outline"
-                  className="retro-btn case-action-btn"
+                  className="retro-btn"
                   onClick={(e) => openSource(e, selectedProject.source || selectedProject.link)}
                   disabled={!(selectedProject.source || selectedProject.link)}
                 >
