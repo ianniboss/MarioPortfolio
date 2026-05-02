@@ -6,6 +6,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+## Environment Variables
+
+Analytics is optional and consent-based. To enable PostHog on Vercel, set:
+
+```bash
+REACT_APP_POSTHOG_KEY=phc_your-public-project-key
+REACT_APP_POSTHOG_HOST=https://us.i.posthog.com
+```
+
+If `REACT_APP_POSTHOG_KEY` is not set, analytics and the consent banner stay disabled.
+
 ### `npm start`
 
 Runs the app in the development mode.\

@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Portfolio from './pages/Portfolio';
 import { LanguageProvider } from './context/LanguageContext';
+import AnalyticsConsent from './components/AnalyticsConsent';
 
 function App() {
   const [apiMessage, setApiMessage] = useState('');
@@ -40,6 +41,7 @@ function App() {
             <Route path="/" element={<Portfolio />} />
           </Routes>
         </BrowserRouter>
+        <AnalyticsConsent />
         {showApiStatus && (
           <div style={{
             position: 'fixed',
