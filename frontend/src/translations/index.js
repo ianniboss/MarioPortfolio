@@ -50,7 +50,7 @@ export const translations = {
           institution: 'IUT Paul Sabatier, Université Toulouse III',
           year: '2024 - Present',
           description: '2nd Year, specializing in Application Development. Focus areas: Software Development, Databases, Networking, Project Management.',
-          image: 'Photo_campus_IUT_Toulouse.jpg',
+          image: 'Photo_campus_IUT_Toulouse.webp',
           logo: 'logo_iut_tls.png'
         },
         {
@@ -67,8 +67,8 @@ export const translations = {
           institution: 'Tuanku Munawir Science School, Malaysia',
           year: '2017 - 2022',
           description: 'Result: 9A+ in Pure Science and Language subjects.',
-          image: 'profile.jpg',
-          logo: 'saser.jpg'
+          image: 'profile.webp',
+          logo: 'saser.webp'
         }
       ]
     },
@@ -306,7 +306,7 @@ export const translations = {
           institution: 'IUT Paul Sabatier, Université Toulouse III',
           year: '2024 - Présent',
           description: '2ème année, spécialisation en Développement d\'Applications. Domaines d\'étude: Développement Logiciel, Bases de Données, Réseaux, Gestion de Projet.',
-          image: 'Photo_campus_IUT_Toulouse.jpg',
+          image: 'Photo_campus_IUT_Toulouse.webp',
           logo: 'logo_iut_tls.png'
         },
         {
@@ -323,8 +323,8 @@ export const translations = {
           institution: 'Tuanku Munawir Science School, Malaisie',
           year: '2017 - 2022',
           description: 'Résultat: 9A+ en Sciences Pures et matières linguistiques.',
-          image: 'profile.jpg',
-          logo: 'saser.jpg'
+          image: 'profile.webp',
+          logo: 'saser.webp'
         }
       ]
     },

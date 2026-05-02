@@ -8,7 +8,7 @@ import { useLanguage } from '../context/LanguageContext';
 const AboutSection = () => {
   const { t, language } = useLanguage();
   const [isFlipped, setIsFlipped] = useState(false);
-  const initialAvatar = `/img/profile.jpg`;
+  const initialAvatar = `/img/profile.webp`;
   const [avatarUrl, setAvatarUrl] = useState(initialAvatar);
   // PDFs are now served from public to keep bundles small
   const resumeHref = '/cv-resume/Resume_IanHafizBinSyahrulAzlan.pdf';
