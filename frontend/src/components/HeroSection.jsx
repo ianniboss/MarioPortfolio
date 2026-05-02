@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { ArrowDown } from 'lucide-react';
 import { Button } from './ui/button';
 import { useLanguage } from '../context/LanguageContext';
-import HeroScrollEngine from './ui/hero-scroll-engine';
+
+const HeroScrollEngine = lazy(() => import('./ui/hero-scroll-engine'));
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -23,7 +24,9 @@ const HeroSection = () => {
   return (
     <section id="home" className="hero-section" style={heroStyle}>
       {/* Cinematic Scroll Engine - z-0, behind everything */}
-      <HeroScrollEngine />
+      <Suspense fallback={null}>
+        <HeroScrollEngine />
+      </Suspense>
 
       {/* Mario Background Elements - z-10 */}
       <div className="hero-background" style={{ zIndex: 10 }}>
