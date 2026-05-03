@@ -114,8 +114,8 @@ export const projectsData = [
       "/img/parking.webp"
     ],
     technologies: ["Java", "PL/SQL", "SQL Developer", "Eclipse", "SCRUM"],
-    link: "https://github.com/ianniboss",
-    source: "https://gitlab.info.iut-tlse3.fr/b15_22/sae3a01",
+    link: null,
+    source: null,
     category: "Database Application",
     year: "2025"
   },
@@ -128,7 +128,7 @@ export const projectsData = [
       "/img/apache.webp"
     ],
     technologies: ["Linux", "Apache2", "SSL", "Server Admin"],
-    link: "https://github.com/ianniboss",
+    link: null,
     category: "System Administration",
     year: "2025"
   },
@@ -142,7 +142,7 @@ export const projectsData = [
     ],
     technologies: ["HTML", "CSS", "JavaScript", "Web Design"],
     demo: "https://viewer.pandasuite.com/2kTY2xBI",
-    link: "https://github.com/ianniboss",
+    link: null,
     category: "Web Development",
     year: "2025"
   },
@@ -163,7 +163,7 @@ export const projectsData = [
       "/img/tomato-8.webp"
     ],
     technologies: ["Java", "Modelio", "UML", "Database"],
-    link: "https://github.com/ianniboss",
+    link: null,
     source: "https://github.com/ianniboss/S201_TOMATES",
     category: "Desktop Application",
     year: "2025",
@@ -182,7 +182,7 @@ export const projectsData = [
       "/img/lol-3.webp"
     ],
     technologies: ["Oracle APEX", "SQL", "Database"],
-    link: "https://github.com/ianniboss",
+    link: null,
     category: "Web Application",
     year: "2024",
     goals: "Analyze LoL matches (Jan 16–18, 2025) via Riot API with an Oracle APEX app; highlight trends and win factors (performance, roles, champion stats); add two pages with correlation-based insights.",
@@ -204,7 +204,7 @@ export const projectsData = [
       "/img/python-7.webp"
     ],
     technologies: ["Python", "Algorithms", "Graph Theory"],
-    link: "https://github.com/ianniboss",
+    link: null,
     category: "Research & Development",
     year: "2024",
     goals: "Evaluate and visualize pathfinding algorithms on massive graph datasets.",
@@ -282,11 +282,11 @@ export const projectsData = [
   },
   {
     id: 12,
-    title: "Sonic MP3 Converter",
-    description: "Fast and efficient YouTube to MP3 converter with a sleek, themed interface.",
+    title: "Sonic Media Converter",
+    description: "Fast and efficient media format conversion tool with a sleek, themed interface.",
     image: "/img/sonic-converter.webp",
     screenshots: ["/img/sonic-converter.webp"],
-    technologies: ["React", "YouTube API", "Vercel", "Web Application"],
+    technologies: ["React", "Node.js", "Vercel", "Web Application"],
     link: "https://sonic-mp3-converter.vercel.app/",
     source: "https://github.com/ianniboss/sonic-mp3-converter",
     category: "Media Utility",

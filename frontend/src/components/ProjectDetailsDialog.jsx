@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, Play } from 'lucide-react';
+import { Code, Play, Lock } from 'lucide-react';
 import { Button } from './ui/button';
 import {
   Dialog,
@@ -182,7 +182,8 @@ const ProjectDetailsDialog = ({
               onClick={(e) => openDemo(e, selectedProject.demo || selectedProject.link)}
               disabled={!(selectedProject.demo || selectedProject.link)}
             >
-              <Play size={16} /> {t.projects.liveDemo}
+              {(selectedProject.demo || selectedProject.link) ? <Play size={16} /> : <Lock size={16} />}
+              {' '}{(selectedProject.demo || selectedProject.link) ? t.projects.liveDemo : t.projects.noDemo}
             </Button>
             <Button
               variant="outline"
@@ -190,7 +191,8 @@ const ProjectDetailsDialog = ({
               onClick={(e) => openSource(e, selectedProject.source || selectedProject.link)}
               disabled={!(selectedProject.source || selectedProject.link)}
             >
-              <Code size={16} /> {t.projects.source}
+              {(selectedProject.source || selectedProject.link) ? <Code size={16} /> : <Lock size={16} />}
+              {' '}{(selectedProject.source || selectedProject.link) ? t.projects.source : t.projects.sourceUnavailable}
             </Button>
           </DialogFooter>
         </div>

@@ -20,8 +20,8 @@ export const translations = {
     // Hero Section
     hero: {
       name: 'Ian Hafiz Syahrul Azlan',
-      title: 'Computer Science Student',
-      tagline: 'Crafting Digital Adventures',
+      title: 'Software Developer | Java · Python · React',
+      tagline: 'Seeking a 10-12 week internship — Available April-June 2026',
       startBtn: 'Start Adventure',
       projectsBtn: 'View Projects'
     },
@@ -29,7 +29,7 @@ export const translations = {
     // About Section
     about: {
       title: 'About Me',
-      description: "Hey there! I'm a passionate IT student and developer from Malaysia, currently studying in Toulouse, France. I love creating innovative applications and exploring new technologies. With a blend of creativity and technical expertise, I transform ideas into functional and engaging digital experiences. Currently seeking a 10-12 week internship for April-June 2026!",
+      description: "Full-stack developer specializing in Java, Python, SQL, and React. Currently in my 2nd year of a Bachelor's in IT at Université Toulouse III. I build everything from data-driven dashboards and AI-powered tools to community platforms serving 500+ users. Seeking a 10-12 week development internship (April-June 2026) — let's build something great together!",
       flipHint: 'Click to flip!',
       flipBackHint: 'Click to flip back!',
       resumeBtn: 'Download My Resume',
@@ -95,6 +95,8 @@ export const translations = {
       viewDetails: 'View Details',
       liveDemo: 'Live Demo',
       source: 'Source',
+      sourceUnavailable: 'Private Repo',
+      noDemo: 'No Demo',
       items: [
         {
           title: 'Parking Management Application',
@@ -207,8 +209,8 @@ export const translations = {
           learnings: 'Strengthened backend development skills, database normalization practices, and data visualization techniques for non-technical users.'
         },
         {
-          title: 'Sonic MP3 Converter',
-          description: 'A high-speed YouTube to MP3 converter featuring a themed interface, queue management, and optimized backend processing for fast conversions.',
+          title: 'Sonic Media Converter',
+          description: 'A high-speed media format conversion tool featuring a themed interface, queue management, and optimized backend processing for fast file conversions.',
           category: 'Media Utility',
           problemSolved: 'Most converters are ad-heavy and slow; this project focused on speed, simplicity, and a delightful user experience.',
           goals: 'Provide a fast, user-friendly media conversion tool with engaging UI and efficient backend processing.',
@@ -276,8 +278,8 @@ export const translations = {
     // Hero Section
     hero: {
       name: 'Ian Hafiz Syahrul Azlan',
-      title: 'Étudiant en informatique',
-      tagline: 'Créer des Aventures Numériques',
+      title: 'Développeur | Java · Python · React',
+      tagline: 'Recherche un stage de 10-12 semaines — Disponible avril-juin 2026',
       startBtn: 'Commencer l\'Aventure',
       projectsBtn: 'Voir les Projets'
     },
@@ -285,7 +287,7 @@ export const translations = {
     // About Section
     about: {
       title: 'À Propos de Moi',
-      description: "Bonjour! Je suis un étudiant passionné en informatique et développeur originaire de Malaisie, actuellement en études à Toulouse, France. J'adore créer des applications innovantes et explorer de nouvelles technologies. Avec un mélange de créativité et d'expertise technique, je transforme les idées en expériences numériques fonctionnelles et engageantes. Actuellement à la recherche d'un stage de 10-12 semaines pour avril-juin 2026!",
+      description: "Développeur full-stack spécialisé en Java, Python, SQL et React. Actuellement en 2ème année de BUT Informatique à l'Université Toulouse III. Je construis des dashboards, des outils IA et des plateformes communautaires pour 500+ utilisateurs. À la recherche d'un stage de développement de 10-12 semaines (avril-juin 2026) — construisons quelque chose de génial ensemble !",
       flipHint: 'Cliquez pour retourner!',
       flipBackHint: 'Cliquez pour revenir!',
       resumeBtn: 'Télécharger mon CV',
@@ -351,6 +353,8 @@ export const translations = {
       viewDetails: 'Voir Détails',
       liveDemo: 'Démo Live',
       source: 'Source',
+      sourceUnavailable: 'Dépôt Privé',
+      noDemo: 'Pas de Démo',
       items: [
         {
           title: 'Application de Gestion de Parking',
@@ -463,8 +467,8 @@ export const translations = {
           learnings: 'Renforcé les compétences en développement backend, les pratiques de normalisation de base de données et les techniques de visualisation de données pour les utilisateurs non-techniques.'
         },
         {
-          title: 'Sonic MP3 Converter',
-          description: 'Un convertisseur YouTube vers MP3 à haute vitesse avec une interface thématique, gestion de file d\'attente et traitement backend optimisé pour des conversions rapides.',
+          title: 'Sonic Media Converter',
+          description: 'Un outil de conversion de formats média à haute vitesse avec une interface thématique, gestion de file d\'attente et traitement backend optimisé pour des conversions rapides.',
           category: 'Utilitaire Média',
           problemSolved: 'La plupart des convertisseurs sont pleins de publicités et lents; ce projet s\'est concentré sur la vitesse, la simplicité et une expérience utilisateur agréable.',
           goals: 'Fournir un outil de conversion média rapide et convivial avec une UI engageante et un traitement backend efficace.',

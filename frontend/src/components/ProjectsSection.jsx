@@ -2,7 +2,7 @@ import React, { lazy, Suspense, useState } from 'react';
 import { projectsData } from '../mock';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
-import { ExternalLink, Code, Play } from 'lucide-react';
+import { ExternalLink, Code, Play, Lock } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const ProjectDetailsDialog = lazy(() => import('./ProjectDetailsDialog'));
@@ -28,6 +28,7 @@ const ProjectsSection = () => {
     setSelectedIndex(null);
     setActiveTab('overview');
   };
+
 
   const selectedProject =
     selectedIndex !== null ? projectsData[selectedIndex] : null;
@@ -94,8 +95,8 @@ const ProjectsSection = () => {
                       onClick={(e) => openDemo(e, demoUrl)}
                       disabled={!demoUrl}
                     >
-                      <Play size={16} />
-                      {t.projects.liveDemo}
+                      {demoUrl ? <Play size={16} /> : <Lock size={16} />}
+                      {demoUrl ? t.projects.liveDemo : t.projects.noDemo}
                     </Button>
                     <Button
                       variant="outline"
@@ -104,8 +105,8 @@ const ProjectsSection = () => {
                       onClick={(e) => openSource(e, sourceUrl)}
                       disabled={!sourceUrl}
                     >
-                      <Code size={16} />
-                      {t.projects.source}
+                      {sourceUrl ? <Code size={16} /> : <Lock size={16} />}
+                      {sourceUrl ? t.projects.source : t.projects.sourceUnavailable}
                     </Button>
                   </div>
                 </div>

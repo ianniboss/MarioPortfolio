@@ -352,10 +352,7 @@ body {
   z-index: 0;
 }
 
-/* Mario-style world background for hero */
-.hero-section {
-  background: transparent;
-}
+
 
 /* When using screenshot, hide extra overlays to avoid duplication */
 .hero-section .pixel-cloud {
@@ -399,23 +396,6 @@ body {
   top: 10%;
   left: 10%;
   animation: floatMarioCloud 6s ease-in-out infinite;
-}
-
-.cloud-2 {
-  top: 18%;
-  right: 14%;
-  animation: floatMarioCloud 7s ease-in-out infinite;
-}
-
-.cloud-3 {
-  bottom: 38%;
-  left: 22%;
-  animation: floatMarioCloud 8s ease-in-out infinite;
-}
-
-.cloud-1 {
-  top: 10%;
-  left: 10%;
   animation-delay: 0s;
   will-change: transform;
 }
@@ -423,6 +403,7 @@ body {
 .cloud-2 {
   top: 20%;
   right: 15%;
+  animation: floatMarioCloud 7s ease-in-out infinite;
   animation-delay: 2s;
   will-change: transform;
 }
@@ -430,6 +411,7 @@ body {
 .cloud-3 {
   bottom: 30%;
   left: 20%;
+  animation: floatMarioCloud 8s ease-in-out infinite;
   animation-delay: 4s;
   will-change: transform;
 }
@@ -573,6 +555,7 @@ body {
 section {
   padding: 6rem 2rem;
   position: relative;
+  z-index: 1;
   overflow: hidden;
   will-change: transform, opacity;
 }
@@ -1622,86 +1605,6 @@ section {
 }
 
 
-/* Ensure sections have proper isolation */
-section {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.progress-bar {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--smash-green) 0%, var(--mario-yellow) 100%);
-  animation: fillProgress 1s ease-out;
-}
-
-@keyframes fillProgress {
-  from {
-    width: 0;
-  }
-}
-
-/* Skills Section */
-.skills-section {
-  background: transparent;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.skill-card {
-  background: rgba(15, 15, 16, 0.9);
-  border: 3px solid var(--mario-blue);
-  padding: 2rem;
-  text-align: center;
-  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-}
-
-.skill-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  border-color: var(--mario-yellow);
-  box-shadow: 0 12px 30px rgba(251, 208, 0, 0.3);
-}
-
-.skill-icon-container {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 1rem;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid rgba(255, 255, 255, 0.1);
-}
-
-.skill-icon {
-  width: 40px;
-  height: 40px;
-}
-
-.skill-name {
-  font-size: 1.2rem;
-  color: var(--pixel-white);
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-}
-
-.skill-type {
-  font-size: 0.85rem;
-  color: var(--mario-yellow);
-  margin-bottom: 1rem;
-  font-style: italic;
-}
 
 .skill-progress {
   width: 100%;
@@ -1724,145 +1627,6 @@ section {
   color: var(--pixel-white);
 }
 
-/* Projects Section */
-.projects-section {
-  background: transparent;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-}
-
-.project-card {
-  background: rgba(15, 15, 16, 0.9);
-  border: 3px solid var(--smash-orange);
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(255, 107, 0, 0.3);
-}
-
-.project-image-container {
-  position: relative;
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-}
-
-.project-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s;
-}
-
-.project-card:hover .project-image {
-  transform: scale(1.1);
-}
-
-.project-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(229, 37, 33, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.project-card:hover .project-overlay {
-  opacity: 1;
-}
-
-.view-project-btn {
-  background: var(--mario-yellow);
-  color: var(--pixel-black);
-  border: none;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.project-content {
-  padding: 1.5rem;
-}
-
-.project-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1rem;
-}
-
-.project-title {
-  font-size: 1.3rem;
-  color: var(--pixel-white);
-  font-weight: 600;
-}
-
-.project-category {
-  background: var(--smash-purple);
-  color: var(--pixel-white);
-  padding: 0.3rem 0.8rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.project-description {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.project-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.tech-badge {
-  background: rgba(4, 156, 216, 0.2);
-  color: var(--mario-blue);
-  border: 1px solid var(--mario-blue);
-  padding: 0.3rem 0.8rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-.project-actions {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.project-btn {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  transition: background 0.3s, color 0.3s;
-}
-
-.project-btn:hover {
-  background: var(--mario-red);
-  color: var(--pixel-white);
-  border-color: var(--mario-red);
-}
 
 /* Retro Nintendo-inspired dialog container */
 .retro-dialog {
@@ -1920,11 +1684,7 @@ section {
   min-width: 120px;
 }
 
-.project-btn:hover {
-  background: var(--mario-red);
-  color: var(--pixel-white);
-  border-color: var(--mario-red);
-}
+
 
 /* Responsive Design */
 @media (max-width: 1024px) {
