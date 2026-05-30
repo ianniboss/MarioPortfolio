@@ -12,29 +12,12 @@ const HeroSection = () => {
     document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const bgUrl = `${process.env.PUBLIC_URL}/img/mario-bg.webp`;
-  const heroStyle = {
-    backgroundImage: `url('${bgUrl}')`,
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center bottom',
-    backgroundSize: 'cover',
-    imageRendering: 'pixelated',
-  };
-
   return (
-    <section id="home" className="hero-section" style={heroStyle}>
+    <section id="home" className="hero-section">
       {/* Cinematic Scroll Engine - z-0, behind everything */}
       <Suspense fallback={null}>
         <HeroScrollEngine />
       </Suspense>
-
-      {/* Mario Background Elements - z-10 */}
-      <div className="hero-background" style={{ zIndex: 10 }}>
-        <div className="pixel-cloud cloud-1"></div>
-        <div className="pixel-cloud cloud-2"></div>
-        <div className="pixel-cloud cloud-3"></div>
-        <div className="mario-ground"></div>
-      </div>
 
       {/* Hero Content - z-20 */}
       <div className="hero-content" data-float-children style={{ zIndex: 20 }}>
