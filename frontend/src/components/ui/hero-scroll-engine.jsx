@@ -46,6 +46,9 @@ const HeroScrollEngine = () => {
 
         const cameraBase = { x: 0, y: 2, z: 34, lookZ: 0 };
         const pointer = { x: 0, y: 0 };
+        const postHero = { t: 0 };
+        const fogFrom = new THREE.Color(0x6aa8ff);
+        const fogTo = new THREE.Color(0x070a16);
 
         const renderer = new THREE.WebGLRenderer({
             alpha: true,
@@ -63,7 +66,19 @@ const HeroScrollEngine = () => {
         renderer.shadowMap.enabled = enableShadows;
         renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-        containerRef.current.appendChild(renderer.domElement);
+        const existingCanvas = document.querySelector('[data-hero-scroll-canvas="true"]');
+        if (existingCanvas && existingCanvas.parentNode) {
+            existingCanvas.parentNode.removeChild(existingCanvas);
+        }
+
+        renderer.domElement.style.position = 'fixed';
+        renderer.domElement.style.inset = '0';
+        renderer.domElement.style.width = '100%';
+        renderer.domElement.style.height = '100%';
+        renderer.domElement.style.zIndex = '0';
+        renderer.domElement.style.pointerEvents = 'none';
+        renderer.domElement.setAttribute('data-hero-scroll-canvas', 'true');
+        document.body.appendChild(renderer.domElement);
         rendererRef.current = renderer;
 
         const createSkyDome = () => {
@@ -372,6 +387,7 @@ const HeroScrollEngine = () => {
 
         const scrollState = { progress: 0 };
         let scrollTween = null;
+        let blendTrigger = null;
 
         if (enableMotion) {
             scrollTween = gsap.to(scrollState, {
@@ -400,6 +416,26 @@ const HeroScrollEngine = () => {
                     }
                 }
             });
+
+            blendTrigger = ScrollTrigger.create({
+                trigger: '#about',
+                start: 'top bottom',
+                end: 'top top',
+                scrub: 1.2,
+                onUpdate: (self) => {
+                    postHero.t = self.progress;
+
+                    cameraBase.z = THREE.MathUtils.lerp(24, 19.5, postHero.t);
+                    cameraBase.y = THREE.MathUtils.lerp(6.4, 10.5, postHero.t);
+                    cameraBase.x = THREE.MathUtils.lerp(0, 0.8, postHero.t);
+                    cameraBase.lookZ = THREE.MathUtils.lerp(-10, -22, postHero.t);
+
+                    shapes.forEach((shape) => {
+                        if (!shape.userData) return;
+                        shape.position.z = shape.userData.baseZ + shape.userData.parallax - postHero.t * 10;
+                    });
+                }
+            });
         } else {
             camera.lookAt(0, 0.2, 0);
         }
@@ -417,6 +453,18 @@ const HeroScrollEngine = () => {
             camera.position.y = cameraBase.y + pointerY;
             camera.position.z = cameraBase.z;
             camera.lookAt(pointerX * 0.15, 0.2 + pointerY * 0.1, cameraBase.lookZ);
+
+            if (scene.fog) {
+                scene.fog.density = THREE.MathUtils.lerp(0.0045, 0.012, postHero.t);
+                scene.fog.color.lerpColors(fogFrom, fogTo, postHero.t);
+            }
+
+            ambient.intensity = THREE.MathUtils.lerp(0.9, 0.45, postHero.t);
+            hemi.intensity = THREE.MathUtils.lerp(0.55, 0.25, postHero.t);
+            keyLight.intensity = THREE.MathUtils.lerp(2.2, 1.1, postHero.t);
+            fillLight.intensity = THREE.MathUtils.lerp(0.8, 0.35, postHero.t);
+            warmRim.intensity = THREE.MathUtils.lerp(0.55, 0.2, postHero.t);
+            particlesMaterial.opacity = THREE.MathUtils.lerp(0.42, 0.12, postHero.t);
 
             shapes.forEach((shape) => {
                 if (!shape.userData) return;
@@ -489,8 +537,12 @@ const HeroScrollEngine = () => {
                 scrollTween.kill();
             }
 
-            if (rendererRef.current && containerRef.current) {
-                containerRef.current.removeChild(rendererRef.current.domElement);
+            if (blendTrigger) blendTrigger.kill();
+
+            if (rendererRef.current) {
+                if (rendererRef.current.domElement && rendererRef.current.domElement.parentNode) {
+                    rendererRef.current.domElement.parentNode.removeChild(rendererRef.current.domElement);
+                }
                 rendererRef.current.dispose();
             }
 
@@ -527,11 +579,7 @@ const HeroScrollEngine = () => {
             ref={containerRef}
             className="hero-scroll-engine"
             style={{
-                position: 'absolute',
-                inset: 0,
-                zIndex: 5,
-                pointerEvents: 'none',
-                overflow: 'hidden'
+                display: 'none'
             }}
             aria-hidden="true"
         />
