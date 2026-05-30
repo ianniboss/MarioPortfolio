@@ -49,6 +49,8 @@ const HeroScrollEngine = () => {
         const postHero = { t: 0 };
         const fogFrom = new THREE.Color(0x6aa8ff);
         const fogTo = new THREE.Color(0x070a16);
+        const white = new THREE.Color(0xffffff);
+        const skyTintTo = new THREE.Color(0x111624);
 
         const renderer = new THREE.WebGLRenderer({
             alpha: true,
@@ -75,7 +77,7 @@ const HeroScrollEngine = () => {
         renderer.domElement.style.inset = '0';
         renderer.domElement.style.width = '100%';
         renderer.domElement.style.height = '100%';
-        renderer.domElement.style.zIndex = '0';
+        renderer.domElement.style.zIndex = '-2';
         renderer.domElement.style.pointerEvents = 'none';
         renderer.domElement.setAttribute('data-hero-scroll-canvas', 'true');
         document.body.appendChild(renderer.domElement);
@@ -175,6 +177,27 @@ const HeroScrollEngine = () => {
 
         const isInDeadZone = (x, y) => Math.abs(x) < 14 && Math.abs(y) < 9;
 
+        const ensureBaseOpacity = (material) => {
+            if (!material) return;
+            if (!material.userData) material.userData = {};
+            if (typeof material.userData.baseOpacity === 'number') return;
+            material.userData.baseOpacity = typeof material.opacity === 'number' ? material.opacity : 1;
+        };
+
+        const applyOpacity = (obj, opacity) => {
+            obj.traverse((child) => {
+                if (!child.material) return;
+                const materials = Array.isArray(child.material) ? child.material : [child.material];
+                materials.forEach((mat) => {
+                    if (!mat) return;
+                    ensureBaseOpacity(mat);
+                    if (typeof mat.opacity !== 'number') mat.opacity = 1;
+                    mat.transparent = true;
+                    mat.opacity = mat.userData.baseOpacity * opacity;
+                });
+            });
+        };
+
         const getEdgePosition = ({ min = 16, max = 34, yFactor = 0.62 } = {}) => {
             let x, y;
             do {
@@ -191,6 +214,7 @@ const HeroScrollEngine = () => {
                 new THREE.EdgesGeometry(mesh.geometry),
                 new THREE.LineBasicMaterial({ color, transparent: true, opacity })
             );
+            ensureBaseOpacity(edges.material);
             mesh.add(edges);
             return mesh;
         };
@@ -459,17 +483,25 @@ const HeroScrollEngine = () => {
                 scene.fog.color.lerpColors(fogFrom, fogTo, postHero.t);
             }
 
+            if (sky) {
+                sky.material.color.lerpColors(white, skyTintTo, postHero.t);
+            }
+
             ambient.intensity = THREE.MathUtils.lerp(0.9, 0.45, postHero.t);
             hemi.intensity = THREE.MathUtils.lerp(0.55, 0.25, postHero.t);
             keyLight.intensity = THREE.MathUtils.lerp(2.2, 1.1, postHero.t);
             fillLight.intensity = THREE.MathUtils.lerp(0.8, 0.35, postHero.t);
             warmRim.intensity = THREE.MathUtils.lerp(0.55, 0.2, postHero.t);
             particlesMaterial.opacity = THREE.MathUtils.lerp(0.42, 0.12, postHero.t);
+            ground.material.opacity = THREE.MathUtils.lerp(0.12, 0.36, postHero.t);
+
+            const shapeOpacity = THREE.MathUtils.lerp(1, 0.18, postHero.t);
 
             shapes.forEach((shape) => {
                 if (!shape.userData) return;
                 shape.position.x = shape.userData.baseX + Math.sin(t * 0.12 + shape.userData.floatOffset) * 0.18;
                 shape.position.y = shape.userData.baseY + Math.sin(t * shape.userData.floatSpeed + shape.userData.floatOffset) * shape.userData.floatAmp;
+                applyOpacity(shape, shapeOpacity);
 
                 if (shape.userData.rotSpeed > 0) {
                     shape.rotation.y = shape.userData.rotOffset + t * shape.userData.rotSpeed;
