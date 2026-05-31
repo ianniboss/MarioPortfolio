@@ -2752,5 +2752,17 @@ body {
   }
 }
 
+/* ── 3D background layer ── */
+.app-wrapper {
+  position: relative;
+}
 
+.app-wrapper > *:not(canvas) {
+  position: relative;
+  z-index: 1;
+}
 
+/* Make contact section background semi-transparent to let global 3D background show through */
+.contact-section {
+  background: linear-gradient(to bottom, rgba(22, 33, 62, 0.85) 0%, rgba(15, 52, 96, 0.85) 100%) !important;
+}

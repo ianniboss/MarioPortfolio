@@ -29,12 +29,7 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="hero-section">
-      {/* Cinematic Scroll Engine - Defer-loaded, z-0, behind everything */}
-      {load3D && (
-        <Suspense fallback={null}>
-          <HeroScrollEngine />
-        </Suspense>
-      )}
+      {/* Global MarioBackground is loaded in App.js */}
 
       {/* Hero Content - z-20 */}
       <div className="hero-content" data-float-children style={{ zIndex: 20 }}>
