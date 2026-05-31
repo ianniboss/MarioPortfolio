@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { ArrowDown } from 'lucide-react';
 import { Button } from './ui/button';
 import { useLanguage } from '../context/LanguageContext';
@@ -7,6 +7,21 @@ const HeroScrollEngine = lazy(() => import('./ui/hero-scroll-engine'));
 
 const HeroSection = () => {
   const { t } = useLanguage();
+  const [load3D, setLoad3D] = useState(false);
+
+  useEffect(() => {
+    // Defer the heavy WebGL compilation/initialisation until after the main thread is fully free
+    if (document.readyState === 'complete') {
+      const timer = setTimeout(() => setLoad3D(true), 400);
+      return () => clearTimeout(timer);
+    } else {
+      const handleLoad = () => {
+        setTimeout(() => setLoad3D(true), 250);
+      };
+      window.addEventListener('load', handleLoad);
+      return () => window.removeEventListener('load', handleLoad);
+    }
+  }, []);
 
   const scrollToAbout = () => {
     document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
@@ -14,10 +29,12 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="hero-section">
-      {/* Cinematic Scroll Engine - z-0, behind everything */}
-      <Suspense fallback={null}>
-        <HeroScrollEngine />
-      </Suspense>
+      {/* Cinematic Scroll Engine - Defer-loaded, z-0, behind everything */}
+      {load3D && (
+        <Suspense fallback={null}>
+          <HeroScrollEngine />
+        </Suspense>
+      )}
 
       {/* Hero Content - z-20 */}
       <div className="hero-content" data-float-children style={{ zIndex: 20 }}>
@@ -52,3 +69,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+

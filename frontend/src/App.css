@@ -2713,4 +2713,44 @@ body {
   box-shadow: 3px 3px 0 #111111;
 }
 
+/* ==========================================
+   Global Accessibility (Prefers-Reduced-Motion)
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: scroll !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+  
+  /* Disable spec sheet sliding transitions - make them load instantly */
+  .cartridge-spec-sheet {
+    transition: none !important;
+  }
+  .cartridge-card:hover .cartridge-spec-sheet {
+    transform: translateY(0) !important;
+  }
+
+  /* Disable LED status light pulsing animation */
+  .cartridge-card:hover .cartridge-led {
+    animation: none !important;
+  }
+
+  /* Disable 3D tilt effects */
+  .cartridge-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 6px 6px 0px #111111 !important;
+  }
+  
+  /* Disable dialog entry slide-in transitions */
+  .dialog-tab-content {
+    animation: none !important;
+  }
+}
+
+
 

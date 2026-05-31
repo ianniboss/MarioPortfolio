@@ -17,6 +17,10 @@ export function use3dTilt() {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) return;
 
+    // Detect if primary pointer is touch (coarse) to avoid sticky hover tilts on phones/tablets
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+    if (isTouch) return;
+
     const handlePointerMove = (e) => {
       const rect = el.getBoundingClientRect();
       const x = e.clientX - rect.left; // cursor x position relative to card
