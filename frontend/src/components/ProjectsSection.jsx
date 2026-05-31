@@ -4,8 +4,96 @@ import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { ExternalLink, Code, Play, Lock } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { use3dTilt } from '../hooks/use3dTilt';
 
 const ProjectDetailsDialog = lazy(() => import('./ProjectDetailsDialog'));
+
+// High-fidelity Project Card with physical 3D tilt tracking and retro cartridge design
+const ProjectCard = ({ project, index, translatedProject, t, setSelectedIndex, openDemo, openSource }) => {
+  const tiltRef = use3dTilt();
+  const demoUrl = project.demo || project.link;
+  const sourceUrl = project.source || project.link;
+
+  return (
+    <Card
+      ref={tiltRef}
+      className="project-card cartridge-card cartridge-project"
+      onClick={() => setSelectedIndex(index)}
+      data-float
+      data-float-speed="1.4"
+    >
+      {/* Glossy glare reflection */}
+      <div className="cartridge-glare" />
+
+      {/* Retro LED Light wrapper */}
+      <div className="cartridge-led-wrapper">
+        <div className="cartridge-led" />
+        <span className="cartridge-led-label">CART.{index < 9 ? `0${index + 1}` : index + 1}</span>
+      </div>
+
+      {/* Cartridge Grooves */}
+      <div className="cartridge-grooves">
+        <div className="cartridge-groove" />
+        <div className="cartridge-groove" />
+        <div className="cartridge-groove" />
+        <div className="cartridge-groove" />
+      </div>
+
+      <div className="project-image-container">
+        <img
+          src={project.image}
+          alt={translatedProject.title}
+          className="project-image"
+          loading="lazy"
+          decoding="async"
+        />
+        <div className="project-overlay">
+          <Button className="view-project-btn" onClick={(e) => { e.stopPropagation(); setSelectedIndex(index); }}>
+            <ExternalLink size={20} />
+            {t.projects.viewDetails}
+          </Button>
+        </div>
+      </div>
+
+      <div className="project-content">
+        <div className="project-header">
+          <h3 className="project-title">{translatedProject.title}</h3>
+          <span className="project-category">{translatedProject.category}</span>
+        </div>
+        <p className="project-description">{translatedProject.description}</p>
+
+        <div className="project-tech">
+          {project.technologies.map((tech, techIndex) => (
+            <span key={techIndex} className="tech-badge">{tech}</span>
+          ))}
+        </div>
+
+        <div className="project-actions">
+          <Button
+            variant="outline"
+            size="sm"
+            className="project-btn retro-btn"
+            onClick={(e) => openDemo(e, demoUrl)}
+            disabled={!demoUrl}
+          >
+            {demoUrl ? <Play size={16} /> : <Lock size={16} />}
+            {demoUrl ? t.projects.liveDemo : t.projects.noDemo}
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            className="project-btn retro-btn"
+            onClick={(e) => openSource(e, sourceUrl)}
+            disabled={!sourceUrl}
+          >
+            {sourceUrl ? <Code size={16} /> : <Lock size={16} />}
+            {sourceUrl ? t.projects.source : t.projects.sourceUnavailable}
+          </Button>
+        </div>
+      </div>
+    </Card>
+  );
+};
 
 const ProjectsSection = () => {
   const { t, language } = useLanguage();
@@ -29,7 +117,6 @@ const ProjectsSection = () => {
     setActiveTab('overview');
   };
 
-
   const selectedProject =
     selectedIndex !== null ? projectsData[selectedIndex] : null;
   const selectedTranslated =
@@ -47,70 +134,17 @@ const ProjectsSection = () => {
         <div className="projects-grid">
           {projectsData.map((project, index) => {
             const translatedProject = t.projects.items[index];
-            const demoUrl = project.demo || project.link;
-            const sourceUrl = project.source || project.link;
-
             return (
-              <Card
+              <ProjectCard
                 key={project.id}
-                className="project-card"
-                onClick={() => setSelectedIndex(index)}
-                data-float
-                data-float-speed="1.4"
-              >
-                <div className="project-image-container">
-                  <img
-                    src={project.image}
-                    alt={translatedProject.title}
-                    className="project-image"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className="project-overlay">
-                    <Button className="view-project-btn" onClick={(e) => { e.stopPropagation(); setSelectedIndex(index); }}>
-                      <ExternalLink size={20} />
-                      {t.projects.viewDetails}
-                    </Button>
-                  </div>
-                </div>
-
-                <div className="project-content">
-                  <div className="project-header">
-                    <h3 className="project-title">{translatedProject.title}</h3>
-                    <span className="project-category">{translatedProject.category}</span>
-                  </div>
-                  <p className="project-description">{translatedProject.description}</p>
-
-                  <div className="project-tech">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="tech-badge">{tech}</span>
-                    ))}
-                  </div>
-
-                  <div className="project-actions">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="project-btn retro-btn"
-                      onClick={(e) => openDemo(e, demoUrl)}
-                      disabled={!demoUrl}
-                    >
-                      {demoUrl ? <Play size={16} /> : <Lock size={16} />}
-                      {demoUrl ? t.projects.liveDemo : t.projects.noDemo}
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="project-btn retro-btn"
-                      onClick={(e) => openSource(e, sourceUrl)}
-                      disabled={!sourceUrl}
-                    >
-                      {sourceUrl ? <Code size={16} /> : <Lock size={16} />}
-                      {sourceUrl ? t.projects.source : t.projects.sourceUnavailable}
-                    </Button>
-                  </div>
-                </div>
-              </Card>
+                project={project}
+                index={index}
+                translatedProject={translatedProject}
+                t={t}
+                setSelectedIndex={setSelectedIndex}
+                openDemo={openDemo}
+                openSource={openSource}
+              />
             );
           })}
         </div>

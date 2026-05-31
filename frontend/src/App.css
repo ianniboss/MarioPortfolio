@@ -2325,3 +2325,177 @@ body {
   overflow-x: hidden;
   max-width: 100vw;
 }
+
+/* ==========================================
+   Tactile 3D Retro Cartridge Styling System
+   ========================================== */
+
+/* The main outer 3D container */
+.cartridge-card {
+  --led-color: #ff3b30;
+  --led-color-rgb: 255, 59, 48;
+  --card-border-color: var(--smash-orange);
+  
+  position: relative;
+  background: linear-gradient(135deg, #18181b 0%, #0c0c0e 100%) !important;
+  border: 4px solid var(--card-border-color) !important;
+  border-radius: 16px !important;
+  padding: 2.2rem 2rem 2rem 2rem !important;
+  cursor: pointer;
+  overflow: visible !important;
+  
+  /* 3D Perspective Context */
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  
+  /* High performance hardware-accelerated transitions */
+  will-change: transform, box-shadow;
+  transition: 
+    transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), 
+    box-shadow 0.2s cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-color 0.2s ease;
+    
+  /* Deep retro block shadow */
+  box-shadow: 
+    6px 6px 0px #111111, 
+    0px 0px 20px rgba(var(--led-color-rgb), 0.08) !important;
+}
+
+/* Card hover - applies JS tilt transforms */
+.cartridge-card:hover {
+  animation: none !important; /* Disable flat CSS animation */
+  transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateY(-6px) translateZ(10px) !important;
+  box-shadow: 
+    10px 10px 0px #111111,
+    0px 0px 30px rgba(var(--led-color-rgb), 0.25) !important;
+  border-color: var(--mario-yellow) !important;
+}
+
+/* Card active press - click feedback */
+.cartridge-card:active {
+  transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateY(2px) translateZ(-2px) !important;
+  box-shadow: 
+    3px 3px 0px #111111,
+    0px 0px 10px rgba(var(--led-color-rgb), 0.1) !important;
+}
+
+/* Plastic beveled edge effect (inner reflection) */
+.cartridge-card::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* The glossy screen reflection/shine */
+.cartridge-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: radial-gradient(
+    circle 180px at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  pointer-events: none;
+  z-index: 11;
+  mix-blend-mode: overlay;
+  transition: background 0.1s ease;
+}
+
+/* Grooves on back/top of game cartridge */
+.cartridge-grooves {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  display: flex;
+  gap: 3px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.cartridge-groove {
+  width: 4px;
+  height: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* LED Status Indicator */
+.cartridge-led-wrapper {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+  z-index: 12;
+}
+
+.cartridge-led {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--led-color, #ff3b30);
+  border: 1px solid #111111;
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.6), 
+    0 0 5px var(--led-color, #ff3b30);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.cartridge-card:hover .cartridge-led {
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.8), 
+    0 0 14px 2px var(--led-color, #ff3b30);
+  animation: led-flicker 0.18s infinite alternate;
+}
+
+.cartridge-led-label {
+  font-family: 'Press Start 2P', cursive, monospace;
+  font-size: 0.5rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.cartridge-card:hover .cartridge-led-label {
+  color: var(--led-color);
+}
+
+@keyframes led-flicker {
+  0% { opacity: 0.82; }
+  100% { opacity: 1; }
+}
+
+/* Color thematic variants */
+.cartridge-project {
+  --led-color: #ff3b30;
+  --led-color-rgb: 255, 59, 48;
+  --card-border-color: var(--smash-orange);
+}
+
+.cartridge-skill {
+  --led-color: #049cd8;
+  --led-color-rgb: 4, 156, 216;
+  --card-border-color: var(--mario-blue);
+}
+
+.cartridge-education {
+  --led-color: #7ac943;
+  --led-color-rgb: 122, 201, 67;
+  --card-border-color: var(--smash-green);
+}
+
+/* Content translation on hover for deep 3D sensation */
+.cartridge-card > * {
+  transform: translateZ(20px);
+  transition: transform 0.2s ease;
+}
+
