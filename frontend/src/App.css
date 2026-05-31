@@ -2330,7 +2330,6 @@ body {
    Tactile 3D Retro Cartridge Styling System
    ========================================== */
 
-/* The main outer 3D container */
 .cartridge-card {
   --led-color: #ff3b30;
   --led-color-rgb: 255, 59, 48;
@@ -2342,8 +2341,7 @@ body {
   border-radius: 16px !important;
   padding: 2.2rem 2rem 2rem 2rem !important;
   cursor: pointer;
-  overflow: visible !important;
-  
+  overflow: hidden !important;
   /* 3D Perspective Context */
   perspective: 1000px;
   transform-style: preserve-3d;
@@ -2498,4 +2496,221 @@ body {
   transform: translateZ(20px);
   transition: transform 0.2s ease;
 }
+
+/* ==========================================
+   Tactile Console Spec Sheets & A/B Button Pads
+   ========================================== */
+
+/* Sliding Recruiter Spec Sheet Cover */
+.cartridge-spec-sheet {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #0e0e11 0%, #060608 100%);
+  border: 4px solid var(--mario-yellow) !important;
+  border-radius: 12px;
+  z-index: 15;
+  padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.8rem;
+  pointer-events: none; /* Let hover move smoothly */
+  
+  /* Slide Transition setup */
+  transform: translateY(102%);
+  will-change: transform;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: inset 0 0 20px rgba(251, 208, 0, 0.15);
+}
+
+/* Trigger slide-up on card hover */
+.cartridge-card:hover .cartridge-spec-sheet {
+  transform: translateY(0);
+}
+
+.spec-sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.spec-label {
+  font-family: 'Press Start 2P', cursive, monospace;
+  font-size: 0.75rem;
+  color: var(--mario-yellow);
+  letter-spacing: 1px;
+  animation: text-pulse 2s infinite ease-in-out;
+}
+
+.spec-system {
+  font-family: 'Press Start 2P', cursive, monospace;
+  font-size: 0.55rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.spec-divider {
+  width: 100%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg,
+    var(--mario-yellow) 0px,
+    var(--mario-yellow) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  margin-bottom: 0.2rem;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: left;
+}
+
+.spec-key {
+  font-family: 'Press Start 2P', cursive, monospace;
+  font-size: 0.55rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.spec-val {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--pixel-white);
+  line-height: 1.3;
+}
+
+.spec-val.highlight {
+  color: #38bdf8; /* Soft blue */
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.35);
+}
+
+.spec-val.highlight-glow {
+  color: #4ade80; /* Soft green */
+  text-shadow: 0 0 8px rgba(74, 222, 128, 0.35);
+}
+
+@keyframes text-pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* Console A/B Button Pad */
+.console-button-pad {
+  display: flex;
+  gap: 2.2rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 2px dashed rgba(255, 255, 255, 0.08);
+}
+
+.console-btn-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Highly tactile retro circular buttons */
+.console-circle-btn {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  border: 3px solid #111111 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  position: relative !important;
+  cursor: pointer !important;
+  
+  /* Hard 3D retro button offset shadow */
+  box-shadow: 0 4px 0 #111111, inset 0 2px 2px rgba(255, 255, 255, 0.25) !important;
+  will-change: transform, box-shadow;
+  transition: transform 0.1s ease, box-shadow 0.1s ease !important;
+}
+
+/* Circular button internal letter overlay */
+.console-btn-letter {
+  font-family: 'Press Start 2P', cursive, monospace;
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: #ffffff;
+  pointer-events: none;
+}
+
+/* Tactile Green Button A (Demo) */
+.console-circle-btn.btn-a {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%) !important;
+}
+
+.console-circle-btn.btn-a:hover:not(:disabled) {
+  background: linear-gradient(135deg, #34d399 0%, #059669 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #111111, inset 0 2px 2px rgba(255, 255, 255, 0.35) !important;
+}
+
+/* Tactile Red Button B (Source Code) */
+.console-circle-btn.btn-b {
+  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%) !important;
+}
+
+.console-circle-btn.btn-b:hover:not(:disabled) {
+  background: linear-gradient(135deg, #f87171 0%, #dc2626 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #111111, inset 0 2px 2px rgba(255, 255, 255, 0.35) !important;
+}
+
+/* Button Active Clicks */
+.console-circle-btn:active:not(:disabled) {
+  transform: translateY(3px) !important;
+  box-shadow: 0 1px 0 #111111, inset 0 1px 1px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Disabled tactile buttons look locked/sunken */
+.console-circle-btn:disabled {
+  background: linear-gradient(135deg, #27272a 0%, #18181b 100%) !important;
+  opacity: 0.4;
+  cursor: not-allowed !important;
+  box-shadow: 0 1px 0 #111111 !important;
+  transform: translateY(3px) !important;
+}
+
+/* Label text underneath buttons */
+.console-btn-label {
+  font-family: 'Press Start 2P', cursive, monospace;
+  font-size: 0.45rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+}
+
+.console-btn-slot:hover .console-btn-label {
+  color: var(--mario-yellow);
+}
+
+/* Stylized +N Technology Badge Indicator */
+.tech-badge-more {
+  background: linear-gradient(135deg, #27272a, #18181b) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  border: 2px dashed rgba(255, 255, 255, 0.15) !important;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  box-shadow: 2px 2px 0 #111111;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.tech-badge-more:hover {
+  border-color: var(--mario-yellow) !important;
+  color: var(--mario-yellow) !important;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 #111111;
+}
+
 
