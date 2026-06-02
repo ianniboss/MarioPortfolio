@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Portfolio from './pages/Portfolio';
 import { LanguageProvider } from './context/LanguageContext';
 import AnalyticsConsent from './components/AnalyticsConsent';
-import MarioBackground from './components/MarioBackground';
+import HeroBackground3D from './components/HeroBackground3D';
 
 function App() {
   const [apiMessage, setApiMessage] = useState('');
@@ -36,7 +36,7 @@ function App() {
   return (
     <LanguageProvider>
       <div className="App app-wrapper">
-        <MarioBackground />
+        <HeroBackground3D />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Portfolio />} />

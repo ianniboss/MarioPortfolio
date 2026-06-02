@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import HeroSection from '../components/HeroSection';
+import Hero3D from '../components/Hero3D';
 import AboutSection from '../components/AboutSection';
 import EducationSection from '../components/EducationSection';
 import SkillsSection from '../components/SkillsSection';
@@ -18,7 +18,7 @@ const Portfolio = () => {
   return (
     <div className="portfolio-container">
       <Header />
-      <HeroSection />
+      <Hero3D />
       <AboutSection />
       <EducationSection />
       <SkillsSection />
