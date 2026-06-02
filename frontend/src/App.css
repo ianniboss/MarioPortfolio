@@ -2201,16 +2201,18 @@ section {
   border: 2px solid var(--mario-yellow);
   border-radius: 8px;
   padding: 4px;
+  height: auto !important; /* Override fixed shadcn h-9 */
 }
 
 .dialog-tab {
   font-weight: 600;
-  font-size: 0.8rem;
-  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem; /* Increased from 0.8rem for better legibility */
+  padding: 0.65rem 1.25rem; /* Increased vertical and horizontal padding */
   border-radius: 6px;
   transition: all 0.3s ease;
   color: var(--mario-yellow);
   background: transparent;
+  height: auto !important;
 }
 
 .dialog-tab:hover {
@@ -2285,8 +2287,8 @@ section {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .dialog-tab {
-    font-size: 0.7rem;
-    padding: 0.4rem 0.5rem;
+    font-size: 0.8rem; /* Adjusted for better visibility */
+    padding: 0.5rem 0.75rem; /* Adjusted padding */
   }
 
   .dialog-section {
@@ -2308,8 +2310,8 @@ section {
   }
 
   .dialog-tab {
-    font-size: 0.65rem;
-    padding: 0.35rem 0.4rem;
+    font-size: 0.7rem; /* Adjusted for mobile readability */
+    padding: 0.45rem 0.6rem; /* Adjusted mobile padding */
   }
 }
 
