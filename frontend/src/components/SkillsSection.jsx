@@ -1,3 +1,4 @@
+import './SkillsSection.css';
 import React from 'react';
 import { skillsData } from '../mock';
 import { Card } from './ui/card';

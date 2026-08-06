@@ -1,0 +1,170 @@
+/* Contact Section */
+.contact-section {
+  background: transparent;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.contact-card {
+  background: rgba(15, 15, 16, 0.9);
+  border: 3px solid var(--mario-yellow);
+  padding: 2rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  color: var(--mario-yellow);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.game-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: var(--pixel-white);
+  padding: 0.8rem;
+  border-radius: 6px;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.game-input:focus {
+  border-color: var(--mario-yellow);
+  background: rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+
+.submit-button {
+  background: var(--mario-red);
+  color: var(--pixel-white);
+  border: 3px solid var(--pixel-black);
+  font-weight: 600;
+  padding: 1rem;
+  font-size: 1rem;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 0 var(--pixel-black);
+}
+
+.submit-button:hover {
+  background: var(--smash-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--pixel-black);
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.social-title {
+  font-size: 1.5rem;
+  color: var(--mario-yellow);
+  text-align: center;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.social-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: rgba(15, 15, 16, 0.9);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--pixel-white);
+  transition: transform 0.3s, border-color 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+/* Platform-specific colorful borders */
+.social-link[data-social="github"] {
+  border-color: #a855f7;
+}
+
+.social-link[data-social="linkedin"] {
+  border-color: #06b6d4;
+}
+
+.social-link[data-social="instagram"] {
+  border-color: #ec4899;
+}
+
+.social-link[data-social="discord"] {
+  border-color: #8b5cf6;
+}
+
+.social-link[data-social="mail"] {
+  border-color: #22c55e;
+}
+
+/* Hover effects with glow */
+.social-link:hover {
+  transform: translateY(-5px);
+  background: rgba(15, 15, 16, 0.95);
+}
+
+.social-link[data-social="github"]:hover {
+  border-color: #c084fc;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+}
+
+.social-link[data-social="linkedin"]:hover {
+  border-color: #22d3ee;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+}
+
+.social-link[data-social="instagram"]:hover {
+  border-color: #f472b6;
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+}
+
+.social-link[data-social="discord"]:hover {
+  border-color: #a78bfa;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+.social-link[data-social="mail"]:hover {
+  border-color: #4ade80;
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+}
+
+@media (max-width: 900px) {
+/* Contact Section Mobile Fixes */
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-card {
+    padding: 1.25rem;
+  }
+
+  .social-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .social-link {
+    padding: 1rem;
+  }
+} /* end ContactSection mobile */

@@ -1,3 +1,4 @@
+import './Header.css';
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Languages } from 'lucide-react';
 import { Button } from './ui/button';

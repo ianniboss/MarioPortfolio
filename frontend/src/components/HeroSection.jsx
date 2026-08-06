@@ -1,3 +1,4 @@
+import './HeroSection.css';
 import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { ArrowDown } from 'lucide-react';
 import { Button } from './ui/button';
@@ -29,7 +30,6 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="hero-section">
-      {/* Global MarioBackground is loaded in App.js */}
 
       {/* Hero Content - z-20 */}
       <div className="hero-content" data-float-children style={{ zIndex: 20 }}>

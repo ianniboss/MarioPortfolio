@@ -1,3 +1,4 @@
+import './ProjectsSection.css';
 import React, { lazy, Suspense, useState } from 'react';
 import { projectsData } from '../mock';
 import { Card } from './ui/card';

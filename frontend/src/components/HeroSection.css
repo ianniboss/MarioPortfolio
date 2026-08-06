@@ -1,0 +1,276 @@
+/* Hero Section */
+.hero-section {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  background: transparent;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+
+
+/* When using screenshot, hide extra overlays to avoid duplication */
+.hero-section .pixel-cloud {
+  display: none;
+}
+
+.mario-ground {
+  display: none;
+}
+
+/* Offset every other row for brick staggering */
+.mario-ground::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 34px;
+  /* align to row break */
+  height: 30px;
+  background:
+    repeating-linear-gradient(90deg,
+      #c1622b 0 24px,
+      #a64b22 24px 28px);
+  opacity: 0.95;
+}
+
+/* Slight parallax motion to clouds for life */
+@keyframes floatMarioCloud {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.cloud-1 {
+  top: 10%;
+  left: 10%;
+  animation: floatMarioCloud 6s ease-in-out infinite;
+  animation-delay: 0s;
+  will-change: transform;
+}
+
+.cloud-2 {
+  top: 20%;
+  right: 15%;
+  animation: floatMarioCloud 7s ease-in-out infinite;
+  animation-delay: 2s;
+  will-change: transform;
+}
+
+.cloud-3 {
+  bottom: 30%;
+  left: 20%;
+  animation: floatMarioCloud 8s ease-in-out infinite;
+  animation-delay: 4s;
+  will-change: transform;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 900px;
+}
+
+.hero-text-box {
+  background: rgba(11, 13, 20, 0.9);
+  border: 2px solid rgba(251, 208, 0, 0.65);
+  border-radius: 22px;
+  padding: 3rem;
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 0 0 1px rgba(251, 208, 0, 0.12);
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+  animation: slideUp 1s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-name {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2.5rem;
+  color: var(--mario-yellow);
+  text-shadow: 3px 3px 0 var(--mario-red);
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: 1.5rem;
+  color: var(--pixel-white);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.hero-tagline {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-button.primary {
+  background: var(--mario-red);
+  color: var(--pixel-white);
+  border: 3px solid var(--pixel-black);
+  font-weight: 600;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 0 var(--pixel-black);
+}
+
+.hero-button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--pixel-black);
+  background: var(--smash-orange);
+}
+
+.hero-button.secondary {
+  background: transparent;
+  color: var(--pixel-white);
+  border: 3px solid var(--mario-yellow);
+  font-weight: 600;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.hero-button.secondary:hover {
+  background: var(--mario-yellow);
+  color: var(--pixel-black);
+  transform: translateY(-2px);
+}
+
+.scroll-indicator {
+  margin-top: 3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+  will-change: transform;
+}
+
+.scroll-arrow {
+  color: var(--mario-yellow);
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-20px);
+  }
+
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Section Styles */
+section {
+  padding: 6rem 2rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2rem;
+  color: var(--mario-yellow);
+  text-shadow: 2px 2px 0 var(--mario-red);
+  margin-bottom: 1rem;
+}
+
+.title-underline {
+  width: 100px;
+  height: 4px;
+  background: var(--mario-red);
+  margin: 1rem auto;
+  position: relative;
+}
+
+.title-underline::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--mario-yellow);
+  right: -6px;
+  top: -4px;
+  border-radius: 50%;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 1rem;
+}

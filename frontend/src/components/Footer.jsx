@@ -1,3 +1,4 @@
+import './Footer.css';
 import React from 'react';
 import { Heart } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';

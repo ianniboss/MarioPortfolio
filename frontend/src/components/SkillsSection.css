@@ -1,0 +1,114 @@
+/* Skills Section */
+.skills-section {
+  background: transparent;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.skill-card {
+  background: rgba(15, 15, 16, 0.9);
+  border: 3px solid var(--mario-blue);
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  border-color: var(--mario-yellow);
+  box-shadow: 0 12px 30px rgba(251, 208, 0, 0.3);
+}
+
+.skill-icon-container {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.skill-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.skill-name {
+  font-size: 1.2rem;
+  color: var(--pixel-white);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.skill-type {
+  font-size: 0.85rem;
+  color: var(--mario-yellow);
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.skill-stars {
+  display: flex;
+  justify-content: center;
+  gap: 0.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.star-filled {
+  filter: drop-shadow(0 0 5px currentColor);
+  animation: starPulse 2s infinite ease-in-out;
+}
+
+@keyframes starPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.star-empty {
+  opacity: 0.3;
+}
+
+.skill-rank {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--mario-yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 900px) {
+/* Skills Section Mobile Fixes */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .skill-card {
+    padding: 1.25rem;
+  }
+
+  .skill-icon-container {
+    width: 60px;
+    height: 60px;
+  }
+
+  .skill-name {
+    font-size: 1rem;
+  }
+} /* end SkillsSection mobile */

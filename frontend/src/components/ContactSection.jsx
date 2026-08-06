@@ -1,3 +1,4 @@
+import './ContactSection.css';
 import React, { useState } from 'react';
 import { socialLinks } from '../mock';
 import { Card } from './ui/card';
