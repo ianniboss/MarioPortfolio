@@ -21,7 +21,7 @@ export const translations = {
     hero: {
       name: 'Ian Hafiz Syahrul Azlan',
       title: 'Software Developer | Java · Python · React',
-      tagline: 'Seeking a 10-12 week internship — Available April-June 2026',
+      tagline: 'Seeking an alternating work-study (1 month company / 1 month training) starting September 2026',
       startBtn: 'Start Adventure',
       projectsBtn: 'View Projects'
     },
@@ -29,7 +29,7 @@ export const translations = {
     // About Section
     about: {
       title: 'About Me',
-      description: "Full-stack developer specializing in Java, Python, SQL, and React. Currently in my 2nd year of a Bachelor's in IT at Université Toulouse III. I build everything from data-driven dashboards and AI-powered tools to community platforms serving 500+ users. Seeking a 10-12 week development internship (April-June 2026) — let's build something great together!",
+      description: "3rd-year student in BUT Informatique (Application Development). Having completed a web development internship at CNRS (ISFinder) from April to June 2026, I am seeking a work-study position starting September 2026. I am passionate about contributing to software modernization, web development, data processing, and application migration projects.",
       flipHint: 'Click to flip!',
       flipBackHint: 'Click to flip back!',
       resumeBtn: 'Download My Resume',
@@ -46,10 +46,10 @@ export const translations = {
       items: [
         {
           level: 'Level 1',
-          degree: "Bachelor's Degree in IT (BUT Informatique)",
+          degree: "Bachelor's Degree in IT (BUT Informatique) - 3rd Year",
           institution: 'IUT Paul Sabatier, Université Toulouse III',
-          year: '2024 - Present',
-          description: '2nd Year, specializing in Application Development. Focus areas: Software Development, Databases, Networking, Project Management.',
+          year: '2023 - 2027',
+          description: 'Specializing in Application Development (RAPP).',
           image: 'Photo_campus_IUT_Toulouse.webp',
           logo: 'logo_iut_tls.png'
         },
@@ -58,7 +58,7 @@ export const translations = {
           degree: 'Pre-University Programme (Malaysia–France Cooperation)',
           institution: 'University of Tours (IUT de Tours)',
           year: '2022 - 2023',
-          description: 'Coursework: French Language, Mathematics, Physics-Chemistry, Algorithmics, and Logic. Achievement: French Language Level B2.',
+          description: 'Achievement: French Language Level B2.',
           logo: 'tourslogo.svg'
         },
         {
@@ -66,7 +66,7 @@ export const translations = {
           degree: 'Sijil Pelajaran Malaysia (SPM)',
           institution: 'Tuanku Munawir Science School, Malaysia',
           year: '2017 - 2022',
-          description: 'Result: 9A+ in Pure Science and Language subjects.',
+          description: 'Result: 9A+ (Equivalent to French Baccalaureate).',
           image: 'profile.webp',
           logo: 'saser.webp'
         }
@@ -79,12 +79,15 @@ export const translations = {
       items: [
         { name: 'Java', type: 'Fire Flower' },
         { name: 'Python', type: 'Star Power' },
-        { name: 'C', type: 'Leaf Power' },
-        { name: 'SQL', type: 'Yoshi Egg' },
-        { name: 'PHP', type: '1-UP Mushroom' },
-        { name: 'HTML/CSS', type: 'Super Mushroom' },
-        { name: 'Git', type: 'POW Block' },
-        { name: 'Linux', type: 'Cape Feather' }
+        { name: 'React', type: 'Super Star' },
+        { name: 'PHP / C', type: '1-UP Mushroom' },
+        { name: 'HTML / CSS / JS', type: 'Super Mushroom' },
+        { name: 'SQL / PL/SQL / SQLite', type: 'Yoshi Egg' },
+        { name: 'Oracle APEX', type: 'Golden Coin' },
+        { name: 'REST APIs', type: 'Magic Wand' },
+        { name: 'Git / Linux', type: 'Cape Feather' },
+        { name: 'Docker / Apache2', type: 'POW Block' },
+        { name: 'UML / OOP / Scrum', type: 'Super Leaf' }
       ]
     },
 
@@ -129,8 +132,8 @@ export const translations = {
           learnings: 'Understood the intersection of design and performance optimization, and how to prioritize user experience in content-heavy applications.'
         },
         {
-          title: 'Tomato Sales Application',
-          description: 'A desktop inventory and sales management system for agricultural products featuring real-time stock tracking, sales analytics, and a user-friendly Java interface.',
+          title: 'Agricultural Sales Management Application',
+          description: 'A desktop inventory and sales management system for agricultural products featuring real-time stock tracking and a user-friendly Java interface.',
           category: 'Desktop Application',
           problemSolved: 'Small agricultural businesses often lack digital tools for inventory management, leading to stock discrepancies and lost sales opportunities.',
           goals: 'Deliver a comprehensive sales and inventory management tool with clear data visualization and intuitive user experience.',
@@ -139,8 +142,8 @@ export const translations = {
           learnings: 'Learned the value of thorough system design before implementation, and how threading improves perceived performance in desktop applications.'
         },
         {
-          title: 'League of Legends Statistics Application',
-          description: 'A data analytics dashboard that processes Riot API match data to reveal player performance trends, champion statistics, and game-winning factors using Oracle APEX.',
+          title: 'Data Analysis & Visualization Dashboard',
+          description: 'A data analytics dashboard built with Oracle APEX to analyze and visualize performance statistics from structured datasets.',
           category: 'Web Application',
           problemSolved: 'Raw game data is overwhelming; players and analysts need clear visualizations to identify patterns and improve strategies.',
           goals: 'Provide actionable insights into game meta and player performance through interactive dashboards and correlation analysis.',
@@ -278,8 +281,8 @@ export const translations = {
     // Hero Section
     hero: {
       name: 'Ian Hafiz Syahrul Azlan',
-      title: 'Développeur | Java · Python · React',
-      tagline: 'Recherche un stage de 10-12 semaines — Disponible avril-juin 2026',
+      title: 'Développeur Logiciel | Java · Python · React',
+      tagline: 'Recherche alternance (1 mois entreprise / 1 mois formation) dès septembre 2026',
       startBtn: 'Commencer l\'Aventure',
       projectsBtn: 'Voir les Projets'
     },
@@ -287,7 +290,7 @@ export const translations = {
     // About Section
     about: {
       title: 'À Propos de Moi',
-      description: "Développeur full-stack spécialisé en Java, Python, SQL et React. Actuellement en 2ème année de BUT Informatique à l'Université Toulouse III. Je construis des dashboards, des outils IA et des plateformes communautaires pour 500+ utilisateurs. À la recherche d'un stage de développement de 10-12 semaines (avril-juin 2026) — construisons quelque chose de génial ensemble !",
+      description: "Étudiant en 3ᵉ année de BUT Informatique (parcours Réalisation d'Applications), je recherche une alternance à partir de septembre 2026. Ayant terminé un stage de développement web au CNRS (ISFinder) d'avril à juin 2026, je souhaite contribuer à des projets de modernisation logicielle, de développement web, de traitement de données et de migration d'applications.",
       flipHint: 'Cliquez pour retourner!',
       flipBackHint: 'Cliquez pour revenir!',
       resumeBtn: 'Télécharger mon CV',
@@ -304,10 +307,10 @@ export const translations = {
       items: [
         {
           level: 'Niveau 1',
-          degree: 'BUT Informatique',
+          degree: 'BUT Informatique - 3ᵉ année (RAPP)',
           institution: 'IUT Paul Sabatier, Université Toulouse III',
-          year: '2024 - Présent',
-          description: '2ème année, spécialisation en Développement d\'Applications. Domaines d\'étude: Développement Logiciel, Bases de Données, Réseaux, Gestion de Projet.',
+          year: '2023 - 2027',
+          description: 'Parcours Réalisation d\'Applications.',
           image: 'Photo_campus_IUT_Toulouse.webp',
           logo: 'logo_iut_tls.png'
         },
@@ -316,7 +319,7 @@ export const translations = {
           degree: 'Programme Pré-Universitaire (Coopération Malaisie-France)',
           institution: 'Université de Tours (IUT de Tours)',
           year: '2022 - 2023',
-          description: 'Matières: Langue Française, Mathématiques, Physique-Chimie, Algorithmique et Logique. Accomplissement: Niveau de Langue Française B2.',
+          description: 'Niveau de français B2 validé.',
           logo: 'tourslogo.svg'
         },
         {
@@ -324,7 +327,7 @@ export const translations = {
           degree: 'Sijil Pelajaran Malaysia (SPM)',
           institution: 'Tuanku Munawir Science School, Malaisie',
           year: '2017 - 2022',
-          description: 'Résultat: 9A+ en Sciences Pures et matières linguistiques.',
+          description: 'Diplôme national de fin d\'études secondaires (équivalent Bac) – 9A+.',
           image: 'profile.webp',
           logo: 'saser.webp'
         }
@@ -337,12 +340,15 @@ export const translations = {
       items: [
         { name: 'Java', type: 'Fleur de Feu' },
         { name: 'Python', type: 'Pouvoir Étoile' },
-        { name: 'C', type: 'Pouvoir Feuille' },
-        { name: 'SQL', type: 'Œuf de Yoshi' },
-        { name: 'PHP', type: 'Champignon 1-UP' },
-        { name: 'HTML/CSS', type: 'Super Champignon' },
-        { name: 'Git', type: 'Bloc POW' },
-        { name: 'Linux', type: 'Plume Cape' }
+        { name: 'React', type: 'Super Étoile' },
+        { name: 'PHP / C', type: 'Champignon 1-UP' },
+        { name: 'HTML / CSS / JS', type: 'Super Champignon' },
+        { name: 'SQL / PL/SQL / SQLite', type: 'Œuf de Yoshi' },
+        { name: 'Oracle APEX', type: 'Pièce d\'Or' },
+        { name: 'REST APIs', type: 'Baguette Magique' },
+        { name: 'Git / Linux', type: 'Plume Cape' },
+        { name: 'Docker / Apache2', type: 'Bloc POW' },
+        { name: 'UML / OOP / Scrum', type: 'Super Feuille' }
       ]
     },
 
@@ -387,8 +393,8 @@ export const translations = {
           learnings: 'Compris l\'intersection entre design et optimisation des performances, et comment prioriser l\'expérience utilisateur dans les applications riches en contenu.'
         },
         {
-          title: 'Application de Vente de Tomates',
-          description: 'Un système desktop de gestion des stocks et des ventes pour produits agricoles avec suivi des stocks en temps réel, analyses des ventes et interface Java conviviale.',
+          title: 'Application de gestion des ventes (Produits agricoles)',
+          description: 'Développé une application Java de gestion des stocks et des ventes avec suivi en temps réel et interface conviviale.',
           category: 'Application Desktop',
           problemSolved: 'Les petites entreprises agricoles manquent souvent d\'outils numériques pour la gestion des stocks, entraînant des écarts de stock et des opportunités de vente perdues.',
           goals: 'Livrer un outil complet de gestion des ventes et des stocks avec visualisation claire des données et expérience utilisateur intuitive.',
@@ -397,8 +403,8 @@ export const translations = {
           learnings: 'Appris la valeur d\'une conception système approfondie avant l\'implémentation, et comment le threading améliore les performances perçues dans les applications desktop.'
         },
         {
-          title: 'Application Statistiques League of Legends',
-          description: 'Un tableau de bord d\'analyse de données qui traite les données de match de l\'API Riot pour révéler les tendances de performance des joueurs, les statistiques des champions et les facteurs de victoire en utilisant Oracle APEX.',
+          title: 'Application d\'analyse et de visualisation de données',
+          description: 'Développé un tableau de bord d’analyse de données avec Oracle APEX pour analyser et visualiser des statistiques de performance à partir de jeux de données structurés.',
           category: 'Application Web',
           problemSolved: 'Les données de jeu brutes sont écrasantes; les joueurs et analystes ont besoin de visualisations claires pour identifier les patterns et améliorer les stratégies.',
           goals: 'Fournir des insights actionnables sur la méta du jeu et les performances des joueurs via des tableaux de bord interactifs et l\'analyse de corrélation.',
