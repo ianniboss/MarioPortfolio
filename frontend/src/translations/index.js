@@ -93,8 +93,8 @@ export const translations = {
 
     // Projects Section
     projects: {
-      title: 'Mystery Blocks',
-      subtitle: 'Hit the blocks to reveal projects!',
+      title: 'Featured Projects',
+      subtitle: 'A showcase of my recent work and technical experiments',
       viewDetails: 'View Details',
       liveDemo: 'Live Demo',
       source: 'Source',
@@ -354,8 +354,8 @@ export const translations = {
 
     // Projects Section
     projects: {
-      title: 'Blocs Mystères',
-      subtitle: 'Frappez les blocs pour révéler les projets!',
+      title: 'Projets Récents',
+      subtitle: 'Une sélection de mes travaux et expérimentations',
       viewDetails: 'Voir Détails',
       liveDemo: 'Démo Live',
       source: 'Source',

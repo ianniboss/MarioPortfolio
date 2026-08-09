@@ -37,7 +37,7 @@ const ProjectDetailsDialog = ({
 
   return (
     <Dialog open onOpenChange={(open) => !open && closeDialog()}>
-      <DialogContent className="retro-dialog max-w-4xl w-[90vw] max-h-[85vh] overflow-y-auto">
+      <DialogContent className="bg-[#0f0f12]/90 backdrop-blur-xl border border-white/10 text-white max-w-4xl w-[90vw] max-h-[85vh] overflow-y-auto rounded-2xl shadow-2xl">
         <div className="project-dialog">
           <DialogHeader className="dialog-header-with-tabs">
             <div className="dialog-title-row">
@@ -78,14 +78,14 @@ const ProjectDetailsDialog = ({
 
             <div className="dialog-right md:w-1/2 w-full">
               <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                <TabsList className="dialog-tabs-list w-full grid grid-cols-3 mb-4">
-                  <TabsTrigger value="overview" className="dialog-tab">
+                <TabsList className="w-full grid grid-cols-3 mb-4 bg-white/5 rounded-lg p-1">
+                  <TabsTrigger value="overview" className="data-[state=active]:bg-white/10 data-[state=active]:text-white text-white/60 hover:text-white rounded-md transition-all">
                     {tabLabels.overview}
                   </TabsTrigger>
-                  <TabsTrigger value="tech" className="dialog-tab">
+                  <TabsTrigger value="tech" className="data-[state=active]:bg-white/10 data-[state=active]:text-white text-white/60 hover:text-white rounded-md transition-all">
                     {tabLabels.tech}
                   </TabsTrigger>
-                  <TabsTrigger value="impact" className="dialog-tab">
+                  <TabsTrigger value="impact" className="data-[state=active]:bg-white/10 data-[state=active]:text-white text-white/60 hover:text-white rounded-md transition-all">
                     {tabLabels.impact}
                   </TabsTrigger>
                 </TabsList>
@@ -178,7 +178,7 @@ const ProjectDetailsDialog = ({
           <DialogFooter className="dialog-footer flex justify-end gap-2 pt-4">
             <Button
               variant="outline"
-              className="retro-btn"
+              className="bg-white text-black hover:bg-gray-200 border-none transition-transform hover:scale-105 rounded-lg px-4"
               onClick={(e) => openDemo(e, selectedProject.demo || selectedProject.link)}
               disabled={!(selectedProject.demo || selectedProject.link)}
             >
@@ -187,7 +187,7 @@ const ProjectDetailsDialog = ({
             </Button>
             <Button
               variant="outline"
-              className="retro-btn"
+              className="bg-transparent text-white border border-white/20 hover:bg-white/10 transition-transform hover:scale-105 rounded-lg px-4"
               onClick={(e) => openSource(e, selectedProject.source || selectedProject.link)}
               disabled={!(selectedProject.source || selectedProject.link)}
             >
