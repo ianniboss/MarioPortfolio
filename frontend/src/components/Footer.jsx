@@ -13,7 +13,6 @@ const Footer = () => {
           <p>{t.footer.craftedBy} <Heart size={16} className="heart-icon" fill="currentColor" /> {t.footer.by}</p>
           <p className="copyright">{t.footer.copyright}</p>
         </div>
-        <div className="pixel-border"></div>
       </div>
     </footer>
   );

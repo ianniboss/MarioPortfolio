@@ -5,15 +5,17 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(15, 15, 16, 0.8);
-  backdrop-filter: blur(10px);
-  border-bottom: 3px solid var(--mario-yellow);
-  transition: background 0.3s, border-color 0.3s;
+  background: rgba(15, 15, 16, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
 }
 
 .portfolio-header.scrolled {
-  background: rgba(15, 15, 16, 0.95);
-  border-bottom: 3px solid var(--mario-red);
+  background: rgba(15, 15, 16, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 .header-container {
@@ -31,8 +33,13 @@
 }
 
 .logo-text {
-  color: var(--mario-yellow);
-  text-shadow: 2px 2px 0 var(--mario-red);
+  color: #fff;
+  text-shadow: 2px 2px 0px rgba(229, 37, 33, 0.8);
+  transition: color 0.3s ease;
+}
+
+.logo-text:hover {
+  color: #ffd700;
 }
 
 .header-actions {
@@ -45,121 +52,97 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--pixel-white);
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid var(--mario-yellow);
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  transition: background 0.3s, transform 0.2s;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
   font-weight: 600;
 }
 
 .language-toggle:hover {
-  background: var(--mario-yellow);
-  color: var(--pixel-black);
+  background: rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .lang-text {
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .desktop-nav {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .nav-link {
-  color: var(--pixel-white);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   font-weight: 500;
   padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background 0.3s, color 0.3s, transform 0.2s;
+  border-radius: 20px;
+  transition: all 0.3s ease;
   position: relative;
 }
 
 .nav-link:hover {
-  background: var(--mario-red);
-  transform: translateY(-2px);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .mobile-menu-button {
   display: none;
-  color: var(--pixel-white);
+  color: white;
 }
 
 .mobile-nav {
   display: none;
   flex-direction: column;
   padding: 1rem;
-  background: rgba(15, 15, 16, 0.95);
-  border-top: 2px solid var(--mario-yellow);
+  background: rgba(15, 15, 16, 0.98);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .mobile-nav-link {
-  color: var(--pixel-white);
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   padding: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: background 0.3s;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
 }
 
 .mobile-nav-link:hover {
-  background: var(--mario-red);
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 @media (max-width: 768px) {
   .desktop-nav {
     display: none;
   }
-
   .mobile-menu-button {
     display: flex;
   }
-
   .mobile-nav {
     display: flex;
-  }
-
-  .language-toggle {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.85rem;
-  }
-
-  .lang-text {
-    font-size: 0.8rem;
-  }
-
-  .analytics-consent {
-    left: 1rem;
-    right: 1rem;
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .analytics-consent-actions {
-    justify-content: flex-end;
   }
 }
 
 @media (max-width: 900px) {
-/* Header Mobile Fixes */
   .header-container {
     padding: 0.75rem 1rem;
   }
-
   .header-logo {
-    font-size: 0.75rem;
-  }
-
-  .language-toggle {
-    padding: 0.3rem 0.6rem;
     font-size: 0.8rem;
   }
-
-  .lang-text {
-    font-size: 0.75rem;
+  .language-toggle {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
   }
-} /* end Header mobile */
+  .lang-text {
+    font-size: 0.8rem;
+  }
+}

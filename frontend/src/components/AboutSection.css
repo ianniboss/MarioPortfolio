@@ -32,10 +32,20 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  transition: transform 0.6s;
-  border: 4px solid var(--mario-yellow);
-  background: rgba(15, 15, 16, 0.9);
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: rgba(15, 15, 18, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
   padding: 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.about-card-front:hover,
+.about-card-back:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 255, 255, 0.05);
 }
 
 .about-card-back {
@@ -64,7 +74,14 @@
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid var(--mario-red);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.about-card-3d:hover .avatar-image {
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
 .avatar-border {
@@ -73,75 +90,94 @@
   left: -8px;
   right: -8px;
   bottom: -8px;
-  border: 3px solid var(--mario-yellow);
+  border: 2px dashed rgba(255, 255, 255, 0.3);
   border-radius: 50%;
-  animation: spin 10s linear infinite;
+  animation: spin 20s linear infinite;
 }
 
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .dialogue-box {
-  background: rgba(255, 255, 255, 0.95);
-  border: 3px solid var(--pixel-black);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  padding: 0.8rem 1rem;
+  padding: 1.2rem 1.5rem;
   position: relative;
   max-width: 560px;
   width: 100%;
   min-height: 250px;
   height: auto;
-  box-shadow: 0 4px 0 var(--pixel-black);
-  color: var(--pixel-black);
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.about-card-3d:hover .dialogue-box {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .dialogue-arrow {
   position: absolute;
-  top: -12px;
+  top: -10px;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
   height: 0;
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-bottom: 12px solid var(--pixel-black);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgba(255, 255, 255, 0.1);
 }
 
 .dialogue-text {
   font-size: 1rem;
-  color: #111111;
-  line-height: 1.5;
+  line-height: 1.6;
   text-align: center;
   max-width: 100%;
   overflow-wrap: break-word;
+  font-weight: 400;
 }
 
 /* Actions row below dialogue box */
 .about-actions {
-  margin-top: 0.75rem;
+  margin-top: 1rem;
   display: flex;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
-/* Nintendo-style Mushroom icon hover flair */
 .mushroom-icon {
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   transform-origin: 50% 80%;
-  /* pivot near the stem for a natural tilt */
+}
+
+.retro-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retro-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
 }
 
 .retro-btn:hover .mushroom-icon,
 .retro-btn:focus-visible .mushroom-icon {
-  transform: translateY(-2px) rotate(-8deg);
+  transform: translateY(-2px) rotate(-8deg) scale(1.1);
 }
 
 .retro-btn:active .mushroom-icon {
@@ -150,16 +186,22 @@
 
 .flip-hint {
   font-size: 0.85rem;
-  color: var(--mario-yellow);
+  color: rgba(255, 255, 255, 0.5);
   font-style: italic;
   margin-top: 0.5rem;
   text-align: center;
+  transition: color 0.3s ease;
+}
+
+.about-card-3d:hover .flip-hint {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .contact-title {
   font-size: 1.5rem;
-  color: var(--mario-yellow);
+  color: #fff;
   margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
 .contact-details {
@@ -173,22 +215,31 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem;
+  padding: 1rem 1.25rem;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  transition: background 0.3s;
-  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
 }
 
 .contact-item:hover {
-  background: rgba(229, 37, 33, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
 }
 
 .contact-icon {
-  color: var(--mario-red);
+  color: #fff;
   width: 24px;
   height: 24px;
   flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.contact-item:hover .contact-icon {
+  opacity: 1;
 }
 
 .phone-numbers {
@@ -198,68 +249,3 @@
   font-size: 0.9rem;
   color: white;
 }
-
-@media (max-width: 900px) {
-/* About Section Mobile Fixes */
-  .about-card-3d {
-    min-height: 520px;
-    max-width: 100%;
-  }
-
-  .about-card-front,
-  .about-card-back {
-    padding: 1.25rem;
-  }
-
-  .card-inner {
-    padding: 1rem 0.5rem;
-    gap: 1rem;
-  }
-
-  .avatar-container {
-    width: 100px;
-    height: 100px;
-  }
-
-  .dialogue-box {
-    padding: 0.75rem;
-    min-height: 180px;
-    max-width: 100%;
-  }
-
-  .dialogue-text {
-    font-size: 0.82rem;
-    line-height: 1.4;
-  }
-
-  .about-actions {
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5rem;
-  }
-
-  .about-actions .retro-btn {
-    width: 100%;
-    justify-content: center;
-    font-size: 0.85rem;
-    padding: 0.6rem 0.8rem;
-  }
-
-  .contact-title {
-    font-size: 1.2rem;
-  }
-
-  .contact-item {
-    padding: 0.75rem;
-    flex-wrap: wrap;
-    font-size: 0.85rem;
-  }
-
-  .contact-item span {
-    word-break: break-all;
-  }
-
-  .phone-numbers {
-    font-size: 0.8rem;
-  }
-} /* end AboutSection mobile */

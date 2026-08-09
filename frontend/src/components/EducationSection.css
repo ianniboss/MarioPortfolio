@@ -13,19 +13,12 @@
   display: flex;
   gap: 2rem;
   align-items: flex-start;
-  animation: slideInLeft 0.6s ease-out;
+  animation: slideInLeft 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 @keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 .level-badge {
@@ -35,170 +28,171 @@
   gap: 0.5rem;
   min-width: 120px;
   padding: 1rem;
-  background: var(--mario-red);
-  border: 3px solid var(--mario-yellow);
-  border-radius: 8px;
-  box-shadow: 0 4px 0 var(--pixel-black);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.education-level:hover .level-badge {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .trophy-icon {
   width: 40px;
   height: 40px;
-  color: var(--mario-yellow);
+  color: #ffd700;
+  filter: drop-shadow(0 2px 5px rgba(255, 215, 0, 0.4));
 }
 
 .level-text {
   font-family: 'Press Start 2P', cursive;
   font-size: 0.7rem;
-  color: var(--pixel-white);
+  color: #fff;
+  text-align: center;
 }
 
 .education-card {
   flex: 1;
-  background: rgba(15, 15, 16, 0.9);
-  border: 3px solid var(--smash-green);
+  background: rgba(15, 15, 18, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
   padding: 2rem;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .education-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(122, 201, 67, 0.3);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .degree-group {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .edu-logo {
-  width: 42px;
-  height: 42px;
-  border-radius: 8px;
-  border: 2px solid var(--mario-yellow);
-  box-shadow: 0 3px 0 var(--pixel-black);
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   background: #ffffff;
+  padding: 4px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
+.education-card:hover .edu-logo {
+  transform: scale(1.1);
+}
 
+.degree-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.school-name {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
 
 .stars {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.25rem;
 }
 
 .star-icon {
-  width: 20px;
-  height: 20px;
-  color: var(--mario-yellow);
+  color: #ffd700;
+  width: 16px;
+  height: 16px;
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
+  animation: twinkle 2s infinite ease-in-out;
 }
 
-.edu-degree {
-  font-size: 1.3rem;
-  color: var(--smash-green);
-  margin-bottom: 0.5rem;
+.star-icon:nth-child(2) { animation-delay: 0.2s; }
+.star-icon:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
 }
 
-.edu-institution {
-  font-size: 1rem;
-  color: var(--pixel-white);
-  margin-bottom: 0.3rem;
-}
-
-.edu-year {
-  font-size: 0.9rem;
-  color: var(--mario-yellow);
-  margin-bottom: 1rem;
-}
-
-.edu-description {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.8);
+.card-body p {
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
 }
 
-.progress-bar {
-  width: 100%;
-  height: 12px;
+.coursework-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.course-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.education-card:hover .course-item {
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  overflow: hidden;
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--smash-green) 0%, var(--mario-yellow) 100%);
-  animation: fillProgress 1s ease-out;
+.course-icon {
+  color: #fff;
+  opacity: 0.7;
 }
 
-@keyframes fillProgress {
-  from {
-    width: 0;
-  }
-}
-
-@media (max-width: 900px) {
-/* Education Section Mobile Fixes */
+@media (max-width: 768px) {
   .education-level {
     flex-direction: column;
-    align-items: stretch;
+    gap: 1rem;
   }
-
   .level-badge {
-    min-width: auto;
-    width: 100%;
     flex-direction: row;
+    min-width: 100%;
     justify-content: center;
     padding: 0.75rem;
   }
-
-  .level-text {
-    font-size: 0.6rem;
-  }
-
-  .education-card {
-    padding: 1rem;
-  }
-
   .card-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: 1rem;
   }
-
-  .degree-group {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    width: 100%;
-  }
-
-  .edu-degree {
-    font-size: 1rem;
-    word-break: break-word;
-  }
-
-  .edu-institution {
-    font-size: 0.85rem;
-    word-break: break-word;
-  }
-
-  .edu-description {
-    font-size: 0.85rem;
-  }
-
   .stars {
     align-self: flex-start;
   }
-} /* end EducationSection mobile */
+}

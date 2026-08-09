@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --mario-red: #E52521;
-  --mario-blue: #049CD8;
-  --mario-yellow: #FBD000;
-  --smash-green: #7AC943;
-  --smash-purple: #B537F2;
-  --smash-orange: #FF6B00;
+  --mario-red: #ff3b30;
+  --mario-blue: #0a84ff;
+  --mario-yellow: #ffd60a;
+  --smash-green: #30d158;
+  --smash-purple: #bf5af2;
+  --smash-orange: #ff9f0a;
   --pixel-black: #0f0f10;
   --pixel-white: #FFFFFF;
   --pixel-gray: #404040;
