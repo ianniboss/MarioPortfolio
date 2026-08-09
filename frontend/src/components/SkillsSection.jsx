@@ -22,32 +22,10 @@ const SkillCard = ({ skill, index, translatedSkill, starCount, IconComponent }) 
   return (
     <Card 
       ref={tiltRef} 
-      className="skill-card cartridge-card cartridge-skill"
-      style={{ 
-        '--led-color': skill.color,
-        '--led-color-rgb': ledRgb,
-        '--card-border-color': skill.color
-      }}
+      className="skill-card"
       data-float 
       data-float-speed="1.4"
     >
-      {/* Glossy glare reflection */}
-      <div className="cartridge-glare" />
-
-      {/* Retro LED Light wrapper */}
-      <div className="cartridge-led-wrapper">
-        <div className="cartridge-led" />
-        <span className="cartridge-led-label">CHIP.0{index + 1}</span>
-      </div>
-
-      {/* Cartridge Grooves */}
-      <div className="cartridge-grooves">
-        <div className="cartridge-groove" />
-        <div className="cartridge-groove" />
-        <div className="cartridge-groove" />
-        <div className="cartridge-groove" />
-      </div>
-
       <div className="skill-icon-container" style={{ backgroundColor: `${skill.color}15`, borderColor: `${skill.color}50` }}>
         <IconComponent className="skill-icon" style={{ color: skill.color }} />
       </div>
