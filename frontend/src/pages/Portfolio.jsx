@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react';
-import HeroSection from '../components/HeroSection';
-import AboutSection from '../components/AboutSection';
-import EducationSection from '../components/EducationSection';
-import SkillsSection from '../components/SkillsSection';
-import ProjectsSection from '../components/ProjectsSection';
-import ContactSection from '../components/ContactSection';
+import React, { useEffect, Suspense, lazy } from 'react';
 import Header from '../components/Header';
+import HeroSection from '../components/HeroSection';
 import Footer from '../components/Footer';
+import LoadingSpinner from '../components/ui/LoadingSpinner';
 import { initScrollFloat } from '@/hooks/useScrollFloat';
+
+const AboutSection = lazy(() => import('../components/AboutSection'));
+const EducationSection = lazy(() => import('../components/EducationSection'));
+const SkillsSection = lazy(() => import('../components/SkillsSection'));
+const ProjectsSection = lazy(() => import('../components/ProjectsSection'));
+const ContactSection = lazy(() => import('../components/ContactSection'));
 
 const Portfolio = () => {
   useEffect(() => {
@@ -19,11 +21,13 @@ const Portfolio = () => {
     <div className="portfolio-container">
       <Header />
       <HeroSection />
-      <AboutSection />
-      <EducationSection />
-      <SkillsSection />
-      <ProjectsSection />
-      <ContactSection />
+      <Suspense fallback={<LoadingSpinner />}>
+        <AboutSection />
+        <EducationSection />
+        <SkillsSection />
+        <ProjectsSection />
+        <ContactSection />
+      </Suspense>
       <Footer />
     </div>
   );

@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense, lazy } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Portfolio from './pages/Portfolio';
 import { LanguageProvider } from './context/LanguageContext';
 import AnalyticsConsent from './components/AnalyticsConsent';
-import HeroBackground3D from './components/HeroBackground3D';
+
+const HeroBackground3D = lazy(() => import('./components/HeroBackground3D'));
 
 function App() {
   const [apiMessage, setApiMessage] = useState('');
@@ -36,7 +37,9 @@ function App() {
   return (
     <LanguageProvider>
       <div className="App app-wrapper">
-        <HeroBackground3D />
+        <Suspense fallback={null}>
+          <HeroBackground3D />
+        </Suspense>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Portfolio />} />
