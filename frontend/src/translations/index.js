@@ -21,7 +21,7 @@ export const translations = {
     hero: {
       name: 'Ian Hafiz Syahrul Azlan',
       title: 'Software Developer | Java · Python · React',
-      tagline: 'Seeking an alternating work-study (1 month company / 1 month training) starting September 2026',
+      tagline: 'Third year computer science student looking for a work study contract (alternance) in back end or full stack development.',
       startBtn: 'Start Adventure',
       projectsBtn: 'View Projects'
     },
@@ -29,7 +29,7 @@ export const translations = {
     // About Section
     about: {
       title: 'About Me',
-      description: "3rd-year student in BUT Informatique (Application Development). Having completed a web development internship at CNRS (ISFinder) from April to June 2026, I am seeking a work-study position starting September 2026. I am passionate about contributing to software modernization, web development, data processing, and application migration projects.",
+      description: "3rd-year computer science student. I am seeking a work-study position (alternance) in back end or full stack development. I am passionate about contributing to software modernization, web development, data processing, and application migration projects.",
       flipHint: 'Click to flip!',
       flipBackHint: 'Click to flip back!',
       resumeBtn: 'Download My Resume',
@@ -42,31 +42,27 @@ export const translations = {
     // Education Section
     education: {
       title: 'Education Journey',
-      level: 'Level',
       items: [
         {
-          level: 'Level 1',
-          degree: "Bachelor's Degree in IT (BUT Informatique) - 3rd Year",
+          degree: "Bachelor's Degree in IT - 3rd Year",
           institution: 'IUT Paul Sabatier, Université Toulouse III',
-          year: '2023 - 2027',
+          year: '2024 - Present',
           description: 'Specializing in Application Development (RAPP).',
           image: 'Photo_campus_IUT_Toulouse.webp',
           logo: 'logo_iut_tls.png'
         },
         {
-          level: 'Level 2',
           degree: 'Pre-University Programme (Malaysia–France Cooperation)',
-          institution: 'University of Tours (IUT de Tours)',
+          institution: 'University of Tours',
           year: '2022 - 2023',
-          description: 'Achievement: French Language Level B2.',
+          description: 'Achievement: French Language B2.',
           logo: 'tourslogo.svg'
         },
         {
-          level: 'Level 3',
           degree: 'Sijil Pelajaran Malaysia (SPM)',
           institution: 'Tuanku Munawir Science School, Malaysia',
           year: '2017 - 2022',
-          description: 'Result: 9A+ (Equivalent to French Baccalaureate).',
+          description: 'Result: 9A+.',
           image: 'profile.webp',
           logo: 'saser.webp'
         }
@@ -75,14 +71,68 @@ export const translations = {
 
     // Skills Section
     skills: {
-      title: 'Power-Ups & Competencies',
+      title: 'Skills',
       items: [
-        { name: 'Develop', type: 'Software Engineering', description: 'Designing and building custom software solutions that answer real-world needs, writing clean and robust code.' },
-        { name: 'Optimize', type: 'Performance Tuning', description: 'Enhancing application performance, optimizing algorithms, and reducing resource consumption for fluid user experiences.' },
-        { name: 'Administer', type: 'System & Network', description: 'Configuring and maintaining infrastructures, networks, and servers to ensure security and high availability.' },
-        { name: 'Manage Data', type: 'Database Administration', description: 'Designing, managing, and querying secure databases to logically structure and extract value from information.' },
-        { name: 'Manage Projects', type: 'Project Management', description: 'Leading IT projects from requirements gathering to final delivery, implementing agile methodologies like Scrum.' },
-        { name: 'Collaborate', type: 'Teamwork', description: 'Working effectively within multidisciplinary teams, adapting quickly, and ensuring smooth communication.' }
+        { 
+          id: 1, 
+          name: 'Build applications',
+          timeline: [
+            { year: 'Year 1', text: "In my first year, I worked in a group to build a tomato shop in Java from a given brief. I wrote the catalog screen and the home page. I learned to turn a request into a working interface and to share code with my team through Git.", proof: "Tomato Sales Application" },
+            { year: 'Year 2', text: "TODO", proof: null },
+            { year: 'Year 3', text: "TODO", proof: null },
+            { year: 'Internship', text: "TODO", proof: null }
+          ]
+        },
+        { 
+          id: 2, 
+          name: 'Make software efficient',
+          timeline: [
+            { year: 'Year 1', text: "TODO", proof: null },
+            { year: 'Year 2', text: "TODO", proof: null },
+            { year: 'Year 3', text: "TODO", proof: null },
+            { year: 'Internship', text: "TODO", proof: null }
+          ]
+        },
+        { 
+          id: 3, 
+          name: 'Run and secure servers',
+          timeline: [
+            { year: 'Year 1', text: "TODO", proof: null },
+            { year: 'Year 2', text: "TODO", proof: null },
+            { year: 'Year 3', text: "TODO", proof: null },
+            { year: 'Internship', text: "TODO", proof: null }
+          ]
+        },
+        { 
+          id: 4, 
+          name: 'Design and manage data',
+          timeline: [
+            { year: 'Year 1', text: "TODO", proof: null },
+            { year: 'Year 2', text: "TODO", proof: null },
+            { year: 'Year 3', text: "TODO", proof: null },
+            { year: 'Internship', text: "TODO", proof: null }
+          ]
+        },
+        { 
+          id: 5, 
+          name: 'Lead projects',
+          timeline: [
+            { year: 'Year 1', text: "TODO", proof: null },
+            { year: 'Year 2', text: "TODO", proof: null },
+            { year: 'Year 3', text: "TODO", proof: null },
+            { year: 'Internship', text: "TODO", proof: null }
+          ]
+        },
+        { 
+          id: 6, 
+          name: 'Work in a team',
+          timeline: [
+            { year: 'Year 1', text: "TODO", proof: null },
+            { year: 'Year 2', text: "TODO", proof: null },
+            { year: 'Year 3', text: "TODO", proof: null },
+            { year: 'Internship', text: "TODO", proof: null }
+          ]
+        }
       ]
     },
 
@@ -127,13 +177,13 @@ export const translations = {
           learnings: 'Understood the intersection of design and performance optimization, and how to prioritize user experience in content-heavy applications.'
         },
         {
-          title: 'Agricultural Sales Management Application',
+          title: 'Tomato Sales Application',
           description: 'A desktop inventory and sales management system for agricultural products featuring real-time stock tracking and a user-friendly Java interface.',
           category: 'Desktop Application',
           problemSolved: 'Small agricultural businesses often lack digital tools for inventory management, leading to stock discrepancies and lost sales opportunities.',
           goals: 'Deliver a comprehensive sales and inventory management tool with clear data visualization and intuitive user experience.',
-          role: 'Architected the system using UML (Modelio), developed the Java HMI with Swing, designed the database schema, and implemented CRUD operations.',
-          challenges: 'Designed an HMI that remains responsive during heavy database reads by implementing background threading. Mapped complex entity relationships in UML before coding.',
+          role: 'Architected the system using UML (Modelio), developed the Java HMI with Swing, and implemented CRUD operations. Data saved in JSON files.',
+          challenges: 'Designed an HMI that remains responsive during heavy data reads by implementing background threading. Mapped complex entity relationships in UML before coding.',
           learnings: 'Learned the value of thorough system design before implementation, and how threading improves perceived performance in desktop applications.'
         },
         {
@@ -212,19 +262,29 @@ export const translations = {
           category: 'Media Utility',
           problemSolved: 'Most converters are ad-heavy and slow; this project focused on speed, simplicity, and a delightful user experience.',
           goals: 'Provide a fast, user-friendly media conversion tool with engaging UI and efficient backend processing.',
-          role: 'Built the React frontend, designed the Sonic-themed UI, configured Vercel deployment, and integrated with backend conversion services.',
+          role: 'Built the React frontend, designed the UI, configured Vercel deployment, and integrated with backend conversion services.',
           challenges: 'Implemented efficient queue management for multiple simultaneous requests. Optimized frontend responsiveness during conversion progress updates.',
           learnings: 'Gained experience with file handling workflows, progress tracking patterns, and creating engaging themed interfaces.'
         },
         {
           title: 'Mario Notion Dashboard',
-          description: 'A productivity dashboard that combines Notion API functionality with a nostalgic Mario-themed interface for task management, goal tracking, and daily planning.',
+          description: 'A productivity dashboard that combines Notion API functionality with a nostalgic gaming-themed interface for task management, goal tracking, and daily planning.',
           category: 'Productivity',
           problemSolved: 'Productivity tools often feel sterile and uninspiring; gamification can increase engagement and habit formation.',
           goals: 'Merge productivity functionality with gaming aesthetics to make task management genuinely enjoyable.',
-          role: 'Integrated Notion API for data sync, designed the Mario-themed component library with TailwindCSS, and implemented gamification elements.',
+          role: 'Integrated Notion API for data sync, designed the gaming-themed component library with TailwindCSS, and implemented gamification elements.',
           challenges: 'Worked around Notion API limitations for real-time updates. Created a cohesive retro design system that remains functional and accessible.',
           learnings: 'Explored the balance between aesthetics and usability, and learned how gamification principles can improve user engagement.'
+        },
+        {
+          title: 'ISfinder and ISadmin migration to PHP 8.5',
+          description: 'CNRS internship: Migration of the ISfinder and ISadmin platforms to PHP 8.5.',
+          category: 'Web Development',
+          problemSolved: 'TODO',
+          goals: 'TODO',
+          role: 'TODO',
+          challenges: 'TODO',
+          learnings: 'TODO'
         }
       ]
 
@@ -233,34 +293,39 @@ export const translations = {
 
     // Contact Section
     contact: {
-      title: 'Pause Menu',
-      subtitle: 'Ready to start a new quest together?',
-      playerName: 'Player Name',
+      title: 'Contact',
+      subtitle: 'Ready to start a new project together?',
+      name: 'Name',
       emailAddress: 'Email Address',
       message: 'Message',
       namePlaceholder: 'Enter your name',
       emailPlaceholder: 'your@email.com',
       messagePlaceholder: 'Tell me about your project...',
       sendBtn: 'Send Message',
-      socialTitle: 'Join My World',
+      sendingBtn: 'Sending...',
+      socialTitle: 'Social Links',
       toastTitle: 'Message Sent!',
-      toastDescription: "Your message has been received. I'll get back to you soon!"
+      toastDescription: "Your message has been received. I'll get back to you soon!",
+      toastFailedTitle: 'Failed to send',
+      toastFailedDescription: 'There was an error sending your message. Please try again.',
+      toastInvalidTitle: 'Invalid submission',
+      toastInvalidDescription: 'Please fill out all fields.'
     },
 
     // Footer
     footer: {
       craftedBy: 'Crafted with',
       by: 'by Ian Hafiz Syahrul Azlan',
-      copyright: '© 2025 All Rights Reserved'
+      copyright: '© 2026 All Rights Reserved'
     }
   },
 
   fr: {
     // Start Screen
     startScreen: {
-      title: 'QUÊTE PORTFOLIO',
-      button: 'APPUYER START',
-      hint: 'Cliquez pour commencer votre aventure'
+      title: 'PORTFOLIO',
+      button: 'DÉMARRER',
+      hint: 'Cliquez pour commencer'
     },
 
     // Header/Navigation
@@ -277,15 +342,15 @@ export const translations = {
     hero: {
       name: 'Ian Hafiz Syahrul Azlan',
       title: 'Développeur Logiciel | Java · Python · React',
-      tagline: 'Recherche alternance (1 mois entreprise / 1 mois formation) dès septembre 2026',
-      startBtn: 'Commencer l\'Aventure',
+      tagline: 'Étudiant de troisième année en informatique à la recherche d\'une alternance en développement back-end ou full-stack.',
+      startBtn: 'Commencer',
       projectsBtn: 'Voir les Projets'
     },
 
     // About Section
     about: {
       title: 'À Propos de Moi',
-      description: "Étudiant en 3ᵉ année de BUT Informatique (parcours Réalisation d'Applications), je recherche une alternance à partir de septembre 2026. Ayant terminé un stage de développement web au CNRS (ISFinder) d'avril à juin 2026, je souhaite contribuer à des projets de modernisation logicielle, de développement web, de traitement de données et de migration d'applications.",
+      description: "Étudiant en 3ᵉ année d'informatique. Je recherche une alternance à partir de septembre 2026 en développement back-end ou full-stack. Je souhaite contribuer à des projets de modernisation logicielle, de développement web, de traitement de données et de migration d'applications.",
       flipHint: 'Cliquez pour retourner!',
       flipBackHint: 'Cliquez pour revenir!',
       resumeBtn: 'Télécharger mon CV',
@@ -298,27 +363,23 @@ export const translations = {
     // Education Section
     education: {
       title: 'Parcours Éducatif',
-      level: 'Niveau',
       items: [
         {
-          level: 'Niveau 1',
-          degree: 'BUT Informatique - 3ᵉ année (RAPP)',
+          degree: 'Informatique - 3ᵉ année (RAPP)',
           institution: 'IUT Paul Sabatier, Université Toulouse III',
-          year: '2023 - 2027',
+          year: '2024 - Présent',
           description: 'Parcours Réalisation d\'Applications.',
           image: 'Photo_campus_IUT_Toulouse.webp',
           logo: 'logo_iut_tls.png'
         },
         {
-          level: 'Niveau 2',
           degree: 'Programme Pré-Universitaire (Coopération Malaisie-France)',
-          institution: 'Université de Tours (IUT de Tours)',
+          institution: 'Université de Tours',
           year: '2022 - 2023',
           description: 'Niveau de français B2 validé.',
           logo: 'tourslogo.svg'
         },
         {
-          level: 'Niveau 3',
           degree: 'Sijil Pelajaran Malaysia (SPM)',
           institution: 'Tuanku Munawir Science School, Malaisie',
           year: '2017 - 2022',
@@ -331,14 +392,68 @@ export const translations = {
 
     // Skills Section
     skills: {
-      title: 'Power-Ups & Compétences',
+      title: 'Compétences',
       items: [
-        { name: 'Réaliser', type: 'Développement Logiciel', description: 'Conception et développement de solutions informatiques sur mesure, avec un code propre et robuste répondant aux besoins.' },
-        { name: 'Optimiser', type: 'Amélioration des Performances', description: 'Amélioration des performances des applications et optimisation des algorithmes pour une expérience utilisateur fluide.' },
-        { name: 'Administrer', type: 'Système et Réseau', description: 'Configuration et maintenance des infrastructures et réseaux, garantissant la sécurité et la disponibilité des services.' },
-        { name: 'Gérer', type: 'Gestion de Données', description: 'Conception, gestion et exploitation de bases de données sécurisées pour structurer l\'information de manière logique.' },
-        { name: 'Conduire', type: 'Gestion de Projet', description: 'Pilotage de projets informatiques, de l\'expression des besoins à la livraison, en utilisant des méthodes agiles comme Scrum.' },
-        { name: 'Collaborer', type: 'Travail d\'Équipe', description: 'Travail d\'équipe efficace, communication fluide et adaptation rapide au sein d\'équipes pluridisciplinaires.' }
+        { 
+          id: 1, 
+          name: 'Développer des applications',
+          timeline: [
+            { year: 'Year 1', text: "En première année, j'ai développé en groupe une boutique de tomates en Java à partir d'un cahier des charges. J'ai réalisé l'écran du catalogue et la page d'accueil. J'ai appris à transformer une demande en interface fonctionnelle et à partager le code avec mon équipe grâce à Git.", proof: "Tomato Sales Application" },
+            { year: 'Year 2', text: "TODO", proof: null },
+            { year: 'Year 3', text: "TODO", proof: null },
+            { year: 'Internship', text: "TODO", proof: null }
+          ]
+        },
+        { 
+          id: 2, 
+          name: 'Optimiser les logiciels',
+          timeline: [
+            { year: 'Year 1', text: "TODO", proof: null },
+            { year: 'Year 2', text: "TODO", proof: null },
+            { year: 'Year 3', text: "TODO", proof: null },
+            { year: 'Internship', text: "TODO", proof: null }
+          ]
+        },
+        { 
+          id: 3, 
+          name: 'Administrer et sécuriser des serveurs',
+          timeline: [
+            { year: 'Year 1', text: "TODO", proof: null },
+            { year: 'Year 2', text: "TODO", proof: null },
+            { year: 'Year 3', text: "TODO", proof: null },
+            { year: 'Internship', text: "TODO", proof: null }
+          ]
+        },
+        { 
+          id: 4, 
+          name: 'Concevoir et gérer des données',
+          timeline: [
+            { year: 'Year 1', text: "TODO", proof: null },
+            { year: 'Year 2', text: "TODO", proof: null },
+            { year: 'Year 3', text: "TODO", proof: null },
+            { year: 'Internship', text: "TODO", proof: null }
+          ]
+        },
+        { 
+          id: 5, 
+          name: 'Conduire des projets',
+          timeline: [
+            { year: 'Year 1', text: "TODO", proof: null },
+            { year: 'Year 2', text: "TODO", proof: null },
+            { year: 'Year 3', text: "TODO", proof: null },
+            { year: 'Internship', text: "TODO", proof: null }
+          ]
+        },
+        { 
+          id: 6, 
+          name: 'Travailler en équipe',
+          timeline: [
+            { year: 'Year 1', text: "TODO", proof: null },
+            { year: 'Year 2', text: "TODO", proof: null },
+            { year: 'Year 3', text: "TODO", proof: null },
+            { year: 'Internship', text: "TODO", proof: null }
+          ]
+        }
       ]
     },
 
@@ -383,13 +498,13 @@ export const translations = {
           learnings: 'Compris l\'intersection entre design et optimisation des performances, et comment prioriser l\'expérience utilisateur dans les applications riches en contenu.'
         },
         {
-          title: 'Application de gestion des ventes (Produits agricoles)',
+          title: 'Tomato Sales Application',
           description: 'Développé une application Java de gestion des stocks et des ventes avec suivi en temps réel et interface conviviale.',
           category: 'Application Desktop',
           problemSolved: 'Les petites entreprises agricoles manquent souvent d\'outils numériques pour la gestion des stocks, entraînant des écarts de stock et des opportunités de vente perdues.',
           goals: 'Livrer un outil complet de gestion des ventes et des stocks avec visualisation claire des données et expérience utilisateur intuitive.',
-          role: 'Architecturé le système en utilisant UML (Modelio), développé l\'interface HMI Java avec Swing, conçu le schéma de base de données et implémenté les opérations CRUD.',
-          challenges: 'Conçu une interface HMI qui reste réactive lors des lectures intensives de base de données en implémentant le threading en arrière-plan. Cartographié les relations d\'entités complexes en UML avant le codage.',
+          role: 'Architecturé le système en utilisant UML (Modelio), développé l\'interface HMI Java avec Swing, et implémenté les opérations CRUD. Data saved in JSON files.',
+          challenges: 'Conçu une interface HMI qui reste réactive lors des lectures intensives de données en implémentant le threading en arrière-plan. Cartographié les relations d\'entités complexes en UML avant le codage.',
           learnings: 'Appris la valeur d\'une conception système approfondie avant l\'implémentation, et comment le threading améliore les performances perçues dans les applications desktop.'
         },
         {
@@ -468,19 +583,29 @@ export const translations = {
           category: 'Utilitaire Média',
           problemSolved: 'La plupart des convertisseurs sont pleins de publicités et lents; ce projet s\'est concentré sur la vitesse, la simplicité et une expérience utilisateur agréable.',
           goals: 'Fournir un outil de conversion média rapide et convivial avec une UI engageante et un traitement backend efficace.',
-          role: 'Construit le frontend React, conçu l\'UI thème Sonic, configuré le déploiement Vercel et intégré avec les services de conversion backend.',
+          role: 'Construit le frontend React, conçu l\'UI, configuré le déploiement Vercel et intégré avec les services de conversion backend.',
           challenges: 'Implémenté une gestion de file d\'attente efficace pour les requêtes simultanées multiples. Optimisé la réactivité du frontend pendant les mises à jour de progression de conversion.',
           learnings: 'Acquis de l\'expérience avec les flux de travail de gestion de fichiers, les patterns de suivi de progression et la création d\'interfaces thématiques engageantes.'
         },
         {
           title: 'Tableau de Bord Mario Notion',
-          description: 'Un tableau de bord de productivité qui combine la fonctionnalité de l\'API Notion avec une interface nostalgique thème Mario pour la gestion des tâches, le suivi des objectifs et la planification quotidienne.',
+          description: 'Un tableau de bord de productivité qui combine la fonctionnalité de l\'API Notion avec une interface nostalgique pour la gestion des tâches, le suivi des objectifs et la planification quotidienne.',
           category: 'Productivité',
           problemSolved: 'Les outils de productivité semblent souvent stériles et sans inspiration; la gamification peut augmenter l\'engagement et la formation d\'habitudes.',
           goals: 'Fusionner la fonctionnalité de productivité avec l\'esthétique de jeu pour rendre la gestion des tâches véritablement agréable.',
-          role: 'Intégré l\'API Notion pour la synchronisation des données, conçu la bibliothèque de composants thème Mario avec TailwindCSS et implémenté les éléments de gamification.',
+          role: 'Intégré l\'API Notion pour la synchronisation des données, conçu la bibliothèque de composants avec TailwindCSS et implémenté les éléments de gamification.',
           challenges: 'Contourné les limitations de l\'API Notion pour les mises à jour en temps réel. Créé un système de design rétro cohérent qui reste fonctionnel et accessible.',
           learnings: 'Exploré l\'équilibre entre esthétique et utilisabilité, et appris comment les principes de gamification peuvent améliorer l\'engagement utilisateur.'
+        },
+        {
+          title: 'ISfinder and ISadmin migration to PHP 8.5',
+          description: 'Stage CNRS : Migration des plateformes ISfinder et ISadmin vers PHP 8.5.',
+          category: 'Développement Web',
+          problemSolved: 'TODO',
+          goals: 'TODO',
+          role: 'TODO',
+          challenges: 'TODO',
+          learnings: 'TODO'
         }
       ]
 
@@ -489,25 +614,30 @@ export const translations = {
 
     // Contact Section
     contact: {
-      title: 'Menu Pause',
-      subtitle: 'Prêt à commencer une nouvelle quête ensemble?',
-      playerName: 'Nom du Joueur',
+      title: 'Contact',
+      subtitle: 'Prêt à commencer un nouveau projet ensemble?',
+      name: 'Nom',
       emailAddress: 'Adresse Email',
       message: 'Message',
       namePlaceholder: 'Entrez votre nom',
       emailPlaceholder: 'votre@email.com',
       messagePlaceholder: 'Parlez-moi de votre projet...',
       sendBtn: 'Envoyer le Message',
-      socialTitle: 'Rejoignez Mon Monde',
+      sendingBtn: 'Envoi...',
+      socialTitle: 'Réseaux Sociaux',
       toastTitle: 'Message Envoyé!',
-      toastDescription: 'Votre message a été reçu. Je reviendrai vers vous bientôt!'
+      toastDescription: 'Votre message a été reçu. Je reviendrai vers vous bientôt!',
+      toastFailedTitle: 'Échec de l\'envoi',
+      toastFailedDescription: 'Une erreur s\'est produite lors de l\'envoi de votre message. Veuillez réessayer.',
+      toastInvalidTitle: 'Soumission invalide',
+      toastInvalidDescription: 'Veuillez remplir tous les champs.'
     },
 
     // Footer
     footer: {
       craftedBy: 'Créé avec',
       by: 'par Ian Hafiz Syahrul Azlan',
-      copyright: '© 2025 Tous droits réservés'
+      copyright: '© 2026 Tous droits réservés'
     }
   }
 };

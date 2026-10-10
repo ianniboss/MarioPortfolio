@@ -36,8 +36,8 @@
 .spinner-cube:nth-child(4) { background: var(--smash-green, #30d158); animation-delay: 0.4s; box-shadow: 0 0 10px rgba(48, 209, 88, 0.5); }
 
 .loading-text {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.7rem;
+  font-weight: 700;
+  font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.7);
   letter-spacing: 2px;
   animation: blink 1.5s infinite;

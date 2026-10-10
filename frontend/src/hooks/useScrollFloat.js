@@ -4,7 +4,7 @@
 // - Staggered animations for child elements in containers
 
 export function initScrollFloat() {
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches || document.body.classList.contains('reduce-motion');
 
   const direct = Array.from(document.querySelectorAll('[data-float]'));
   const parentContainers = Array.from(document.querySelectorAll('[data-float-children]'));

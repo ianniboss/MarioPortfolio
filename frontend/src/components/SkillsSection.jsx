@@ -1,6 +1,6 @@
 import './SkillsSection.css';
 import React from 'react';
-import { skillsData } from '../mock';
+import { skillsData, projectsData } from '../mock';
 import { Card } from './ui/card';
 import * as Icons from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
@@ -15,31 +15,12 @@ const hexToRgb = (hex) => {
   return result ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}` : '4, 156, 216';
 };
 
-const SkillCard = ({ skill, index, translatedSkill, starCount, IconComponent }) => {
-  const tiltRef = use3dTilt();
-  const ledRgb = hexToRgb(skill.color);
-
-  return (
-    <Card 
-      ref={tiltRef} 
-      className="skill-card"
-      data-float 
-      data-float-speed="1.4"
-    >
-      <div className="skill-icon-container" style={{ backgroundColor: `${skill.color}15`, borderColor: `${skill.color}50` }}>
-        <IconComponent className="skill-icon" style={{ color: skill.color }} />
-      </div>
-      <h3 className="skill-name">{translatedSkill.name}</h3>
-      <p className="skill-type">{translatedSkill.type}</p>
-      <p className="skill-description text-sm text-gray-300 mt-3 mb-2 opacity-80 leading-relaxed text-center">
-        {translatedSkill.description}
-      </p>
-    </Card>
-  );
-};
-
 const SkillsSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  const openProject = (projectId) => {
+    window.dispatchEvent(new CustomEvent('openProjectDialog', { detail: projectId }));
+  };
 
   return (
     <section id="skills" className="skills-section">
@@ -49,21 +30,59 @@ const SkillsSection = () => {
           <div className="title-underline"></div>
         </div>
 
-        <div className="skills-grid">
+        <div className="skills-list flex flex-col gap-12">
           {skillsData.map((skill, index) => {
-            const IconComponent = Icons[skill.icon.charAt(0).toUpperCase() + skill.icon.slice(1)] || Icons.Star;
             const translatedSkill = t.skills.items[index];
-            const starCount = Math.round(skill.level / 20);
-
+            const IconComponent = Icons[skill.icon.charAt(0).toUpperCase() + skill.icon.slice(1)] || Icons.Star;
+            
+            // Find projects that match this skill
+            const relatedProjects = projectsData.filter(p => p.competencies?.includes(skill.id));
+            
             return (
-              <SkillCard
-                key={skill.id}
-                skill={skill}
-                index={index}
-                translatedSkill={translatedSkill}
-                starCount={starCount}
-                IconComponent={IconComponent}
-              />
+              <div key={skill.id} id={`skill-${skill.id}`} className="skill-section-block">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="skill-icon-container" style={{ backgroundColor: `${skill.color}15`, borderColor: `${skill.color}50` }}>
+                    <IconComponent className="skill-icon" style={{ color: skill.color }} />
+                  </div>
+                  <h3 className="text-2xl font-bold">{translatedSkill.name}</h3>
+                </div>
+                
+                <div className="timeline-container ml-4 pl-4 border-l-2 border-gray-700">
+                  {translatedSkill.timeline?.map((step, stepIdx) => (
+                    <div key={stepIdx} className="timeline-step relative mb-6">
+                      <div className="timeline-dot absolute w-3 h-3 bg-red-500 rounded-full -left-[1.35rem] top-1.5"></div>
+                      <h4 className="text-lg font-bold text-red-400 mb-2">{step.year}</h4>
+                      <p className="text-gray-300 mb-2">{step.text}</p>
+                      {step.proof && (
+                        <p className="text-sm font-medium text-blue-400">
+                          {language === 'fr' ? 'Preuve :' : 'Proof:'} <span className="text-white">{step.proof}</span>
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                {relatedProjects.length > 0 && (
+                  <div className="mt-6">
+                    <h4 className="text-lg font-bold mb-4">{language === 'fr' ? 'Projets associés' : 'Related Projects'}</h4>
+                    <div className="flex flex-wrap gap-4">
+                      {relatedProjects.map(project => {
+                        const pIdx = projectsData.findIndex(p => p.id === project.id);
+                        const pTitle = t.projects.items[pIdx]?.title || project.title;
+                        return (
+                          <Card 
+                            key={project.id} 
+                            className="cursor-pointer hover:border-red-500 transition-colors p-4 bg-gray-800/50 border border-gray-700 rounded-lg w-64"
+                            onClick={() => openProject(project.id)}
+                          >
+                            <h5 className="font-bold truncate" title={pTitle}>{pTitle}</h5>
+                          </Card>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
             );
           })}
         </div>

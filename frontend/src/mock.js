@@ -2,9 +2,9 @@
 export const profileData = {
   name: "Ian Hafiz Syahrul Azlan",
   title: "Computer Science Student",
-  tagline: "Crafting Digital Adventures",
-  avatar: "https://images.unsplash.com/photo-1633466876697-1eb9c820028d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxuaW50ZW5kbyUyMGF2YXRhcnxlbnwwfHx8fDE3NjE0NjM1NzB8MA&ixlib=rb-4.1.0&q=85",
-  about: "Hello! I'm a passionate IT student and developer from Malaysia, currently studying in Toulouse, France. I love creating innovative applications and exploring new technologies. With a blend of creativity and technical expertise, I transform ideas into functional and engaging digital experiences. Currently seeking a 10-12 week internship for April-June 2026!",
+  tagline: "third year computer science student looking for a work study contract (alternance) in back end or full stack development.",
+  avatar: "/img/profile.webp",
+  about: "Hello! I'm a passionate IT student and developer from Malaysia, currently studying in Toulouse, France. I love creating innovative applications and exploring new technologies. With a blend of creativity and technical expertise, I transform ideas into functional and engaging digital experiences. Currently seeking a work study contract (alternance) in back end or full stack development!",
   email: "ianhafiz9999@gmail.com",
   location: "Toulouse, France",
   nationality: "Malaysian"
@@ -13,23 +13,23 @@ export const profileData = {
 export const educationData = [
   {
     id: 1,
-    level: "Level 1",
-    degree: "Bachelor's Degree in IT (BUT Informatique)",
+    level: "",
+    degree: "Bachelor's Degree in IT",
     institution: "IUT Paul Sabatier, Université Toulouse III",
     year: "2024 - Present",
     description: "2nd Year, specializing in Application Development. Focus areas: Software Development, Databases, Networking, Project Management."
   },
   {
     id: 2,
-    level: "Level 2",
+    level: "",
     degree: "Pre-University Programme (Malaysia–France Cooperation)",
-    institution: "University of Tours (IUT de Tours)",
+    institution: "University of Tours",
     year: "2022 - 2023",
-    description: "Coursework: French Language, Mathematics, Physics-Chemistry, Algorithmics, and Logic. Achievement: French Language Level B2."
+    description: "Coursework: French Language, Mathematics, Physics-Chemistry, Algorithmics, and Logic. Achievement: French Language B2."
   },
   {
     id: 3,
-    level: "Level 3",
+    level: "",
     degree: "Sijil Pelajaran Malaysia (SPM)",
     institution: "Tuanku Munawir Science School, Malaysia",
     year: "2017 - 2022",
@@ -40,51 +40,51 @@ export const educationData = [
 export const skillsData = [
   {
     id: 1,
-    name: "Réaliser",
+    name: "Build applications",
     level: 90,
     icon: "code",
     color: "#E44D26",
-    type: "Fire Flower"
+    type: ""
   },
   {
     id: 2,
-    name: "Optimiser",
+    name: "Make software efficient",
     level: 85,
     icon: "zap",
     color: "#F7DF1E",
-    type: "Star Power"
+    type: ""
   },
   {
     id: 3,
-    name: "Administrer",
+    name: "Run and secure servers",
     level: 80,
     icon: "server",
     color: "#1572B6",
-    type: "Cape Feather"
+    type: ""
   },
   {
     id: 4,
-    name: "Gérer",
+    name: "Design and manage data",
     level: 88,
     icon: "database",
     color: "#47A248",
-    type: "Yoshi Egg"
+    type: ""
   },
   {
     id: 5,
-    name: "Conduire",
+    name: "Lead projects",
     level: 85,
     icon: "compass",
     color: "#7377AD",
-    type: "Super Mushroom"
+    type: ""
   },
   {
     id: 6,
-    name: "Collaborer",
+    name: "Work in a team",
     level: 95,
     icon: "users",
     color: "#FCC624",
-    type: "1-UP Mushroom"
+    type: ""
   }
 ];
 
@@ -136,7 +136,7 @@ export const projectsData = [
   {
     id: 4,
     title: "Tomato Sales Application",
-    description: "Developed Human–Machine Interface (HMI) in Java. Managed database and designed UML models using Modelio.",
+    description: "Developed Human–Machine Interface (HMI) in Java. Managed database and designed UML models using Modelio. Data saved in JSON files.",
     image: "/img/tomato.webp",
     screenshots: [
       "/img/tomato.webp",
@@ -149,14 +149,14 @@ export const projectsData = [
       "/img/tomato-7.webp",
       "/img/tomato-8.webp"
     ],
-    technologies: ["Java", "Modelio", "UML", "Database"],
+    technologies: ["Java", "Modelio", "UML", "JSON"],
     link: null,
     source: "https://github.com/ianniboss/S201_TOMATES",
     category: "Desktop Application",
     year: "2025",
-    goals: "Create a comprehensive tomato sales management system with inventory tracking, customer management, and sales reporting capabilities using Java HMI and database integration.",
+    goals: "Create a comprehensive tomato sales management system with inventory tracking, customer management, and sales reporting capabilities using Java HMI.",
     duration: "1.5 months",
-    competencies: [1, 4]
+    competencies: [1, 6]
   },
   {
     id: 5,
@@ -293,7 +293,7 @@ export const projectsData = [
   {
     id: 13,
     title: "Mario Notion Dashboard",
-    description: "A Mario-themed productivity dashboard integrated with Notion for task management and organization.",
+    description: "A gaming-themed productivity dashboard integrated with Notion for task management and organization.",
     image: "/img/mario-notion.webp",
     screenshots: ["/img/mario-notion.webp"],
     technologies: ["React", "Notion API", "TailwindCSS", "Web Application"],
@@ -304,6 +304,21 @@ export const projectsData = [
     goals: "Combine productivity tools with a nostalgic gaming aesthetic to make task management fun.",
     duration: "2 weeks",
     competencies: [1, 5]
+  },
+  {
+    id: 14,
+    title: "ISfinder and ISadmin migration to PHP 8.5",
+    description: "CNRS internship: Migration of the ISfinder and ISadmin platforms to PHP 8.5.",
+    image: "/img/cnrs.webp",
+    screenshots: [],
+    technologies: ["PHP", "Web Development"],
+    link: null,
+    source: null,
+    category: "Web Development",
+    year: "2026",
+    goals: "TODO",
+    duration: "3 months (April - June 2026)",
+    competencies: [1, 6]
   }
 ];
 
@@ -316,9 +331,9 @@ export const socialLinks = [
 ];
 
 export const languagesSpoken = [
-  { name: "Malay", level: "Native" },
-  { name: "English", level: "C1 (Bilingual)" },
-  { name: "French", level: "B2" }
+  { name: "Malay", level: "" },
+  { name: "English", level: "" },
+  { name: "French", level: "" }
 ];
 
 export const interests = [

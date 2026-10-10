@@ -9,6 +9,20 @@ const Header = () => {
   const { language, toggleLanguage, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
+
+  useEffect(() => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setReduceMotion(prefersReduced);
+  }, []);
+
+  useEffect(() => {
+    if (reduceMotion) {
+      document.body.classList.add('reduce-motion');
+    } else {
+      document.body.classList.remove('reduce-motion');
+    }
+  }, [reduceMotion]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,6 +80,15 @@ const Header = () => {
           >
             <Languages size={20} />
             <span className="lang-text">{language === 'en' ? 'FR' : 'EN'}</span>
+          </Button>
+          
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setReduceMotion(!reduceMotion)}
+            title={language === 'en' ? 'Toggle Animations' : 'Activer/Désactiver les animations'}
+          >
+            <span className="text-xs">{reduceMotion ? '▶️' : '⏸️'}</span>
           </Button>
 
           <Button

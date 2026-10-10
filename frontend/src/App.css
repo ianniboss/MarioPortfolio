@@ -161,7 +161,7 @@ body::before {
 }
 
 .start-button {
-  font-family: 'Press Start 2P', cursive;
+  font-weight: 700;
   font-size: 1.2rem;
   padding: 1.5rem 3rem;
   background: var(--mario-red);
@@ -713,8 +713,8 @@ body {
 }
 
 .cartridge-led-label {
-  font-family: 'Press Start 2P', cursive, monospace;
-  font-size: 0.5rem;
+  font-weight: 700;
+  font-size: 0.6rem;
   color: rgba(255, 255, 255, 0.4);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -793,16 +793,16 @@ body {
 }
 
 .spec-label {
-  font-family: 'Press Start 2P', cursive, monospace;
-  font-size: 0.75rem;
+  font-weight: 700;
+  font-size: 0.85rem;
   color: var(--mario-yellow);
   letter-spacing: 1px;
   animation: text-pulse 2s infinite ease-in-out;
 }
 
 .spec-system {
-  font-family: 'Press Start 2P', cursive, monospace;
-  font-size: 0.55rem;
+  font-weight: 700;
+  font-size: 0.65rem;
   color: rgba(255, 255, 255, 0.4);
 }
 
@@ -826,8 +826,8 @@ body {
 }
 
 .spec-key {
-  font-family: 'Press Start 2P', cursive, monospace;
-  font-size: 0.55rem;
+  font-weight: 700;
+  font-size: 0.65rem;
   color: rgba(255, 255, 255, 0.4);
 }
 
@@ -892,9 +892,8 @@ body {
 
 /* Circular button internal letter overlay */
 .console-btn-letter {
-  font-family: 'Press Start 2P', cursive, monospace;
-  font-size: 0.75rem;
   font-weight: 900;
+  font-size: 0.9rem;
   color: #ffffff;
   pointer-events: none;
 }
@@ -938,8 +937,8 @@ body {
 
 /* Label text underneath buttons */
 .console-btn-label {
-  font-family: 'Press Start 2P', cursive, monospace;
-  font-size: 0.45rem;
+  font-weight: 700;
+  font-size: 0.55rem;
   color: rgba(255, 255, 255, 0.4);
   text-transform: uppercase;
   letter-spacing: 0.5px;

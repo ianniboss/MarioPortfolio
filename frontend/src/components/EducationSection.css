@@ -51,8 +51,8 @@
 }
 
 .level-text {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.7rem;
+  font-weight: 700;
+  font-size: 0.75rem;
   color: #fff;
   text-align: center;
 }

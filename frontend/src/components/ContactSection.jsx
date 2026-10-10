@@ -13,7 +13,7 @@ import BrandDiscordIcon from './icons/BrandDiscordIcon';
 import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
@@ -30,8 +30,8 @@ const ContactSection = () => {
     // Honeypot: if hidden field is filled, treat as bot
     if (formData.website && formData.website.trim()) {
       toast({
-        title: 'Invalid submission',
-        description: 'Please try again.',
+        title: language === 'fr' ? 'Soumission invalide' : 'Invalid submission',
+        description: language === 'fr' ? 'Veuillez réessayer.' : 'Please try again.',
         variant: 'destructive'
       });
       return;
@@ -44,6 +44,16 @@ const ContactSection = () => {
       const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
       const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
       const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+
+      if (serviceId === 'YOUR_SERVICE_ID' || templateId === 'YOUR_TEMPLATE_ID' || publicKey === 'YOUR_PUBLIC_KEY') {
+        toast({
+          title: language === 'fr' ? 'Configuration manquante' : 'Missing Configuration',
+          description: language === 'fr' ? 'Le formulaire de contact n\'est pas encore configuré. Veuillez m\'envoyer un e-mail directement.' : 'The contact form is not configured yet. Please email me directly.',
+          variant: 'destructive'
+        });
+        setSending(false);
+        return;
+      }
 
       // Send email via EmailJS
       await emailjs.send(
@@ -66,8 +76,8 @@ const ContactSection = () => {
     } catch (err) {
       console.error('EmailJS error:', err);
       toast({
-        title: 'Failed to send',
-        description: 'Please try again later or email me directly.',
+        title: language === 'fr' ? 'Échec de l\'envoi' : 'Failed to send',
+        description: language === 'fr' ? 'Veuillez réessayer plus tard ou m\'envoyer un e-mail directement.' : 'Please try again later or email me directly.',
         variant: 'destructive'
       });
     } finally {
@@ -141,7 +151,7 @@ const ContactSection = () => {
               </div>
 
               <Button type="submit" className="submit-button" disabled={sending}>
-                {sending ? 'Sending…' : t.contact.sendBtn}
+                {sending ? (language === 'fr' ? 'Envoi en cours…' : 'Sending…') : t.contact.sendBtn}
               </Button>
             </form>
           </Card>

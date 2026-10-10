@@ -14,7 +14,7 @@ export function use3dTilt() {
     const el = ref.current;
     if (!el) return;
 
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches || document.body.classList.contains('reduce-motion');
     if (prefersReduced) return;
 
     // Detect if primary pointer is touch (coarse) to avoid sticky hover tilts on phones/tablets

@@ -61,12 +61,12 @@ const ProjectCard = ({ project, index, translatedProject, t, language, setSelect
             return comp ? (
               <a 
                 key={compId} 
-                href="#skills" 
+                href={`#skill-${compId}`} 
                 onClick={(e) => { 
                   e.stopPropagation(); 
-                  document.querySelector('#skills')?.scrollIntoView({ behavior: 'smooth' }); 
+                  document.querySelector(`#skill-${compId}`)?.scrollIntoView({ behavior: 'smooth' }); 
                 }} 
-                className="text-[10px] uppercase font-bold tracking-wider bg-red-500/10 border border-red-500/20 text-red-400 px-2 py-0.5 rounded-full hover:bg-red-500/20 transition-colors"
+                className="text-xs font-bold tracking-wider bg-red-500/10 border border-red-500/20 text-red-400 px-2 py-0.5 rounded-full hover:bg-red-500/20 transition-colors"
               >
                 {comp.name}
               </a>
@@ -103,6 +103,18 @@ const ProjectsSection = () => {
   const { t, language } = useLanguage();
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
+
+  React.useEffect(() => {
+    const handleOpenProject = (e) => {
+      const projId = e.detail;
+      const idx = projectsData.findIndex(p => p.id === projId);
+      if (idx !== -1) {
+        setSelectedIndex(idx);
+      }
+    };
+    window.addEventListener('openProjectDialog', handleOpenProject);
+    return () => window.removeEventListener('openProjectDialog', handleOpenProject);
+  }, []);
 
   const openDemo = (e, url) => {
     e.stopPropagation();

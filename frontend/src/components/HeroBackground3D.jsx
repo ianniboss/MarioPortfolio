@@ -7,7 +7,7 @@ function ParticleField({ count = 4000 }) {
   const pointsRef = useRef();
 
   // Respect user motion preference (Impeccable skill rule)
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches || document.body.classList.contains('reduce-motion');
 
   // Generate random points scattered in a sphere
   const positions = useMemo(() => {
