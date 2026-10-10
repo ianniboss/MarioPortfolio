@@ -75,19 +75,14 @@ export const translations = {
 
     // Skills Section
     skills: {
-      title: 'Power-Ups & Skills',
+      title: 'Power-Ups & Competencies',
       items: [
-        { name: 'Java', type: 'Fire Flower' },
-        { name: 'Python', type: 'Star Power' },
-        { name: 'React', type: 'Super Star' },
-        { name: 'PHP / C', type: '1-UP Mushroom' },
-        { name: 'HTML / CSS / JS', type: 'Super Mushroom' },
-        { name: 'SQL / PL/SQL / SQLite', type: 'Yoshi Egg' },
-        { name: 'Oracle APEX', type: 'Golden Coin' },
-        { name: 'REST APIs', type: 'Magic Wand' },
-        { name: 'Git / Linux', type: 'Cape Feather' },
-        { name: 'Docker / Apache2', type: 'POW Block' },
-        { name: 'UML / OOP / Scrum', type: 'Super Leaf' }
+        { name: 'Develop', type: 'Software Engineering', description: 'Designing and building custom software solutions that answer real-world needs, writing clean and robust code.' },
+        { name: 'Optimize', type: 'Performance Tuning', description: 'Enhancing application performance, optimizing algorithms, and reducing resource consumption for fluid user experiences.' },
+        { name: 'Administer', type: 'System & Network', description: 'Configuring and maintaining infrastructures, networks, and servers to ensure security and high availability.' },
+        { name: 'Manage Data', type: 'Database Administration', description: 'Designing, managing, and querying secure databases to logically structure and extract value from information.' },
+        { name: 'Manage Projects', type: 'Project Management', description: 'Leading IT projects from requirements gathering to final delivery, implementing agile methodologies like Scrum.' },
+        { name: 'Collaborate', type: 'Teamwork', description: 'Working effectively within multidisciplinary teams, adapting quickly, and ensuring smooth communication.' }
       ]
     },
 
@@ -338,17 +333,12 @@ export const translations = {
     skills: {
       title: 'Power-Ups & Compétences',
       items: [
-        { name: 'Java', type: 'Fleur de Feu' },
-        { name: 'Python', type: 'Pouvoir Étoile' },
-        { name: 'React', type: 'Super Étoile' },
-        { name: 'PHP / C', type: 'Champignon 1-UP' },
-        { name: 'HTML / CSS / JS', type: 'Super Champignon' },
-        { name: 'SQL / PL/SQL / SQLite', type: 'Œuf de Yoshi' },
-        { name: 'Oracle APEX', type: 'Pièce d\'Or' },
-        { name: 'REST APIs', type: 'Baguette Magique' },
-        { name: 'Git / Linux', type: 'Plume Cape' },
-        { name: 'Docker / Apache2', type: 'Bloc POW' },
-        { name: 'UML / OOP / Scrum', type: 'Super Feuille' }
+        { name: 'Réaliser', type: 'Développement Logiciel', description: 'Conception et développement de solutions informatiques sur mesure, avec un code propre et robuste répondant aux besoins.' },
+        { name: 'Optimiser', type: 'Amélioration des Performances', description: 'Amélioration des performances des applications et optimisation des algorithmes pour une expérience utilisateur fluide.' },
+        { name: 'Administrer', type: 'Système et Réseau', description: 'Configuration et maintenance des infrastructures et réseaux, garantissant la sécurité et la disponibilité des services.' },
+        { name: 'Gérer', type: 'Gestion de Données', description: 'Conception, gestion et exploitation de bases de données sécurisées pour structurer l\'information de manière logique.' },
+        { name: 'Conduire', type: 'Gestion de Projet', description: 'Pilotage de projets informatiques, de l\'expression des besoins à la livraison, en utilisant des méthodes agiles comme Scrum.' },
+        { name: 'Collaborer', type: 'Travail d\'Équipe', description: 'Travail d\'équipe efficace, communication fluide et adaptation rapide au sein d\'équipes pluridisciplinaires.' }
       ]
     },
 

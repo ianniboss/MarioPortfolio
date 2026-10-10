@@ -55,6 +55,25 @@ const ProjectCard = ({ project, index, translatedProject, t, language, setSelect
           )}
         </div>
 
+        <div className="project-competencies mt-2 flex flex-wrap gap-1.5">
+          {project.competencies?.map((compId) => {
+            const comp = t.skills.items[compId - 1];
+            return comp ? (
+              <a 
+                key={compId} 
+                href="#skills" 
+                onClick={(e) => { 
+                  e.stopPropagation(); 
+                  document.querySelector('#skills')?.scrollIntoView({ behavior: 'smooth' }); 
+                }} 
+                className="text-[10px] uppercase font-bold tracking-wider bg-red-500/10 border border-red-500/20 text-red-400 px-2 py-0.5 rounded-full hover:bg-red-500/20 transition-colors"
+              >
+                {comp.name}
+              </a>
+            ) : null;
+          })}
+        </div>
+
         <div className="project-actions">
           <Button
             className="project-btn demo-btn"

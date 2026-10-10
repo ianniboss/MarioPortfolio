@@ -31,18 +31,9 @@ const SkillCard = ({ skill, index, translatedSkill, starCount, IconComponent }) 
       </div>
       <h3 className="skill-name">{translatedSkill.name}</h3>
       <p className="skill-type">{translatedSkill.type}</p>
-      <div className="skill-stars">
-        {[...Array(5)].map((_, i) => (
-          <Icons.Star
-            key={i}
-            size={18}
-            className={i < starCount ? "star-filled" : "star-empty"}
-            fill={i < starCount ? skill.color : "transparent"}
-            color={i < starCount ? skill.color : "rgba(255,255,255,0.2)"}
-          />
-        ))}
-      </div>
-      <span className="skill-rank">Rank: {starCount}/5</span>
+      <p className="skill-description text-sm text-gray-300 mt-3 mb-2 opacity-80 leading-relaxed text-center">
+        {translatedSkill.description}
+      </p>
     </Card>
   );
 };

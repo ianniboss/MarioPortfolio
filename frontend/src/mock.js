@@ -40,7 +40,7 @@ export const educationData = [
 export const skillsData = [
   {
     id: 1,
-    name: "Java",
+    name: "Réaliser",
     level: 90,
     icon: "code",
     color: "#E44D26",
@@ -48,59 +48,43 @@ export const skillsData = [
   },
   {
     id: 2,
-    name: "Python",
-    level: 88,
-    icon: "star",
+    name: "Optimiser",
+    level: 85,
+    icon: "zap",
     color: "#F7DF1E",
     type: "Star Power"
   },
   {
     id: 3,
-    name: "C",
-    level: 85,
-    icon: "zap",
+    name: "Administrer",
+    level: 80,
+    icon: "server",
     color: "#1572B6",
-    type: "Leaf Power"
+    type: "Cape Feather"
   },
   {
     id: 4,
-    name: "SQL",
-    level: 87,
+    name: "Gérer",
+    level: 88,
     icon: "database",
     color: "#47A248",
     type: "Yoshi Egg"
   },
   {
     id: 5,
-    name: "PHP",
-    level: 82,
-    icon: "layers",
+    name: "Conduire",
+    level: 85,
+    icon: "compass",
     color: "#7377AD",
-    type: "1-UP Mushroom"
-  },
-  {
-    id: 6,
-    name: "HTML/CSS",
-    level: 92,
-    icon: "layout",
-    color: "#E34C26",
     type: "Super Mushroom"
   },
   {
-    id: 7,
-    name: "Git",
-    level: 85,
-    icon: "git-branch",
-    color: "#F05032",
-    type: "POW Block"
-  },
-  {
-    id: 8,
-    name: "Linux",
-    level: 80,
-    icon: "terminal",
+    id: 6,
+    name: "Collaborer",
+    level: 95,
+    icon: "users",
     color: "#FCC624",
-    type: "Cape Feather"
+    type: "1-UP Mushroom"
   }
 ];
 
@@ -117,7 +101,8 @@ export const projectsData = [
     link: null,
     source: null,
     category: "Database Application",
-    year: "2025"
+    year: "2025",
+    competencies: [1, 4, 5]
   },
   {
     id: 2,
@@ -130,7 +115,8 @@ export const projectsData = [
     technologies: ["Linux", "Apache2", "SSL", "Server Admin"],
     link: null,
     category: "System Administration",
-    year: "2025"
+    year: "2025",
+    competencies: [3, 6]
   },
   {
     id: 3,
@@ -144,7 +130,8 @@ export const projectsData = [
     demo: "https://viewer.pandasuite.com/2kTY2xBI",
     link: null,
     category: "Web Development",
-    year: "2025"
+    year: "2025",
+    competencies: [1, 5]
   },
   {
     id: 4,
@@ -168,7 +155,8 @@ export const projectsData = [
     category: "Desktop Application",
     year: "2025",
     goals: "Create a comprehensive tomato sales management system with inventory tracking, customer management, and sales reporting capabilities using Java HMI and database integration.",
-    duration: "1.5 months"
+    duration: "1.5 months",
+    competencies: [1, 4]
   },
   {
     id: 5,
@@ -186,7 +174,8 @@ export const projectsData = [
     category: "Web Application",
     year: "2024",
     goals: "Analyze LoL matches (Jan 16–18, 2025) via Riot API with an Oracle APEX app; highlight trends and win factors (performance, roles, champion stats); add two pages with correlation-based insights.",
-    duration: "1 month"
+    duration: "1 month",
+    competencies: [2, 4]
   },
   {
     id: 6,
@@ -208,7 +197,8 @@ export const projectsData = [
     category: "Research & Development",
     year: "2024",
     goals: "Evaluate and visualize pathfinding algorithms on massive graph datasets.",
-    duration: "9 weeks"
+    duration: "9 weeks",
+    competencies: [1, 2]
   },
   {
     id: 7,
@@ -222,7 +212,8 @@ export const projectsData = [
     category: "Full-stack Web Application",
     year: "2025",
     goals: "Connect the Malaysian student community in France through a centralized platform for events and essential admin guides.",
-    duration: "Ongoing"
+    duration: "Ongoing",
+    competencies: [1, 3, 4, 6]
   },
   {
     id: 8,
@@ -236,7 +227,8 @@ export const projectsData = [
     category: "AI Application",
     year: "2025",
     goals: "Provide instant, multi-language translation specifically optimized for students navigating between Malay, English, and French.",
-    duration: "2 weeks"
+    duration: "2 weeks",
+    competencies: [1, 2]
   },
   {
     id: 9,
@@ -250,7 +242,8 @@ export const projectsData = [
     category: "AI Application",
     year: "2025",
     goals: "Streamline content creation for trilingual users by generating context-aware social media captions automatically.",
-    duration: "1 week"
+    duration: "1 week",
+    competencies: [1, 5]
   },
   {
     id: 10,
@@ -264,7 +257,8 @@ export const projectsData = [
     category: "Web Application",
     year: "2025",
     goals: "Build a sleek, reliable weather tool providing current conditions and a 5-day forecast for any city worldwide.",
-    duration: "1 week"
+    duration: "1 week",
+    competencies: [1, 2]
   },
   {
     id: 11,
@@ -278,7 +272,8 @@ export const projectsData = [
     category: "Management System",
     year: "2025",
     goals: "Build a robust platform for coaches to manage team rosters, schedule matches, and analyze player performance.",
-    duration: "Ongoing"
+    duration: "Ongoing",
+    competencies: [1, 4]
   },
   {
     id: 12,
@@ -292,7 +287,8 @@ export const projectsData = [
     category: "Media Utility",
     year: "2025",
     goals: "Provide a simple, high-speed tool for converting media formats with a focus on user experience.",
-    duration: "1 week"
+    duration: "1 week",
+    competencies: [1, 2]
   },
   {
     id: 13,
@@ -306,7 +302,8 @@ export const projectsData = [
     category: "Productivity",
     year: "2025",
     goals: "Combine productivity tools with a nostalgic gaming aesthetic to make task management fun.",
-    duration: "2 weeks"
+    duration: "2 weeks",
+    competencies: [1, 5]
   }
 ];
 

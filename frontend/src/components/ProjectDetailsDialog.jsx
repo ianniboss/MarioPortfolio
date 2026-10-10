@@ -145,6 +145,32 @@ const ProjectDetailsDialog = ({
                       ))}
                     </div>
                   </div>
+                  
+                  {selectedProject.competencies && selectedProject.competencies.length > 0 && (
+                    <div className="dialog-section">
+                      <h4 className="dialog-section-title">
+                        {language === 'fr' ? 'Compétences (BUT)' : 'BUT Competencies'}
+                      </h4>
+                      <div className="flex flex-wrap gap-2 mt-2">
+                        {selectedProject.competencies.map((compId) => {
+                          const comp = t.skills.items[compId - 1];
+                          return comp ? (
+                            <a 
+                              key={compId} 
+                              href="#skills" 
+                              onClick={(e) => { 
+                                closeDialog();
+                                setTimeout(() => document.querySelector('#skills')?.scrollIntoView({ behavior: 'smooth' }), 100);
+                              }} 
+                              className="text-xs uppercase font-bold tracking-wider bg-red-500/10 border border-red-500/20 text-red-400 px-3 py-1 rounded-full hover:bg-red-500/20 transition-colors"
+                            >
+                              {comp.name}
+                            </a>
+                          ) : null;
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </TabsContent>
 
                 <TabsContent value="impact" className="dialog-tab-content space-y-4">
