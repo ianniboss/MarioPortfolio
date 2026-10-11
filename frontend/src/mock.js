@@ -92,17 +92,18 @@ export const projectsData = [
   {
     id: 1,
     title: "Parking Management Application",
-    description: "Designed and created PL/SQL database using SQL Developer. GUI developed in Java with WindowBuilder (Eclipse). Managed project using SCRUM methodology with Trello.",
+    description: "Java parking application built with MVC architecture, connected to a relational database (SQLite and MySQL), with JUnit tests. Developed in a Scrum team.",
     image: "/img/parking.webp",
     screenshots: [
       "/img/parking.webp"
     ],
-    technologies: ["Java", "PL/SQL", "SQL Developer", "Eclipse", "SCRUM"],
+    scrumProof: null, // TODO: closed GitLab ticket screenshots
+    technologies: ["Java", "MVC", "Relational database (SQLite and MySQL)", "JUnit tests"],
     link: null,
-    source: null,
+    source: "https://github.com/ianniboss/se-garer-sur-toulouse",
     category: "Database Application",
     year: "2025",
-    competencies: [1, 4, 5]
+    competencies: [1, 4, 6]
   },
   {
     id: 2,

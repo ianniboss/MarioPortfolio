@@ -78,7 +78,7 @@ export const translations = {
           name: 'Build applications',
           timeline: [
             { year: 'Year 1', text: "In my first year, I worked in a group to build a tomato shop in Java from a given brief. I wrote the catalog screen and the home page. I learned to turn a request into a working interface and to share code with my team through Git.", proof: "Tomato Sales Application" },
-            { year: 'Year 2', text: "TODO", proof: null },
+            { year: 'Year 2', text: "In my second year, I worked in a team of four on a Java parking application for Toulouse, built from a Product Owner's requirements. I wrote and tested parts of the data layer, the controllers and the interface, and I cleaned up the controllers. I learned to deliver a complete application with tests.", proof: "Parking Management Application" },
             { year: 'Year 3', text: "TODO", proof: null },
             { year: 'Internship', text: "TODO", proof: null }
           ]
@@ -108,7 +108,7 @@ export const translations = {
           name: 'Design and manage data',
           timeline: [
             { year: 'Year 1', text: "TODO", proof: null },
-            { year: 'Year 2', text: "TODO", proof: null },
+            { year: 'Year 2', text: "On the same project, I worked on the code that reads and writes parking, zone and user data in a relational database, and I wrote tests for it. I learned to connect an application to a database and check that it works.", proof: "Parking Management Application" },
             { year: 'Year 3', text: "TODO", proof: null },
             { year: 'Internship', text: "TODO", proof: null }
           ]
@@ -128,7 +128,7 @@ export const translations = {
           name: 'Work in a team',
           timeline: [
             { year: 'Year 1', text: "TODO", proof: null },
-            { year: 'Year 2', text: "TODO", proof: null },
+            { year: 'Year 2', text: "I was one of four developers in a Scrum team with a Product Owner and a Scrum Master. I shared one Git repository with my teammates and committed regularly over two semesters.", proof: "Parking Management Application" },
             { year: 'Year 3', text: "TODO", proof: null },
             { year: 'Internship', text: "TODO", proof: null }
           ]
@@ -148,13 +148,13 @@ export const translations = {
       items: [
         {
           title: 'Parking Management Application',
-          description: 'A full-stack parking management system enabling real-time slot booking, automated fee calculation, and multi-user access control with role-based permissions.',
+          description: 'A Java parking application for Toulouse built with MVC architecture, connected to a relational database (SQLite and MySQL), and tested with JUnit.',
           category: 'Database Application',
           problemSolved: 'Manual parking management leads to overbooking, revenue loss, and frustrated customers. This system automates everything from availability tracking to payment processing.',
           goals: 'Build an automated parking management system with real-time slot tracking, role-based user access, and automated billing.',
-          role: 'Led database design using PL/SQL, built the Java GUI with WindowBuilder, wrote stored procedures for booking logic, and coordinated the team using SCRUM methodology.',
-          challenges: 'Implemented ACID-compliant transactions for concurrent bookings to prevent double-reservations. Created complex PL/SQL triggers for automated fee calculation based on dynamic pricing rules.',
-          learnings: 'Gained hands-on experience with relational database design, transaction management, and the importance of data integrity in multi-user systems.'
+          role: 'Worked in a Scrum team of four: implemented and tested parts of the data layer connected to a relational database (SQLite and MySQL), developed MVC controllers and the interface, and cleaned up the controllers.',
+          challenges: 'Structuring the application with MVC architecture, managing relational data persistence across SQLite and MySQL, and writing JUnit tests to ensure robustness.',
+          learnings: 'Learned to deliver a complete application with tests from a Product Owner\'s requirements, connect an application to a relational database, and collaborate within a Scrum team sharing a Git repository.'
         },
         {
           title: 'Apache2/SSL Server Administration',
@@ -399,7 +399,7 @@ export const translations = {
           name: 'Développer des applications',
           timeline: [
             { year: 'Year 1', text: "En première année, j'ai développé en groupe une boutique de tomates en Java à partir d'un cahier des charges. J'ai réalisé l'écran du catalogue et la page d'accueil. J'ai appris à transformer une demande en interface fonctionnelle et à partager le code avec mon équipe grâce à Git.", proof: "Tomato Sales Application" },
-            { year: 'Year 2', text: "TODO", proof: null },
+            { year: 'Year 2', text: "En deuxième année, j'ai travaillé en équipe de quatre sur une application Java de stationnement à Toulouse, conçue à partir des exigences d'un Product Owner. J'ai écrit et testé une partie de la couche de données, des contrôleurs et de l'interface, et j'ai nettoyé les contrôleurs. J'ai appris à livrer une application complète avec des tests.", proof: "Application de Gestion de Parking" },
             { year: 'Year 3', text: "TODO", proof: null },
             { year: 'Internship', text: "TODO", proof: null }
           ]
@@ -429,7 +429,7 @@ export const translations = {
           name: 'Concevoir et gérer des données',
           timeline: [
             { year: 'Year 1', text: "TODO", proof: null },
-            { year: 'Year 2', text: "TODO", proof: null },
+            { year: 'Year 2', text: "Sur le même projet, j'ai travaillé sur le code qui lit et écrit les données des parkings, des zones et des utilisateurs dans une base de données relationnelle, et j'ai écrit des tests pour celui-ci. J'ai appris à relier une application à une base de données et à vérifier qu'elle fonctionne.", proof: "Application de Gestion de Parking" },
             { year: 'Year 3', text: "TODO", proof: null },
             { year: 'Internship', text: "TODO", proof: null }
           ]
@@ -449,7 +449,7 @@ export const translations = {
           name: 'Travailler en équipe',
           timeline: [
             { year: 'Year 1', text: "TODO", proof: null },
-            { year: 'Year 2', text: "TODO", proof: null },
+            { year: 'Year 2', text: "J'étais l'un des quatre développeurs d'une équipe Scrum avec un Product Owner et un Scrum Master. J'ai partagé un dépôt Git avec mes coéquipiers et j'y ai contribué régulièrement pendant deux semestres.", proof: "Application de Gestion de Parking" },
             { year: 'Year 3', text: "TODO", proof: null },
             { year: 'Internship', text: "TODO", proof: null }
           ]
@@ -469,13 +469,13 @@ export const translations = {
       items: [
         {
           title: 'Application de Gestion de Parking',
-          description: 'Un système full-stack de gestion de parking permettant la réservation en temps réel, le calcul automatique des frais et le contrôle d\'accès multi-utilisateurs avec permissions basées sur les rôles.',
+          description: 'Une application Java de stationnement à Toulouse conçue selon l\'architecture MVC, reliée à une base de données relationnelle (SQLite et MySQL), et testée avec JUnit.',
           category: 'Application Base de Données',
           problemSolved: 'La gestion manuelle du parking entraîne des sur-réservations, des pertes de revenus et des clients frustrés. Ce système automatise tout, du suivi de disponibilité au traitement des paiements.',
           goals: 'Construire un système de gestion de parking automatisé avec suivi des places en temps réel, accès utilisateur basé sur les rôles et facturation automatique.',
-          role: 'Dirigé la conception de la base de données avec PL/SQL, construit l\'interface Java avec WindowBuilder, écrit les procédures stockées pour la logique de réservation et coordonné l\'équipe avec la méthodologie SCRUM.',
-          challenges: 'Implémenté des transactions conformes ACID pour les réservations simultanées afin d\'éviter les doubles réservations. Créé des déclencheurs PL/SQL complexes pour le calcul automatique des frais basé sur des règles de tarification dynamiques.',
-          learnings: 'Acquis une expérience pratique de la conception de bases de données relationnelles, de la gestion des transactions et de l\'importance de l\'intégrité des données dans les systèmes multi-utilisateurs.'
+          role: 'Développé au sein d\'une équipe Scrum de quatre : implémenté et testé une partie de la couche de données reliée à une base de données relationnelle (SQLite et MySQL), conçu les contrôleurs MVC et l\'interface, et nettoyé les contrôleurs.',
+          challenges: 'Structurer l\'application selon l\'architecture MVC, gérer la persistance des données relationnelles avec SQLite et MySQL, et garantir la fiabilité avec des tests JUnit.',
+          learnings: 'Appris à livrer une application complète avec des tests à partir des exigences d\'un Product Owner, à relier une application à une base de données relationnelle et à collaborer au sein d\'une équipe Scrum partageant un dépôt Git.'
         },
         {
           title: 'Administration Serveur Apache2/SSL',

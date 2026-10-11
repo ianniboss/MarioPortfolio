@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, Play, Lock } from 'lucide-react';
+import { Code, Play, Lock, Image as ImageIcon } from 'lucide-react';
 import { Button } from './ui/button';
 import {
   Dialog,
@@ -74,6 +74,50 @@ const ProjectDetailsDialog = ({
                   </>
                 )}
               </Carousel>
+              {(selectedProject.scrumProof !== undefined || selectedProject.id === 1) && (
+                <div className="scrum-proof-slot mt-4 p-3 rounded-xl border border-dashed border-white/20 bg-white/[0.03]">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-semibold text-gray-300">
+                      {language === 'fr' ? 'Preuve Scrum' : 'Scrum proof'}
+                    </span>
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                      TODO
+                    </span>
+                  </div>
+                  {Array.isArray(selectedProject.scrumProof) && selectedProject.scrumProof.length > 0 ? (
+                    <div className="flex flex-col gap-2">
+                      {selectedProject.scrumProof.map((proofSrc, i) => (
+                        <img
+                          key={i}
+                          src={proofSrc}
+                          alt={`${language === 'fr' ? 'Preuve Scrum' : 'Scrum proof'} ${i + 1}`}
+                          className="w-full h-auto max-h-[200px] rounded-md object-contain bg-gray-900/50"
+                          loading="lazy"
+                        />
+                      ))}
+                    </div>
+                  ) : typeof selectedProject.scrumProof === 'string' && selectedProject.scrumProof ? (
+                    <img
+                      src={selectedProject.scrumProof}
+                      alt={language === 'fr' ? 'Preuve Scrum' : 'Scrum proof'}
+                      className="w-full h-auto max-h-[200px] rounded-md object-contain bg-gray-900/50"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-full h-24 rounded-lg border border-dashed border-white/10 bg-black/20 flex flex-col items-center justify-center text-center p-3 text-gray-400">
+                      <ImageIcon size={22} className="text-gray-500 mb-1" />
+                      <p className="text-xs font-medium text-gray-300">
+                        {language === 'fr' ? 'Emplacement d\'image : Preuve Scrum' : 'Image slot: Scrum proof'}
+                      </p>
+                      <p className="text-[11px] text-gray-500">
+                        {language === 'fr' 
+                          ? 'Captures de tickets GitLab fermés à venir' 
+                          : 'Closed GitLab ticket screenshots to be added'}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
 
             <div className="dialog-right md:w-1/2 w-full">

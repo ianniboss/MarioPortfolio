@@ -53,11 +53,27 @@ const SkillsSection = () => {
                       <div className="timeline-dot absolute w-3 h-3 bg-red-500 rounded-full -left-[1.35rem] top-1.5"></div>
                       <h4 className="text-lg font-bold text-red-400 mb-2">{step.year}</h4>
                       <p className="text-gray-300 mb-2">{step.text}</p>
-                      {step.proof && (
-                        <p className="text-sm font-medium text-blue-400">
-                          {language === 'fr' ? 'Preuve :' : 'Proof:'} <span className="text-white">{step.proof}</span>
-                        </p>
-                      )}
+                      {step.proof && (() => {
+                        const targetProject = projectsData.find(
+                          (p, idx) => p.title === step.proof || t.projects?.items?.[idx]?.title === step.proof
+                        );
+                        return (
+                          <p className="text-sm font-medium text-blue-400">
+                            {language === 'fr' ? 'Preuve :' : 'Proof:'}{' '}
+                            {targetProject ? (
+                              <button
+                                type="button"
+                                onClick={() => openProject(targetProject.id)}
+                                className="text-white underline hover:text-blue-300 transition-colors cursor-pointer text-left inline font-semibold"
+                              >
+                                {step.proof}
+                              </button>
+                            ) : (
+                              <span className="text-white">{step.proof}</span>
+                            )}
+                          </p>
+                        );
+                      })()}
                     </div>
                   ))}
                 </div>
